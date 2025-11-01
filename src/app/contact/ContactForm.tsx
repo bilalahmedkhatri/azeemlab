@@ -86,24 +86,43 @@ export default function ContactForm() {
       </Select>
       
       <TextArea
-        label="Message"
+        label="Tell us about your project"
         name="message"
         value={formData.message}
         onChange={handleChange}
         required
-        placeholder="Tell us about your project..."
+        placeholder="Share details about your goals, timeline, and any specific requirements..."
         rows={6}
       />
       
+      {/* Privacy & Security Notice */}
+      <div className="bg-neutral-light border border-gray-200 rounded-lg p-4">
+        <div className="flex items-start gap-3">
+          <svg className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          <div className="text-sm text-gray-600">
+            <strong className="text-neutral-dark">🔒 Your Privacy Matters</strong>
+            <p className="mt-1">
+              We respect your privacy and will never share your information with third parties. 
+              Your data is encrypted and stored securely. By submitting this form, you agree to our{' '}
+              <a href="/privacy" className="text-accent hover:text-accent-dark underline">
+                Privacy Policy
+              </a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      
       {submitStatus === 'success' && (
         <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
-          Thank you for your inquiry! We&apos;ll get back to you within 24 hours.
+          <strong>✓ Message sent successfully!</strong> We&apos;ll get back to you within 24 hours.
         </div>
       )}
       
       {submitStatus === 'error' && (
         <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
-          Something went wrong. Please try again or email us directly.
+          <strong>✗ Something went wrong.</strong> Please try again or email us directly at bilalahmedkhatri@outlook.com
         </div>
       )}
       
@@ -114,8 +133,16 @@ export default function ContactForm() {
         className="w-full"
         disabled={isSubmitting}
       >
-        {isSubmitting ? 'Sending...' : 'Send My Inquiry'}
+        {isSubmitting ? 'Sending Your Message...' : 'Send My Inquiry →'}
       </Button>
+
+      {/* Response Time Promise */}
+      <div className="flex items-center gap-2 text-sm text-gray-600">
+        <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span><strong>Quick Response:</strong> We typically reply within 2-4 business hours</span>
+      </div>
     </form>
   );
 }

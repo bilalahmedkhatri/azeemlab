@@ -19,12 +19,14 @@ export const ServicesSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service) => (
             <Link key={service.id} href={`/services/${service.slug}`}>
-              <Card hover className="h-full text-center">
-                <div className="text-5xl mb-4">{service.icon}</div>
-                <h3 className="font-heading text-xl font-bold text-neutral-dark mb-3">
+              <Card hover className="h-full text-center p-8">
+                <div className="bg-primary/10 rounded-full p-4 inline-block mb-6">
+                  <service.icon className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="font-heading text-xl font-bold text-foreground mb-3">
                   {service.title}
                 </h3>
-                <p className="text-gray-600">{service.description}</p>
+                <p className="text-muted-foreground">{service.description}</p>
               </Card>
             </Link>
           ))}

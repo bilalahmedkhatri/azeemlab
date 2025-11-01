@@ -147,8 +147,8 @@ export default function TermsPage() {
                 For questions about these Terms of Service, please contact us at:
               </p>
               <p className="text-accent font-semibold mt-4">
-                Email: legal@azeemlab.com<br />
-                Phone: +1 (555) 123-4567
+                Email: legal@testweb.com<br />
+                Phone: +92 (321) 300 93 21
               </p>
             </section>
           </div>

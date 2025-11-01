@@ -1,9 +1,12 @@
+import { LucideProps } from "lucide-react";
+import { ForwardRefExoticComponent, RefAttributes } from "react";
+
 export interface Service {
   id: string;
   slug: string;
   title: string;
   description: string;
-  icon: string;
+  icon: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>;
   problem: string;
   solution: string;
   process: ProcessStep[];

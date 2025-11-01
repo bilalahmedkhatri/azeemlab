@@ -111,22 +111,30 @@ export default async function CaseStudyPage({ params }: PageProps) {
       )}
 
       {/* CTA */}
-      <section className="py-20 bg-neutral-light">
+      <section className="py-20 bg-gradient-to-br from-accent to-accent-dark text-white">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-neutral-dark mb-6">
-              Ready for Similar Results?
+            <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">
+              Want Results Like {caseStudy.client}?
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Let's discuss how we can help transform your business.
+            <p className="text-xl mb-2 opacity-90">
+              They achieved <strong className="font-bold">{caseStudy.results[0].value} {caseStudy.results[0].description.toLowerCase()}</strong>
             </p>
-            <div className="flex gap-4 justify-center">
-              <Button href="/contact" size="lg">
-                Start Your Project
+            <p className="text-lg mb-8 opacity-80">
+              Let&apos;s create a custom strategy to deliver similar breakthrough results for your business.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button href="/contact" variant="secondary" size="lg">
+                Schedule Strategy Call →
               </Button>
-              <Button href="/portfolio" variant="outline" size="lg">
-                View More Work
+              <Button href="/services" variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-accent">
+                View Our Services
               </Button>
+            </div>
+            <div className="mt-8 pt-6 border-t border-white border-opacity-20">
+              <p className="text-sm opacity-75">
+                ✓ Free 30-minute consultation &nbsp; • &nbsp; ✓ Custom proposal within 48 hours &nbsp; • &nbsp; ✓ No obligation
+              </p>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { Service, CaseStudy, TeamMember } from '@/types';
+import { Palette, Wand2, TrendingUp, ShoppingCart } from 'lucide-react';
 
 export const services: Service[] = [
   {
@@ -6,7 +7,7 @@ export const services: Service[] = [
     slug: 'web-design',
     title: 'High-Converting Web Design',
     description: 'Beautiful, responsive websites that turn visitors into customers',
-    icon: '🎨',
+    icon: Palette,
     problem: 'Your website looks outdated and fails to engage visitors, leading to high bounce rates and lost opportunities.',
     solution: 'We create modern, user-focused designs that guide visitors through an intentional journey, increasing engagement and conversions.',
     process: [
@@ -39,7 +40,7 @@ export const services: Service[] = [
     slug: 'branding',
     title: 'Strategic Brand Identity',
     description: 'Stand out with a memorable brand that resonates with your audience',
-    icon: '✨',
+    icon: Wand2,
     problem: 'Your brand lacks cohesion and fails to communicate your unique value, making it hard to stand out in a crowded market.',
     solution: 'We develop comprehensive brand identities that capture your essence and create emotional connections with your target audience.',
     process: [
@@ -54,7 +55,7 @@ export const services: Service[] = [
     slug: 'seo',
     title: 'SEO & Digital Marketing',
     description: 'Get found by customers actively searching for your services',
-    icon: '📈',
+    icon: TrendingUp,
     problem: 'Your website is invisible on search engines, missing out on valuable organic traffic and qualified leads.',
     solution: 'We implement data-driven SEO strategies that improve rankings, increase traffic, and drive measurable business growth.',
     process: [
@@ -69,7 +70,7 @@ export const services: Service[] = [
     slug: 'ecommerce',
     title: 'E-commerce Solutions',
     description: 'Powerful online stores that maximize sales and customer satisfaction',
-    icon: '🛒',
+    icon: ShoppingCart,
     problem: 'Your online store has a clunky checkout process and poor mobile experience, causing cart abandonment.',
     solution: 'We build streamlined e-commerce platforms with intuitive navigation, secure payments, and conversion-focused design.',
     process: [

@@ -69,7 +69,7 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="font-heading font-semibold mb-4">Get in Touch</h4>
             <ul className="space-y-2 text-gray-300">
-              <li>Email: hello@azeemlab.com</li>
+              <li>Email: bilalahmedkhatri@outlook.com</li>
               <li>Phone: (555) 123-4567</li>
               <li className="flex space-x-4 mt-4">
                 <a href="#" className="hover:text-accent transition-colors" aria-label="LinkedIn">
