@@ -8,7 +8,7 @@ interface ButtonProps {
   children: React.ReactNode;
   href?: string;
   onClick?: () => void;
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'default';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   type?: 'button' | 'submit' | 'reset';
@@ -31,6 +31,7 @@ export const Button: React.FC<ButtonProps> = ({
     primary: 'bg-accent text-white hover:bg-accent-dark focus:ring-accent shadow-md hover:shadow-lg',
     secondary: 'bg-neutral-dark text-white hover:bg-opacity-90 focus:ring-neutral-dark shadow-md hover:shadow-lg',
     outline: 'border-2 border-accent text-accent hover:bg-accent hover:text-white focus:ring-accent',
+    default: 'bg-primary text-primary-foreground hover:bg-primary/90',
   };
   
   const sizeStyles = {

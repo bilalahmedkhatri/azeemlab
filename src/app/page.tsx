@@ -7,28 +7,23 @@ import { CTASection } from '@/components/sections/CTASection';
 import { JSONLD } from '@/components/SEO/JSONLD';
 import { servicesSchema } from '@/lib/schema';
 import { StatsSection } from '@/components/sections/StatsSection';
-import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
+import { PricingSection } from '@/components/sections/PricingSection';
+import { CompaniesSection } from '@/components/sections/CompaniesSection';
 
 export const metadata: Metadata = {
   title: 'Home',
-  description: 'Transform your vision into powerful digital solutions with custom web design, development, and branding services. 50+ successful projects delivered.',
-  alternates: {
-    canonical: '/',
-  },
+  // ... existing metadata ...
 };
 
 export default function Home() {
   return (
     <>
-      <JSONLD data={{
-        '@context': 'https://schema.org',
-        '@graph': servicesSchema,
-      }} />
       <HeroSection />
+      <CompaniesSection />
       <StatsSection />
       <ServicesSection />
       <PortfolioSection />
-      <TestimonialsSection />
+      <PricingSection />
       <AboutSection />
       <CTASection />
 

@@ -1,8 +1,11 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
+import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { caseStudies } from '@/lib/data';
+import { ExternalLink } from 'lucide-react';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -33,7 +36,37 @@ export default async function CaseStudyPage({ params }: PageProps) {
               {caseStudy.title}
             </h1>
             <p className="text-xl text-gray-600 mb-8">Client: {caseStudy.client}</p>
-            <div className="bg-gradient-to-br from-accent to-accent-dark h-96 rounded-xl"></div>
+            
+            {/* Hero Image - Clickable if website URL exists */}
+            <div className="relative h-[32rem] md:h-[36rem] lg:h-[40rem] rounded-xl overflow-hidden group">
+              {caseStudy.heroImage ? (
+                <>
+                  <Image
+                    src={caseStudy.heroImage}
+                    alt={caseStudy.title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  {/* Overlay with website link if available */}
+                  {caseStudy.client && caseStudy.client.includes('.') && (
+                    <a
+                      href={`https://${caseStudy.client.replace(/^https?:\/\//, '')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                    >
+                      <div className="bg-white text-accent px-6 py-3 rounded-full font-semibold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                        <ExternalLink className="w-5 h-5" />
+                        Visit Website
+                      </div>
+                    </a>
+                  )}
+                </>
+              ) : (
+                <div className="bg-gradient-to-br from-accent to-accent-dark h-full rounded-xl"></div>
+              )}
+            </div>
           </div>
         </div>
       </section>

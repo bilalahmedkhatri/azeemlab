@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '../ui/Button';
-import { ThemeToggle } from '../ui/ThemeToggle';
+// import { ThemeToggle } from '../ui/ThemeToggle';
 import { useScrolled } from '@/hooks/useAnimations';
 
 export const Header: React.FC = () => {
@@ -46,21 +46,29 @@ export const Header: React.FC = () => {
 
     return (
         <motion.header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+            className={`sticky top-0 left-0 right-0 z-50 ${isScrolled
                     ? 'bg-white/95 backdrop-blur-md shadow-md py-3'
-                    : 'bg-white shadow-sm py-4'
+                    : 'bg-white py-4'
                 }`}
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 1 }}
+            animate={{ 
+                opacity: 1,
+                transition: { duration: 0.3, ease: 'easeInOut' }
+            }}
+            style={{
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+            }}
         >
             <nav className="container mx-auto px-6">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
                     <Link
                         href="/"
-                        className={`font-heading font-bold text-neutral-dark hover:text-accent transition-all duration-300 ${isScrolled ? 'text-xl' : 'text-2xl'
-                            }`}
+                        className="font-heading font-bold text-neutral-dark hover:text-accent relative"
+                        style={{
+                            fontSize: isScrolled ? '1.25rem' : '1.5rem',
+                            transition: 'font-size 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease'
+                        }}
                     >
                         AzeemLab
                     </Link>
@@ -85,7 +93,7 @@ export const Header: React.FC = () => {
                                 )}
                             </Link>
                         ))}
-                        <ThemeToggle />
+                        {/* <ThemeToggle /> */}
                         <Button href="/contact" size="sm">
                             Start Project
                         </Button>
@@ -93,7 +101,7 @@ export const Header: React.FC = () => {
 
                     {/* Mobile Controls */}
                     <div className="lg:hidden flex items-center gap-3">
-                        <ThemeToggle />
+                        {/* <ThemeToggle /> */}
                         <motion.button
                             className="text-neutral-dark focus:outline-none z-50 relative"
                             onClick={() => setIsMenuOpen(!isMenuOpen)}

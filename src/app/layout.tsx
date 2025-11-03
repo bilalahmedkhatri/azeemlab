@@ -5,7 +5,10 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JSONLD } from "@/components/SEO/JSONLD";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
-import { ThemeProvider } from "@/contexts/ThemeContext";
+// import { ThemeProvider } from "@/contexts/ThemeContext";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Chatbot } from "@/components/chatbot/Chatbot";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -75,24 +78,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ThemeProvider>
-      <html lang="en" suppressHydrationWarning>
-        <head>
-          <JSONLD data={{
-            '@context': 'https://schema.org',
-            '@graph': [organizationSchema, websiteSchema],
-          }} />
-        </head>
-        <body
-          className={`${inter.variable} ${poppins.variable} antialiased bg-background text-foreground transition-colors duration-300`}
-        >
-          <Header />
-          <main className="pt-20">
-            {children}
-          </main>
-          <Footer />
-        </body>
-      </html>
-    </ThemeProvider>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <JSONLD data={{
+          '@context': 'https://schema.org',
+          '@graph': [organizationSchema, websiteSchema],
+        }} />
+      </head>
+      <body
+        className={`${inter.variable} ${poppins.variable} antialiased bg-background text-foreground transition-colors duration-300 overflow-x-hidden`}
+      >
+        <Header />
+        <main className="min-h-screen flex flex-col">
+          {children}
+        </main>
+        <Footer />
+        <Chatbot />
+        <Analytics />
+        <SpeedInsights />
+      </body>
+    </html>
   );
 }

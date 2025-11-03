@@ -48,21 +48,21 @@ const lightColors: ThemeColors = {
 };
 
 const darkColors: ThemeColors = {
-  primary: '#06b6d4',
-  primaryDark: '#0891b2',
-  primaryLight: '#22d3ee',
-  secondary: '#818cf8',
-  background: '#0f172a',
-  foreground: '#f8fafc',
-  card: '#1e293b',
-  cardForeground: '#f8fafc',
-  muted: '#1e293b',
-  mutedForeground: '#94a3b8',
-  border: '#334155',
-  accent: '#06b6d4',
-  accentForeground: '#0f172a',
-  destructive: '#f87171',
-  destructiveForeground: '#0f172a',
+  primary: '#00d4ff', // Vibrant bright cyan
+  primaryDark: '#00b8e6',
+  primaryLight: '#33ddff',
+  secondary: '#a78bfa',
+  background: '#0d1117', // Very dark blue-black
+  foreground: '#ffffff', // Pure white text
+  card: '#161b22', // Slightly elevated dark
+  cardForeground: '#ffffff',
+  muted: '#21262d',
+  mutedForeground: '#8b949e',
+  border: '#30363d',
+  accent: '#00d4ff', // Bright cyan
+  accentForeground: '#0d1117',
+  destructive: '#f85149',
+  destructiveForeground: '#ffffff',
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);

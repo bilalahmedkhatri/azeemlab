@@ -1,52 +1,34 @@
+'use client';
+
 import React from 'react';
+import Image from 'next/image';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { teamMembers } from '@/lib/data';
+import { motion } from 'framer-motion';
+import { Eye, Lightbulb, Target, Handshake } from 'lucide-react';
 
 export default function AboutPage() {
   const coreValues = [
     {
-      icon: '🎯',
+      icon: <Eye className="w-10 h-10" strokeWidth={2} />,
       title: 'Transparency',
-      description: 'We believe in honest communication and clear expectations at every step.'
+      description: 'Clear and honest communication at every step. No hidden costs, no surprises—just straightforward collaboration.'
     },
     {
-      icon: '💡',
+      icon: <Lightbulb className="w-10 h-10" strokeWidth={2} />,
       title: 'Innovation',
-      description: 'We stay ahead of trends to deliver cutting-edge solutions that set you apart.'
+      description: 'We embrace the latest technologies and creative approaches to keep your business ahead of the competition.'
     },
     {
-      icon: '📈',
-      title: 'Impact',
-      description: 'Every decision is measured by the tangible results it creates for your business.'
+      icon: <Target className="w-10 h-10" strokeWidth={2} />,
+      title: 'Results-Driven',
+      description: 'Every decision focuses on delivering measurable outcomes that directly impact your business growth.'
     },
     {
-      icon: '🤝',
+      icon: <Handshake className="w-10 h-10" strokeWidth={2} />,
       title: 'Partnership',
-      description: 'Your success is our success. We&apos;re committed to your long-term growth.'
-    },
-  ];
-
-  const process = [
-    {
-      step: '1',
-      title: 'Discovery',
-      description: 'We learn about your business, goals, and challenges'
-    },
-    {
-      step: '2',
-      title: 'Strategy',
-      description: 'We develop a customized plan to achieve your objectives'
-    },
-    {
-      step: '3',
-      title: 'Execution',
-      description: 'We bring the strategy to life with expert implementation'
-    },
-    {
-      step: '4',
-      title: 'Growth',
-      description: 'We measure, optimize, and scale for continued success'
+      description: 'Your success is our success. We build long-term relationships based on trust and mutual growth.'
     },
   ];
 
@@ -87,57 +69,77 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-accent to-accent-dark h-96 rounded-xl"></div>
+              <div className="relative h-96 rounded-xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/about/our_story.jpg"
+                  alt="Our Story - AzeemLab Team"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Core Values */}
-      <section className="py-20 bg-neutral-light">
+      <section className="py-20 bg-gradient-to-b from-neutral-light to-white">
         <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="font-heading text-4xl font-bold text-neutral-dark mb-12 text-center">
-              Our Core Values
-            </h2>
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <h2 className="font-heading text-4xl md:text-5xl font-bold text-neutral-dark mb-4">
+                Our Core Values
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                The principles that guide every decision we make and every project we deliver
+              </p>
+            </motion.div>
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {coreValues.map((value, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-5xl mb-4">{value.icon}</div>
-                  <h3 className="font-heading text-xl font-bold text-neutral-dark mb-3">
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-600">{value.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Process */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="font-heading text-4xl font-bold text-neutral-dark mb-12 text-center">
-              How We Work
-            </h2>
-            <div className="grid md:grid-cols-4 gap-8">
-              {process.map((item, index) => (
-                <div key={index} className="relative">
-                  {index < process.length - 1 && (
-                    <div className="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-accent opacity-20"></div>
-                  )}
-                  <div className="relative text-center">
-                    <div className="bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 relative z-10">
-                      {item.step}
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  className="group relative"
+                >
+                  <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 h-full border border-gray-100 overflow-hidden text-center">
+                    {/* Gradient overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-accent-dark/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                    
+                    {/* Icon container */}
+                    <div className="relative mb-6 flex justify-center">
+                      <div className="w-20 h-20 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center text-white group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+                        <div className="w-10 h-10">
+                          {value.icon}
+                        </div>
+                      </div>
                     </div>
-                    <h3 className="font-heading text-xl font-bold text-neutral-dark mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm">{item.description}</p>
+
+                    {/* Content */}
+                    <div className="relative">
+                      <h3 className="font-heading text-2xl font-bold text-neutral-dark mb-4 group-hover:text-accent transition-colors duration-300">
+                        {value.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed text-base">
+                        {value.description}
+                      </p>
+                    </div>
+
+                    {/* Bottom accent line */}
+                    <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-accent to-accent-dark transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -307,21 +309,18 @@ export default function AboutPage() {
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">
-              Ready to Work with Our Team?
+              Willing to JOIN US?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Schedule a free 30-minute discovery call to discuss your project and see if we&apos;re the right fit for your goals.
+              We're always looking for talented, passionate individuals who want to make a real impact. Join a team that values innovation, creativity, and your personal growth. Work on exciting projects, collaborate with industry experts, and build a career you're proud of.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/contact" variant="secondary" size="lg">
-                Schedule Discovery Call →
-              </Button>
-              <Button href="/portfolio" variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-accent">
-                View Our Work
+              <Button href="/careers" variant="secondary" size="lg">
+                Apply Now →
               </Button>
             </div>
             <p className="mt-6 text-sm opacity-75">
-              No sales pitch • Just honest advice • See if we&apos;re a good match
+              Remote-friendly • Competitive compensation • Continuous learning opportunities
             </p>
           </div>
         </div>
