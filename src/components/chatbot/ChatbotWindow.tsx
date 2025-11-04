@@ -18,6 +18,7 @@ export function ChatbotWindow({ onClose }: { onClose: () => void }) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [showQuickReplies, setShowQuickReplies] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -38,9 +39,9 @@ export function ChatbotWindow({ onClose }: { onClose: () => void }) {
     setMessages([{ text: "Hello! I'm an AI assistant from AzeemLab. How can I help you with your project today?", sender: 'bot' }]);
   }, []);
 
-  const handleSend = (text?: string) => {
+  const handleSend = async (text?: string) => {
     const messageText = text || input;
-    if (messageText.trim() === '') return;
+    if (messageText.trim() === '' || isLoading) return;
 
     const userMessage: Message = { text: messageText, sender: 'user' };
     setMessages(prev => [...prev, userMessage]);
@@ -48,12 +49,39 @@ export function ChatbotWindow({ onClose }: { onClose: () => void }) {
         setInput('');
     }
     setShowQuickReplies(false);
+    setIsLoading(true);
 
-    // Simulate bot response
-    setTimeout(() => {
-      const botResponse: Message = { text: "Thanks for your message! I'm still in training, but I'm learning fast. For a real conversation, please reach out via the contact form or let me know if you have other questions.", sender: 'bot' };
+    try {
+      // Call the backend API with conversation history
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          message: messageText,
+          history: messages.slice(-10) // Send last 10 messages for context
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to get response');
+      }
+
+      const data = await response.json();
+      const botResponse: Message = { text: data.reply, sender: 'bot' };
       setMessages(prev => [...prev, botResponse]);
-    }, 1000);
+    } catch (error) {
+      console.error('Chat error:', error);
+      const errorMessage: Message = { 
+        text: error instanceof Error ? error.message : "Sorry, I'm having trouble connecting right now. Please try again or reach out via our contact form.", 
+        sender: 'bot' 
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const quickReplies: QuickReply[] = [
@@ -95,6 +123,18 @@ export function ChatbotWindow({ onClose }: { onClose: () => void }) {
             {msg.sender === 'user' && <User className="w-6 h-6 text-muted-foreground flex-shrink-0 mt-1" />}
           </div>
         ))}
+        {isLoading && (
+          <div className="flex items-start gap-3 my-4">
+            <Bot className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+            <div className="rounded-xl p-3 bg-muted text-muted-foreground">
+              <div className="flex gap-1">
+                <span className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                <span className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                <span className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+              </div>
+            </div>
+          </div>
+        )}
         {showQuickReplies && (
             <div className="flex flex-col items-start gap-2 mt-4">
                 {quickReplies.map(reply => (
@@ -129,13 +169,13 @@ export function ChatbotWindow({ onClose }: { onClose: () => void }) {
           <button 
             onClick={() => handleSend()} 
             className="absolute right-2 bottom-2.5 bg-primary text-primary-foreground p-2 rounded-md hover:bg-primary/90 disabled:bg-muted disabled:text-muted-foreground mr-2"
-            disabled={!input.trim()}
+            disabled={!input.trim() || isLoading}
           >
             <Send size={18} />
           </button>
         </div>
         <p className="text-xs text-center text-muted-foreground mt-2">
-            Powered by ChatGPT
+            Powered by OpenRouter AI
         </p>
       </div>
     </motion.div>

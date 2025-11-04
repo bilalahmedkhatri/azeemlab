@@ -4,18 +4,23 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 import { Button } from '../ui/Button';
 // import { ThemeToggle } from '../ui/ThemeToggle';
 import { useScrolled } from '@/hooks/useAnimations';
+import { navLinks } from '@/lib/navigation';
 
 export const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+    const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
     const pathname = usePathname();
     const isScrolled = useScrolled(50);
 
     // Close mobile menu when route changes
     useEffect(() => {
         setIsMenuOpen(false);
+        setExpandedMobile(null);
     }, [pathname]);
 
     // Prevent body scroll when mobile menu is open
@@ -30,18 +35,17 @@ export const Header: React.FC = () => {
         };
     }, [isMenuOpen]);
 
-    const navLinks = [
-        { href: '/', label: 'Home' },
-        { href: '/services', label: 'Services' },
-        { href: '/portfolio', label: 'Portfolio' },
-        { href: '/process', label: 'Process' },
-        { href: '/about', label: 'About' },
-        { href: '/contact', label: 'Contact' },
-    ];
-
     const isActiveLink = (href: string) => {
         if (href === '/') return pathname === '/';
         return pathname.startsWith(href);
+    };
+
+    const isParentActive = (link: typeof navLinks[0]) => {
+        if (isActiveLink(link.href)) return true;
+        if (link.children) {
+            return link.children.some(child => isActiveLink(child.href));
+        }
+        return false;
     };
 
     return (
@@ -77,21 +81,72 @@ export const Header: React.FC = () => {
                     {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center space-x-6">
                         {navLinks.map((link) => (
-                            <Link
+                            <div
                                 key={link.href}
-                                href={link.href}
-                                className={`relative text-neutral-dark hover:text-accent transition-colors font-medium ${isActiveLink(link.href) ? 'text-accent' : ''
-                                    }`}
+                                className="relative"
+                                onMouseEnter={() => link.children && setOpenDropdown(link.label)}
+                                onMouseLeave={() => setOpenDropdown(null)}
                             >
-                                {link.label}
-                                {isActiveLink(link.href) && (
-                                    <motion.div
-                                        layoutId="navbar-indicator"
-                                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"
-                                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                                    />
+                                {link.children ? (
+                                    // Dropdown menu item
+                                    <div>
+                                        <button
+                                            className={`relative flex items-center gap-1 text-neutral-dark hover:text-accent transition-colors font-medium ${isParentActive(link) ? 'text-accent' : ''}`}
+                                        >
+                                            {link.label}
+                                            <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${openDropdown === link.label ? 'rotate-180' : ''}`} />
+                                            {isParentActive(link) && (
+                                                <motion.div
+                                                    layoutId="navbar-indicator"
+                                                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"
+                                                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                                                />
+                                            )}
+                                        </button>
+                                        
+                                        <AnimatePresence>
+                                            {openDropdown === link.label && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, y: -10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -10 }}
+                                                    transition={{ duration: 0.2 }}
+                                                    className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50"
+                                                >
+                                                    {link.children.map((child, idx) => (
+                                                        <Link
+                                                            key={child.href}
+                                                            href={child.href}
+                                                            className={`block px-4 py-2.5 text-sm transition-colors ${
+                                                                isActiveLink(child.href)
+                                                                    ? 'bg-accent/10 text-accent font-medium'
+                                                                    : 'text-neutral-dark hover:bg-gray-50 hover:text-accent'
+                                                            } ${idx === link.children.length - 1 ? 'border-t border-gray-100 mt-1 pt-3 font-medium' : ''}`}
+                                                        >
+                                                            {child.label}
+                                                        </Link>
+                                                    ))}
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+                                ) : (
+                                    // Regular link
+                                    <Link
+                                        href={link.href}
+                                        className={`relative text-neutral-dark hover:text-accent transition-colors font-medium ${isActiveLink(link.href) ? 'text-accent' : ''}`}
+                                    >
+                                        {link.label}
+                                        {isActiveLink(link.href) && (
+                                            <motion.div
+                                                layoutId="navbar-indicator"
+                                                className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"
+                                                transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                                            />
+                                        )}
+                                    </Link>
                                 )}
-                            </Link>
+                            </div>
                         ))}
                         {/* <ThemeToggle /> */}
                         <Button href="/contact" size="sm">
@@ -169,16 +224,68 @@ export const Header: React.FC = () => {
                                                     animate={{ opacity: 1, x: 0 }}
                                                     transition={{ delay: index * 0.05 }}
                                                 >
-                                                    <Link
-                                                        href={link.href}
-                                                        className={`block py-3 px-4 rounded-lg font-medium transition-colors ${isActiveLink(link.href)
-                                                                ? 'bg-accent text-white'
-                                                                : 'text-neutral-dark hover:bg-neutral-light'
+                                                    {link.children ? (
+                                                        // Accordion item for items with children
+                                                        <div>
+                                                            <button
+                                                                onClick={() => setExpandedMobile(expandedMobile === link.label ? null : link.label)}
+                                                                className={`w-full flex items-center justify-between py-3 px-4 rounded-lg font-medium transition-colors ${
+                                                                    isParentActive(link)
+                                                                        ? 'bg-accent text-white'
+                                                                        : 'text-neutral-dark hover:bg-neutral-light'
+                                                                }`}
+                                                            >
+                                                                <span>{link.label}</span>
+                                                                <ChevronDown 
+                                                                    className={`w-4 h-4 transition-transform duration-200 ${
+                                                                        expandedMobile === link.label ? 'rotate-180' : ''
+                                                                    }`} 
+                                                                />
+                                                            </button>
+                                                            
+                                                            <AnimatePresence>
+                                                                {expandedMobile === link.label && (
+                                                                    <motion.div
+                                                                        initial={{ height: 0, opacity: 0 }}
+                                                                        animate={{ height: 'auto', opacity: 1 }}
+                                                                        exit={{ height: 0, opacity: 0 }}
+                                                                        transition={{ duration: 0.2 }}
+                                                                        className="overflow-hidden"
+                                                                    >
+                                                                        <div className="pl-4 pt-2 space-y-1">
+                                                                            {link.children.map((child) => (
+                                                                                <Link
+                                                                                    key={child.href}
+                                                                                    href={child.href}
+                                                                                    className={`block py-2 px-4 rounded-lg text-sm transition-colors ${
+                                                                                        isActiveLink(child.href)
+                                                                                            ? 'bg-accent/10 text-accent font-medium'
+                                                                                            : 'text-neutral-dark hover:bg-neutral-light/50'
+                                                                                    }`}
+                                                                                    onClick={() => setIsMenuOpen(false)}
+                                                                                >
+                                                                                    {child.label}
+                                                                                </Link>
+                                                                            ))}
+                                                                        </div>
+                                                                    </motion.div>
+                                                                )}
+                                                            </AnimatePresence>
+                                                        </div>
+                                                    ) : (
+                                                        // Regular link
+                                                        <Link
+                                                            href={link.href}
+                                                            className={`block py-3 px-4 rounded-lg font-medium transition-colors ${
+                                                                isActiveLink(link.href)
+                                                                    ? 'bg-accent text-white'
+                                                                    : 'text-neutral-dark hover:bg-neutral-light'
                                                             }`}
-                                                        onClick={() => setIsMenuOpen(false)}
-                                                    >
-                                                        {link.label}
-                                                    </Link>
+                                                            onClick={() => setIsMenuOpen(false)}
+                                                        >
+                                                            {link.label}
+                                                        </Link>
+                                                    )}
                                                 </motion.div>
                                             ))}
                                         </nav>
