@@ -22,7 +22,7 @@ async function delay(ms: number) {
 
 export default async function Home() {
   // Add 3 second delay to see loading animation
-  await delay(3000);
+  // await delay(9000);
   
   return (
     <>

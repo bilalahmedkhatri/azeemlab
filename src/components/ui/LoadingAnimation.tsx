@@ -6,9 +6,9 @@ export default function LoadingAnimation() {
   const letters = "AzeemLab".split("");
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-white">
       {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-cyan-50">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-cyan-50">
         {/* Floating orbs */}
         <motion.div
           animate={{
@@ -63,7 +63,7 @@ export default function LoadingAnimation() {
                 delay: index * 0.1,
                 duration: 0.5,
               }}
-              className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-primary via-accent to-purple-600 bg-clip-text text-transparent"
+              className="text-6xl md:text-7xl font-bold text-primary"
               style={{
                 fontFamily: 'var(--font-poppins)',
               }}
@@ -78,7 +78,7 @@ export default function LoadingAnimation() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
-          className="text-lg md:text-xl text-muted-foreground mb-8"
+          className="text-lg md:text-xl text-gray-600 font-medium mb-8"
         >
           Digital Growth, Simplified
         </motion.p>
