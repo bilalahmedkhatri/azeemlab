@@ -3,9 +3,9 @@ import { NextRequest, NextResponse } from 'next/server';
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
 // System prompt to guide the AI's behavior
-const SYSTEM_PROMPT = `You are an intelligent AI assistant for AzeemLab, a premium digital agency that transforms businesses through exceptional web design, branding, and digital solutions.
+const SYSTEM_PROMPT = `You are an intelligent AI assistant for SooooLab, a premium digital agency that transforms businesses through exceptional web design, branding, and digital solutions.
 
-## ABOUT AZEEMLAB
+## ABOUT SooooLab
 
 **Mission**: Digital Growth, Simplified. We help businesses thrive online through expert web design, branding, and marketing.
 
@@ -144,7 +144,7 @@ const SYSTEM_PROMPT = `You are an intelligent AI assistant for AzeemLab, a premi
 
 ## CONVERSATION STYLE
 - Be friendly, professional, and helpful
-- Focus on how AzeemLab solves problems and delivers results
+- Focus on how SooooLab solves problems and delivers results
 - Use specific metrics and case study examples when relevant
 - Always be transparent about pricing and timelines
 - Encourage next steps (consultation, contact form, viewing portfolio)
@@ -173,7 +173,7 @@ export async function POST(req: NextRequest) {
     const apiKey = process.env.OPENROUTER_API_KEY;
     const model = process.env.OPENROUTER_MODEL || 'meta-llama/llama-3.2-3b-instruct:free';
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-    const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'AzeemLab';
+    const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'SooooLab';
 
     if (!apiKey || apiKey === 'your-openrouter-api-key-here') {
       return NextResponse.json({ 

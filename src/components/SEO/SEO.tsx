@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://testweb.com';
 const siteName = 'Azeem Lab';
-const twitterHandle = '@azeemlab';
+const twitterHandle = '@SooooLab';
 
 interface SEOConfig {
   title: string;

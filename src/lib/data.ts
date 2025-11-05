@@ -102,7 +102,7 @@ export const caseStudies: CaseStudy[] = [
       '/images/case-studies/quantum-2.jpg',
     ],
     testimonial: {
-      quote: 'AzeemLab delivered a world-class platform that exceeded our expectations. Their expertise in both design and engineering is unmatched.',
+      quote: 'SooooLab delivered a world-class platform that exceeded our expectations. Their expertise in both design and engineering is unmatched.',
       author: 'Jane Doe',
       position: 'CTO',
       company: 'QuantumLeap',
@@ -214,8 +214,8 @@ export const teamMembers: TeamMember[] = [
     image: '/images/team/azeem.jpg',
     social: {
       linkedin: 'https://linkedin.com/in/muhammedazeem',
-      twitter: 'https://twitter.com/azeemlab',
-      github: 'https://github.com/azeemlab',
+      twitter: 'https://twitter.com/SooooLab',
+      github: 'https://github.com/SooooLab',
     },
   },
   {

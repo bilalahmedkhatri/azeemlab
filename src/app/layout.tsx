@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@azeemlab',
-    creator: '@azeemlab',
+    site: '@SooooLab',
+    creator: '@SooooLab',
     title: 'Azeem Lab - Transform Your Vision Into Powerful Digital Solutions',
     description: 'Expert web design, development, branding, and digital solutions.',
     images: ['/og-image.png'],

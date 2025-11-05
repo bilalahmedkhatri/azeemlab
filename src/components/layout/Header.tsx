@@ -74,7 +74,7 @@ export const Header: React.FC = () => {
                             transition: 'font-size 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease'
                         }}
                     >
-                        AzeemLab
+                        SooooLab
                     </Link>
                     
 
@@ -113,7 +113,7 @@ export const Header: React.FC = () => {
                                                     transition={{ duration: 0.2 }}
                                                     className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50"
                                                 >
-                                                    {link.children.map((child, idx) => (
+                                                    {link.children?.map((child, idx) => (
                                                         <Link
                                                             key={child.href}
                                                             href={child.href}
@@ -121,7 +121,7 @@ export const Header: React.FC = () => {
                                                                 isActiveLink(child.href)
                                                                     ? 'bg-accent/10 text-accent font-medium'
                                                                     : 'text-neutral-dark hover:bg-gray-50 hover:text-accent'
-                                                            } ${idx === link.children.length - 1 ? 'border-t border-gray-100 mt-1 pt-3 font-medium' : ''}`}
+                                                            } ${idx === (link.children?.length ?? 0) - 1 ? 'border-t border-gray-100 mt-1 pt-3 font-medium' : ''}`}
                                                         >
                                                             {child.label}
                                                         </Link>

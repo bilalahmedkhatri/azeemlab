@@ -18,7 +18,7 @@ export default function TermsPage() {
                 1. Acceptance of Terms
               </h2>
               <p className="text-gray-600">
-                By accessing and using AzeemLab&apos;s services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these terms, please do not use our services.
+                By accessing and using SooooLab&apos;s services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these terms, please do not use our services.
               </p>
             </section>
 
@@ -27,7 +27,7 @@ export default function TermsPage() {
                 2. Services Description
               </h2>
               <p className="text-gray-600 mb-4">
-                AzeemLab provides digital agency services including:
+                SooooLab provides digital agency services including:
               </p>
               <ul className="list-disc pl-6 text-gray-600 space-y-2">
                 <li>Web design and development</li>
@@ -79,8 +79,8 @@ export default function TermsPage() {
               </p>
               <ul className="list-disc pl-6 text-gray-600 space-y-2">
                 <li>Client owns the final deliverables created specifically for them</li>
-                <li>AzeemLab retains rights to preliminary concepts and unused designs</li>
-                <li>AzeemLab may use completed work in portfolio and marketing</li>
+                <li>SooooLab retains rights to preliminary concepts and unused designs</li>
+                <li>SooooLab may use completed work in portfolio and marketing</li>
                 <li>Third-party assets are subject to their respective licenses</li>
               </ul>
             </section>
@@ -108,7 +108,7 @@ export default function TermsPage() {
                 8. Termination
               </h2>
               <p className="text-gray-600">
-                Either party may terminate services with written notice. Upon termination, client is responsible for payment of work completed to date. AzeemLab will deliver all completed work upon receipt of final payment.
+                Either party may terminate services with written notice. Upon termination, client is responsible for payment of work completed to date. SooooLab will deliver all completed work upon receipt of final payment.
               </p>
             </section>
 
@@ -117,7 +117,7 @@ export default function TermsPage() {
                 9. Limitation of Liability
               </h2>
               <p className="text-gray-600">
-                AzeemLab&apos;s liability is limited to the amount paid for services. We are not liable for indirect, incidental, or consequential damages arising from use of our services.
+                SooooLab&apos;s liability is limited to the amount paid for services. We are not liable for indirect, incidental, or consequential damages arising from use of our services.
               </p>
             </section>
 

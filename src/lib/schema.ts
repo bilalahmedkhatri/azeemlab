@@ -9,9 +9,9 @@ export const organizationSchema: Organization = {
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
   sameAs: [
-    'https://twitter.com/azeemlab',
-    'https://linkedin.com/company/azeemlab',
-    'https://github.com/azeemlab',
+    'https://twitter.com/SooooLab',
+    'https://linkedin.com/company/SooooLab',
+    'https://github.com/SooooLab',
   ],
   contactPoint: {
     '@type': 'ContactPoint',

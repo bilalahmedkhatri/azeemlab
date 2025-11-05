@@ -36,7 +36,7 @@ export function ChatbotWindow({ onClose }: { onClose: () => void }) {
   useEffect(scrollToBottom, [messages]);
 
   useEffect(() => {
-    setMessages([{ text: "Hello! I'm an AI assistant from AzeemLab. How can I help you with your project today?", sender: 'bot' }]);
+    setMessages([{ text: "Hello! I'm an AI assistant from SooooLab. How can I help you with your project today?", sender: 'bot' }]);
   }, []);
 
   const handleSend = async (text?: string) => {

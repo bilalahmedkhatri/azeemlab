@@ -10,7 +10,7 @@ export const AboutSection: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Why Choose <span className="text-primary">AzeemLab</span>?
+                Why Choose <span className="text-primary">SooooLab</span>?
               </h2>
               <p className="text-lg text-muted-foreground mb-6">
                 We're not just another digital agency. We're your growth partners, combining creative excellence with data-driven strategies to deliver measurable results.
