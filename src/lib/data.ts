@@ -268,3 +268,52 @@ export const teamMembers: TeamMember[] = [
     },
   },
 ];
+
+// Page Metadata for SEO
+export const pageMetadata = {
+  about: {
+    title: 'About Us - Our Story, Values & Mission',
+    description: 'Meet Azeem Lab - a digital agency dedicated to transparency, innovation, and results-driven solutions. Learn about our values, mission, and commitment to your success.',
+    keywords: 'about azeem lab, digital agency team, our values, company mission, transparency, innovation, partnership',
+  },
+  services: {
+    title: 'Our Services - Web Design, Branding, SEO & E-commerce',
+    description: 'Expert digital services: high-converting web design, strategic branding, SEO & digital marketing, and e-commerce solutions. Transform your business online.',
+    keywords: 'web design services, branding agency, SEO services, e-commerce solutions, digital marketing, custom websites, brand identity',
+  },
+  portfolio: {
+    title: 'Portfolio - Success Stories & Case Studies',
+    description: 'Explore our proven results: +160% engagement, +267% mobile conversions, +180% revenue growth. See how we help businesses thrive with real case studies.',
+    keywords: 'portfolio, case studies, success stories, client work, web design examples, AI projects, e-commerce results',
+  },
+  pricing: {
+    title: 'Pricing Plans - Starter, Business & Enterprise Packages',
+    description: 'Transparent pricing from $500-$2000+. Choose Starter (3 pages), Business (10 pages + AI), or Enterprise (unlimited + full AI suite). No hidden fees.',
+    keywords: 'web design pricing, package plans, affordable websites, business pricing, enterprise solutions, transparent costs',
+  },
+  careers: {
+    title: 'Careers - Join Our Team at Azeem Lab',
+    description: 'Join a team that values innovation, collaboration, and growth. Explore career opportunities at Azeem Lab and help us build exceptional digital experiences.',
+    keywords: 'careers, jobs, hiring, web developer jobs, designer jobs, digital agency careers, remote work',
+  },
+  contact: {
+    title: 'Contact Us - Get in Touch with Azeem Lab',
+    description: 'Ready to transform your digital presence? Contact us for a free 30-minute consultation. Email: bilalahmedkhatri@outlook.com | Phone: +92 321 300 93 21',
+    keywords: 'contact us, get in touch, free consultation, project inquiry, contact digital agency, email contact',
+  },
+  process: {
+    title: 'Our Process - How We Work & Deliver Results',
+    description: 'Discover our proven 4-step process: Discover, Design, Develop, Deploy. Transparent collaboration, clear milestones, and exceptional results every time.',
+    keywords: 'work process, development process, project workflow, design process, how we work, methodology',
+  },
+  privacy: {
+    title: 'Privacy Policy - How We Protect Your Data',
+    description: 'Your privacy matters. Read our privacy policy to understand how Azeem Lab collects, uses, and protects your personal information.',
+    keywords: 'privacy policy, data protection, GDPR, personal information, privacy rights, data security',
+  },
+  terms: {
+    title: 'Terms of Service - Website Terms & Conditions',
+    description: 'Read our terms of service to understand the rules, rights, and responsibilities when using Azeem Lab\'s website and services.',
+    keywords: 'terms of service, terms and conditions, legal terms, service agreement, website terms',
+  },
+};

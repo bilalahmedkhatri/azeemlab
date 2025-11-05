@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Azeem Lab" }],
   creator: "Azeem Lab",
   publisher: "Azeem Lab",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://testweb.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://azeemlab.vercel.app'),
   alternates: {
     canonical: '/',
   },

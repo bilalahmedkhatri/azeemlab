@@ -1,7 +1,7 @@
 // API Configuration
 export const config = {
   // Backend API URL
-  backendUrl: process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000',
+  backendUrl: process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000',
   
   // API endpoints
   endpoints: {

@@ -1,21 +1,28 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://testweb.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://azeemlab.vercel.app';
   
   const staticRoutes = [
     '',
-    '/services',
-    '/services/web-design-development',
-    '/services/ui-ux-design',
-    '/services/branding-identity',
-    '/services/ecommerce-solutions',
-    '/portfolio',
-    '/portfolio/techcorp-redesign',
-    '/portfolio/ecommerce-platform',
-    '/portfolio/saas-dashboard',
-    '/process',
     '/about',
+    '/services',
+    '/services/web-design',
+    '/services/branding',
+    '/services/seo',
+    '/services/ecommerce',
+    '/portfolio',
+    '/portfolio/quantumleap-ai-platform',
+    '/portfolio/greenlife-ecommerce',
+    '/portfolio/ai-letter-generator',
+    '/portfolio/blog-platform',
+    '/portfolio/linkedin-automation-bot',
+    '/pricing',
+    '/pricing/plan_detail/starter',
+    '/pricing/plan_detail/business',
+    '/pricing/plan_detail/enterprise',
+    '/careers',
+    '/process',
     '/contact',
     '/privacy',
     '/terms',

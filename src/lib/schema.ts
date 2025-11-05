@@ -1,6 +1,6 @@
 import { Organization, WebSite, Service, FAQPage, BreadcrumbList } from 'schema-dts';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://testweb.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://azeemlab.vercel.app';
 
 export const organizationSchema: Organization = {
   '@type': 'Organization',
@@ -15,17 +15,27 @@ export const organizationSchema: Organization = {
   ],
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+1-555-0123',
+    telephone: '+92-321-300-9321',
     contactType: 'customer service',
     email: 'bilalahmedkhatri@outlook.com',
     availableLanguage: ['English'],
   },
-  address: {
-    '@type': 'PostalAddress',
-    addressCountry: 'US',
-    addressLocality: 'San Francisco',
-    addressRegion: 'CA',
-  },
+  address: [
+    {
+      '@type': 'PostalAddress',
+      streetAddress: 'Srednyaya Pereyaslavskaya Street, 14с1',
+      addressCountry: 'RU',
+      addressLocality: 'Moscow',
+      addressRegion: 'Moscow',
+    },
+    {
+      '@type': 'PostalAddress',
+      streetAddress: 'Shahray-e-Faisal Fortune Tower, 1705 SQFT',
+      addressCountry: 'PK',
+      addressLocality: 'Karachi',
+      addressRegion: 'Sindh',
+    },
+  ],
 };
 
 export const websiteSchema: WebSite = {
