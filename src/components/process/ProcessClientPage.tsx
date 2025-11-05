@@ -30,7 +30,7 @@ const processStats = [
   { value: 98, suffix: "%", label: "Client Satisfaction", icon: <HeartHandshake /> },
   { value: 4, label: "Week Average Turnaround", icon: <Timer /> },
   { value: 100, suffix: "%", label: "On-Time Delivery", icon: <Rocket /> },
-  { value: 15, suffix: "+", label: "Years Combined Experience", icon: <Users /> },
+  { value: 4, suffix: "+", label: "Years Combined Experience", icon: <Users /> },
 ];
 
 const processSteps = [

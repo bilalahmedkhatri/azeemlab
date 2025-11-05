@@ -89,7 +89,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'QuantumLeap AI Platform',
     client: 'QuantumLeap',
     category: 'Web Application',
-    heroImage: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRZA0rAuSTrgqPOjX1sI-BHSZrwn-EEK5s33RNRrevqd40H4PQXSlC7cXuTPqJy6PtSWseYThpT0fvmx5ab0QXSC3DyfBgoRtPqQ8nweNhhv560_-JmCIknK3_v-EmN1HZGyhbkEhEgtL6art_jQWIg8fkq8XPKPt-0ifXFdQEis7DwAPnYaQzaoszow/w1200-h630-p-k-no-nu/Quantum%20AI.png',
+    heroImage: '/static/portfolio/Quantum_ai.png',
     challenge: 'QuantumLeap needed a scalable platform to showcase their complex AI models. Their initial MVP was slow, not intuitive, and couldn\'t handle user traffic.',
     solution: 'We engineered a high-performance Next.js application with a custom dashboard for real-time data visualization. The UI/UX was completely overhauled for simplicity and to guide users to key features.',
     results: [
