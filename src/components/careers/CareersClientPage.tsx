@@ -230,30 +230,63 @@ export default function CareersClientPage() {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        try {
+            // Prepare form data
+            const applicationData = {
+                fullName: formData.fullName,
+                email: formData.email,
+                phone: formData.phone,
+                linkedIn: formData.linkedIn,
+                portfolio: formData.portfolio,
+                experience: formData.experience,
+                availability: formData.availability,
+                expectedSalary: formData.expectedSalary,
+                whyJoin: formData.whyJoin,
+                position: jobForApplication?.title || '',
+                department: jobForApplication?.department || '',
+                resumeFileName: formData.resume?.name,
+            };
 
-        setIsSubmitting(false);
-        setSubmitSuccess(true);
-
-        // Reset form after 3 seconds
-        setTimeout(() => {
-            setShowApplicationForm(false);
-            setJobForApplication(null);
-            setSubmitSuccess(false);
-            setFormData({
-                fullName: '',
-                email: '',
-                phone: '',
-                linkedIn: '',
-                portfolio: '',
-                experience: '',
-                availability: '',
-                expectedSalary: '',
-                whyJoin: '',
-                resume: null,
+            // Submit to API
+            const response = await fetch('/api/careers/apply', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(applicationData),
             });
-        }, 3000);
+
+            if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.details || 'Failed to submit application');
+            }
+
+            setIsSubmitting(false);
+            setSubmitSuccess(true);
+
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                setShowApplicationForm(false);
+                setJobForApplication(null);
+                setSubmitSuccess(false);
+                setFormData({
+                    fullName: '',
+                    email: '',
+                    phone: '',
+                    linkedIn: '',
+                    portfolio: '',
+                    experience: '',
+                    availability: '',
+                    expectedSalary: '',
+                    whyJoin: '',
+                    resume: null,
+                });
+            }, 3000);
+        } catch (error) {
+            console.error('Error submitting application:', error);
+            setIsSubmitting(false);
+            alert('Failed to submit application. Please try again or contact support.');
+        }
     };
 
     const closeApplicationForm = () => {

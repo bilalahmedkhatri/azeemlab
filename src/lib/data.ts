@@ -208,14 +208,23 @@ export const caseStudies: CaseStudy[] = [
 
 export const teamMembers: TeamMember[] = [
   {
-    name: 'Muhammad Azeem',
+    name: 'Bilal Ahmed',
     position: 'Founder & CEO',
-    bio: 'Visionary leader with 10+ years of experience in digital innovation and strategic business development. Passionate about transforming ideas into successful digital products.',
+    bio: 'Visionary leader with 4+ years of experience in digital innovation and strategic business development. Passionate about transforming ideas into successful digital products.',
     image: '/images/team/azeem.jpg',
     social: {
       linkedin: 'https://linkedin.com/in/muhammedazeem',
       twitter: 'https://twitter.com/SooooLab',
       github: 'https://github.com/SooooLab',
+    },
+  },
+  {
+    name: 'Usman Ghani',
+    position: 'Project Manager',
+    bio: 'Organized, detail-oriented project manager who keeps teams on track and clients delighted. Ensures every project is delivered on time and exceeds expectations.',
+    image: '/images/team/jessica.jpg',
+    social: {
+      linkedin: 'https://linkedin.com/in/jessicawilliams',
     },
   },
   {
@@ -229,7 +238,7 @@ export const teamMembers: TeamMember[] = [
     },
   },
   {
-    name: 'David Chen',
+    name: 'Muhammad Talat',
     position: 'UI/UX Designer',
     bio: 'Award-winning designer with a keen eye for detail and user-centered design principles. Creates beautiful, intuitive interfaces that users love.',
     image: '/images/team/david.jpg',
@@ -256,15 +265,6 @@ export const teamMembers: TeamMember[] = [
     social: {
       linkedin: 'https://linkedin.com/in/michaelpark',
       github: 'https://github.com/michaelpark',
-    },
-  },
-  {
-    name: 'Jessica Williams',
-    position: 'Project Manager',
-    bio: 'Organized, detail-oriented project manager who keeps teams on track and clients delighted. Ensures every project is delivered on time and exceeds expectations.',
-    image: '/images/team/jessica.jpg',
-    social: {
-      linkedin: 'https://linkedin.com/in/jessicawilliams',
     },
   },
 ];
