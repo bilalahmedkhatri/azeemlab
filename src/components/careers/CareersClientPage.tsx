@@ -17,7 +17,6 @@ import {
     TrendingUp,
     ChevronRight,
     CheckCircle2,
-    Upload,
     X,
     Send
 } from 'lucide-react';
@@ -35,36 +34,6 @@ interface JobListing {
 }
 
 const jobListings: JobListing[] = [
-    {
-        id: 'fullstack-dev',
-        title: 'Senior Full-Stack Developer',
-        department: 'Engineering',
-        location: 'Remote',
-        type: 'Full-time',
-        description: 'We\'re looking for an experienced full-stack developer to build scalable web applications using modern technologies.',
-        responsibilities: [
-            'Develop and maintain web applications using Next.js, React, and Node.js',
-            'Design and implement RESTful APIs and microservices',
-            'Collaborate with designers and product managers to deliver exceptional user experiences',
-            'Write clean, maintainable, and well-documented code',
-            'Mentor junior developers and contribute to code reviews',
-        ],
-        requirements: [
-            '5+ years of experience in full-stack development',
-            'Expert knowledge of React, Next.js, TypeScript, and Node.js',
-            'Experience with cloud platforms (AWS, Azure, or Vercel)',
-            'Strong understanding of database design (PostgreSQL, MongoDB)',
-            'Excellent problem-solving and communication skills',
-        ],
-        benefits: [
-            'Competitive salary ($80k - $120k based on experience)',
-            'Fully remote work',
-            'Flexible working hours',
-            'Health insurance',
-            'Professional development budget',
-            '20 days paid vacation',
-        ],
-    },
     {
         id: 'ui-ux-designer',
         title: 'UI/UX Designer',
@@ -87,42 +56,12 @@ const jobListings: JobListing[] = [
             'Excellent visual design skills',
         ],
         benefits: [
-            'Competitive salary ($60k - $90k)',
-            'Remote-first culture',
+            'Fully remote work',
             'Latest design tools and software',
             'Creative freedom',
             'Collaborative team environment',
             'Growth opportunities',
-        ],
-    },
-    {
-        id: 'project-manager',
-        title: 'Project Manager',
-        department: 'Operations',
-        location: 'Remote',
-        type: 'Full-time',
-        description: 'Lead our projects from inception to delivery, ensuring client satisfaction and team success.',
-        responsibilities: [
-            'Manage multiple client projects simultaneously',
-            'Create project timelines and manage resources',
-            'Communicate with clients and stakeholders',
-            'Ensure projects are delivered on time and within budget',
-            'Identify and mitigate project risks',
-        ],
-        requirements: [
-            '4+ years of project management experience',
-            'Experience with Agile/Scrum methodologies',
-            'Excellent organizational and leadership skills',
-            'Strong client communication abilities',
-            'PMP or similar certification is a plus',
-        ],
-        benefits: [
-            'Competitive salary ($70k - $100k)',
-            'Flexible schedule',
-            'Remote work options',
-            'Professional certifications support',
-            'Performance bonuses',
-            'Team building activities',
+            'Competitive compensation package',
         ],
     },
     {
@@ -147,12 +86,157 @@ const jobListings: JobListing[] = [
             'Understanding of prompt engineering',
         ],
         benefits: [
-            'Competitive salary ($85k - $130k)',
             'Work with latest AI technologies',
             'Remote flexibility',
             'Conference and training budget',
             'Equity options',
             'Innovation time',
+            'Competitive compensation package',
+        ],
+    },
+    {
+        id: 'field-marketer-2',
+        title: 'Field Marketer (Business Development Representative)',
+        department: 'Sales & Marketing',
+        location: 'Remote/Hybrid',
+        type: 'Full-time',
+        description: 'Join our growing sales team to generate new business opportunities through direct customer engagement and strategic outreach.',
+        responsibilities: [
+            'Conduct outbound calling campaigns to generate qualified leads',
+            'Present company services and value propositions to prospects',
+            'Build pipeline of potential clients through consistent outreach',
+            'Maintain detailed records of all customer interactions',
+            'Meet and exceed monthly call and conversion targets',
+            'Provide feedback to improve marketing messaging and scripts',
+        ],
+        requirements: [
+            '2-5 years of experience in business development or telemarketing',
+            'Proven track record of meeting or exceeding targets',
+            'Strong phone presence and professional communication skills',
+            'Ability to handle objections and rejection positively',
+            'Experience in B2B or B2C sales preferred',
+            'Familiarity with sales automation tools',
+            'Goal-oriented with competitive mindset',
+        ],
+        benefits: [
+            'Performance-based bonuses and commission structure',
+            'Remote-first culture',
+            'Ongoing sales training and coaching',
+            'Clear career progression path',
+            'Paid vacation',
+            'Competitive compensation package',
+        ],
+    },
+    {
+        id: 'frontend-developer',
+        title: 'React/Next.js Developer with UI Design Skills',
+        department: 'Engineering',
+        location: 'Remote',
+        type: 'Full-time',
+        description: 'Build beautiful, high-performance web applications with React and Next.js while leveraging your UI design expertise to create exceptional user experiences.',
+        responsibilities: [
+            'Develop responsive web applications using React and Next.js',
+            'Design and implement modern, intuitive user interfaces',
+            'Translate Figma designs into pixel-perfect code',
+            'Optimize applications for maximum speed and scalability',
+            'Collaborate with backend developers to integrate APIs',
+            'Participate in code reviews and contribute to best practices',
+            'Create and maintain component libraries and design systems',
+        ],
+        requirements: [
+            '1-3 years of experience with React and Next.js',
+            'Strong proficiency in TypeScript, HTML5, and CSS3',
+            'Good understanding of UI/UX design principles',
+            'Experience with Tailwind CSS or similar CSS frameworks',
+            'Familiarity with Figma or Adobe XD',
+            'Knowledge of responsive design and mobile-first development',
+            'Portfolio demonstrating both code and design skills',
+            'Understanding of web performance optimization',
+        ],
+        benefits: [
+            'Fully remote work',
+            'Flexible working hours',
+            'Latest development tools and design software',
+            'Mentorship from senior developers',
+            'Professional growth opportunities',
+            'Paid vacation',
+            'Competitive compensation package',
+        ],
+    },
+    {
+        id: 'backend-developer',
+        title: 'Backend Developer',
+        department: 'Engineering',
+        location: 'Remote',
+        type: 'Full-time',
+        description: 'Design and build robust, scalable backend systems and APIs that power our applications.',
+        responsibilities: [
+            'Develop and maintain server-side applications and APIs',
+            'Design database schemas and optimize query performance',
+            'Implement authentication, authorization, and security best practices',
+            'Build RESTful and GraphQL APIs',
+            'Write clean, tested, and well-documented code',
+            'Troubleshoot and debug production issues',
+            'Collaborate with frontend team on API contracts',
+            'Participate in system architecture decisions',
+        ],
+        requirements: [
+            '1-3 years of backend development experience',
+            'Proficiency in Node.js, Python, or similar backend languages',
+            'Strong understanding of SQL and NoSQL databases (PostgreSQL, MongoDB)',
+            'Experience with API design and development',
+            'Knowledge of authentication methods (JWT, OAuth, etc.)',
+            'Familiarity with cloud platforms (AWS, Azure, or GCP)',
+            'Understanding of Docker and containerization',
+            'Good problem-solving and debugging skills',
+        ],
+        benefits: [
+            'Remote work flexibility',
+            'Flexible schedule',
+            'Access to cloud infrastructure for learning',
+            'Technical mentorship and code reviews',
+            'Conference and training budget',
+            'Health insurance',
+            'Paid vacation',
+            'Competitive compensation package',
+        ],
+    },
+    {
+        id: 'mobile-developer',
+        title: 'Mobile Developer (React Native/Flutter)',
+        department: 'Engineering',
+        location: 'Remote',
+        type: 'Full-time',
+        description: 'Build beautiful, high-performance cross-platform mobile applications for iOS and Android using React Native or Flutter.',
+        responsibilities: [
+            'Develop and maintain cross-platform mobile apps for iOS and Android',
+            'Write clean, efficient, and reusable code using React Native or Flutter',
+            'Integrate RESTful APIs and third-party services',
+            'Implement responsive UI designs that work across different screen sizes',
+            'Optimize app performance, memory usage, and battery consumption',
+            'Test apps on both iOS and Android devices and emulators',
+            'Publish and maintain apps on App Store and Google Play Store',
+            'Debug and fix app crashes and performance issues',
+        ],
+        requirements: [
+            '2+ years of mobile development experience with React Native or Flutter',
+            'Strong knowledge of JavaScript/TypeScript (React Native) or Dart (Flutter)',
+            'Experience with iOS and Android platform-specific features',
+            'Understanding of mobile UI/UX design principles',
+            'Familiarity with native build tools (Xcode, Android Studio)',
+            'Knowledge of app deployment processes for App Store and Google Play',
+            'Experience with state management (Redux, MobX, Provider, Riverpod)',
+            'Understanding of mobile app architecture patterns',
+        ],
+        benefits: [
+            'Fully remote work',
+            'Flexible working hours',
+            'Latest mobile development tools and devices for testing',
+            'Professional growth in mobile technology',
+            'Collaborative team environment',
+            'Conference and training budget',
+            'Paid vacation',
+            'Competitive compensation package',
         ],
     },
 ];
@@ -204,7 +288,7 @@ export default function CareersClientPage() {
         availability: '',
         expectedSalary: '',
         whyJoin: '',
-        resume: null as File | null,
+        resume: '',
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -212,12 +296,6 @@ export default function CareersClientPage() {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
-    };
-
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
-            setFormData(prev => ({ ...prev, resume: e.target.files![0] }));
-        }
     };
 
     const handleApplyClick = () => {
@@ -231,7 +309,7 @@ export default function CareersClientPage() {
         setIsSubmitting(true);
 
         try {
-            // Prepare form data
+            // Submit application data
             const applicationData = {
                 fullName: formData.fullName,
                 email: formData.email,
@@ -244,7 +322,7 @@ export default function CareersClientPage() {
                 whyJoin: formData.whyJoin,
                 position: jobForApplication?.title || '',
                 department: jobForApplication?.department || '',
-                resumeFileName: formData.resume?.name,
+                resume: formData.resume,
             };
 
             // Submit to API
@@ -279,13 +357,14 @@ export default function CareersClientPage() {
                     availability: '',
                     expectedSalary: '',
                     whyJoin: '',
-                    resume: null,
+                    resume: '',
                 });
             }, 3000);
         } catch (error) {
             console.error('Error submitting application:', error);
             setIsSubmitting(false);
-            alert('Failed to submit application. Please try again or contact support.');
+            const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+            alert(`Failed to submit application: ${errorMessage}\n\nPlease try again or contact support.`);
         }
     };
 
@@ -794,32 +873,20 @@ export default function CareersClientPage() {
                                                     </div>
                                                 </div>
 
-                                                {/* Upload Resume */}
+                                                {/* Resume/Portfolio Link */}
                                                 <div>
-                                                    <h3 className="font-heading text-lg font-bold mb-4 text-neutral-dark">Resume / CV</h3>
-                                                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-accent transition-colors">
-                                                        <Upload className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-                                                        <label className="cursor-pointer">
-                                                            <span className="text-accent font-semibold hover:underline">
-                                                                Click to upload
-                                                            </span>
-                                                            <span className="text-gray-600"> or drag and drop</span>
-                                                            <input
-                                                                type="file"
-                                                                onChange={handleFileChange}
-                                                                accept=".pdf,.doc,.docx"
-                                                                className="hidden"
-                                                                required
-                                                            />
-                                                        </label>
-                                                        <p className="text-sm text-gray-500 mt-2">PDF, DOC, DOCX up to 10MB</p>
-                                                        {formData.resume && (
-                                                            <p className="mt-3 text-sm text-green-600 flex items-center justify-center gap-2">
-                                                                <CheckCircle2 className="w-4 h-4" />
-                                                                {formData.resume.name}
-                                                            </p>
-                                                        )}
-                                                    </div>
+                                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                        Resume/Portfolio Link (Optional)
+                                                    </label>
+                                                    <input
+                                                        type="url"
+                                                        name="resume"
+                                                        value={formData.resume}
+                                                        onChange={handleInputChange}
+                                                        placeholder="https://drive.google.com/... or https://your-portfolio.com/resume.pdf"
+                                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                                                    />
+                                                    <p className="text-sm text-gray-500 mt-1">Share a link to your resume (Google Drive, Dropbox, etc.) or portfolio</p>
                                                 </div>
 
                                                 {/* Why Join Us */}

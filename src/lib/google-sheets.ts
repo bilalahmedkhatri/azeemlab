@@ -2,7 +2,7 @@ import { google } from 'googleapis';
 
 /**
  * Google Sheets Service
- * Handles appending career application data to Google Sheets
+ * Handles career application data storage
  */
 
 export interface CareerApplication {
@@ -18,7 +18,7 @@ export interface CareerApplication {
   position: string;
   department: string;
   appliedAt: string;
-  resumeFileName?: string;
+  resume?: string;
 }
 
 /**
@@ -74,7 +74,7 @@ export async function appendCareerApplication(application: CareerApplication): P
         application.availability,
         application.expectedSalary,
         application.whyJoin,
-        application.resumeFileName || 'Not uploaded',
+        application.resume || 'Not provided',
       ],
     ];
 

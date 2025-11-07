@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { appendCareerApplication, CareerApplication } from '@/lib/google-sheets';
+import { sendApplicationConfirmationEmail, sendInternalNotificationEmail } from '@/lib/email';
 
 export const runtime = 'nodejs';
 
@@ -36,11 +37,35 @@ export async function POST(request: NextRequest) {
       position: body.position,
       department: body.department,
       appliedAt: new Date().toISOString(),
-      resumeFileName: body.resumeFileName,
+      resume: body.resume || '',
     };
 
     // Save to Google Sheets
     await appendCareerApplication(application);
+
+    // Send confirmation email to applicant (don't block on failure)
+    try {
+      await sendApplicationConfirmationEmail({
+        applicantName: application.fullName,
+        applicantEmail: application.email,
+        position: application.position,
+        department: application.department,
+      });
+
+      // Send internal notification to HR
+      await sendInternalNotificationEmail({
+        applicantName: application.fullName,
+        applicantEmail: application.email,
+        phone: application.phone,
+        position: application.position,
+        department: application.department,
+        experience: application.experience,
+        resumeLink: application.resume || '',
+      });
+    } catch (emailError) {
+      // Log email errors but don't fail the request
+      console.error('Email sending failed (non-critical):', emailError);
+    }
 
     return NextResponse.json(
       {

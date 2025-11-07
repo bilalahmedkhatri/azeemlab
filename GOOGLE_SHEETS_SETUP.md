@@ -24,6 +24,8 @@ This guide will help you set up Google Sheets to store career applications from 
 1. In your Google Cloud project, go to **APIs & Services** > **Library**
 2. Search for "Google Sheets API"
 3. Click on it and press **Enable**
+4. Search for "Google Drive API"
+5. Click on it and press **Enable**
 
 ## Step 4: Create a Service Account
 
@@ -115,10 +117,12 @@ npx tsx scripts/test-sheets.ts
 
 Your Google Sheet will have these columns:
 
-| Applied At | Position | Department | Full Name | Email | Phone | LinkedIn | Portfolio | Experience | Availability | Expected Salary | Why Join | Resume |
-|------------|----------|------------|-----------|-------|-------|----------|-----------|------------|--------------|-----------------|----------|--------|
+| Applied At | Position | Department | Full Name | Email | Phone | LinkedIn | Portfolio | Experience | Availability | Expected Salary | Why Join | Resume | Resume URL |
+|------------|----------|------------|-----------|-------|-------|----------|-----------|------------|--------------|-----------------|----------|--------|------------|
 
 Applications will automatically appear in new rows when users submit the form.
+
+Resume files are uploaded to a **Google Drive folder** named `azeemlab_career` and the URL is saved in the "Resume URL" column.
 
 ## Testing
 
