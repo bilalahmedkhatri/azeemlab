@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { fadeIn } from '@/lib/animations';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 interface Testimonial {
@@ -26,8 +24,8 @@ export const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({
   testimonials,
   title = 'What Our Clients Say',
   subtitle,
-  autoplay = true,
-  interval = 5000,
+  autoplay = false, // Disabled for performance
+  interval = 8000, // Increased interval to reduce CPU usage
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -63,15 +61,8 @@ export const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({
           </div>
 
           <div className="relative">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                variants={fadeIn}
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                className="bg-white rounded-2xl shadow-xl p-8 md:p-12"
-              >
+            <div className="transition-all duration-500">
+              <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
                 {/* Rating Stars */}
                 {testimonials[currentIndex].rating && (
                   <div className="flex justify-center gap-1 mb-6">
@@ -115,8 +106,8 @@ export const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({
                     </div>
                   </div>
                 </div>
-              </motion.div>
-            </AnimatePresence>
+              </div>
+            </div>
 
             {/* Navigation Arrows */}
             <button
