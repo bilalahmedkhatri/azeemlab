@@ -74,7 +74,7 @@ export const Header: React.FC = () => {
               transition: 'font-size 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease'
             }}
           >
-            SooooLab
+            AzeemLab
           </Link>
 
 

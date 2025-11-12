@@ -39,7 +39,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="font-heading text-5xl md:text-6xl font-bold text-neutral-dark mb-6">
-              About <span className="text-accent">SooooLab</span>
+              About <span className="text-accent">AzeemLab</span>
             </h1>
             <p className="text-xl text-gray-600">
               We're on a mission to help businesses grow through exceptional digital experiences
@@ -59,7 +59,7 @@ export default function AboutPage() {
                 </h2>
                 <div className="space-y-4 text-lg text-gray-600">
                   <p>
-                    SooooLab was born from a simple belief: great design and smart strategy shouldn't be exclusive to Fortune 500 companies.
+                    AzeemLab was born from a simple belief: great design and smart strategy shouldn't be exclusive to Fortune 500 companies.
                   </p>
                   <p>
                     We started with a vision to democratize world-class digital services, making them accessible to businesses of all sizes. Today, we're proud to have helped hundreds of companies transform their online presence and achieve measurable growth.
@@ -72,7 +72,7 @@ export default function AboutPage() {
               <div className="relative h-96 rounded-xl overflow-hidden shadow-2xl">
                 <Image
                   src="/about/our_story.jpg"
-                  alt="Our Story - SooooLab Team"
+                  alt="Our Story - AzeemLab Team"
                   fill
                   className="object-cover"
                   priority

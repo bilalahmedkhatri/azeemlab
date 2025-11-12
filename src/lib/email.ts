@@ -55,13 +55,13 @@ export async function sendApplicationConfirmationEmail(
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Application Received - SooooLab</title>
+  <title>Application Received - AzeemLab</title>
 </head>
 <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
   <table role="presentation" style="width: 100%; border-collapse: collapse;">
     <tr>
       <td style="padding: 40px 0; text-align: center; background-color: #6366f1;">
-        <h1 style="color: #ffffff; margin: 0; font-size: 28px;">SooooLab</h1>
+        <h1 style="color: #ffffff; margin: 0; font-size: 28px;">AzeemLab</h1>
       </td>
     </tr>
     <tr>
@@ -116,7 +116,7 @@ export async function sendApplicationConfirmationEmail(
         
         <p style="color: #4b5563; font-size: 16px; line-height: 1.6; margin: 0;">
           Best regards,<br>
-          <strong>The SooooLab Team</strong>
+          <strong>The AzeemLab Team</strong>
         </p>
       </td>
     </tr>
@@ -126,7 +126,7 @@ export async function sendApplicationConfirmationEmail(
           This is an automated confirmation email. Please do not reply to this message.
         </p>
         <p style="color: #6b7280; font-size: 14px; margin: 0;">
-          © ${new Date().getFullYear()} SooooLab. All rights reserved.
+          © ${new Date().getFullYear()} AzeemLab. All rights reserved.
         </p>
       </td>
     </tr>
@@ -158,17 +158,17 @@ Application Summary:
 In the meantime, feel free to explore our website and learn more about our company culture and values.
 
 Best regards,
-The SooooLab Team
+The AzeemLab Team
 
 ---
 This is an automated confirmation email. Please do not reply to this message.
-© ${new Date().getFullYear()} SooooLab. All rights reserved.
+© ${new Date().getFullYear()} AzeemLab. All rights reserved.
     `.trim();
 
     await transporter.sendMail({
-      from: `"SooooLab Careers" <${from}>`,
+      from: `"AzeemLab Careers" <${from}>`,
       to: params.applicantEmail,
-      subject: `Application Received - ${params.position} at SooooLab`,
+      subject: `Application Received - ${params.position} at AzeemLab`,
       text: textContent,
       html: htmlContent,
     });
@@ -272,7 +272,7 @@ export async function sendInternalNotificationEmail(
     `;
 
     await transporter.sendMail({
-      from: `"SooooLab Careers System" <${from}>`,
+      from: `"AzeemLab Careers System" <${from}>`,
       to: hrEmail,
       subject: `New Application: ${params.applicantName} for ${params.position}`,
       html: htmlContent,

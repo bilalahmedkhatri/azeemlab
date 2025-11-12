@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About Column */}
           <div>
-            <h3 className="text-xl font-heading font-bold mb-4">SooooLab</h3>
+            <h3 className="text-xl font-heading font-bold mb-4">AzeemLab</h3>
             <p className="text-gray-300">
               Digital Growth, Simplified. We help businesses thrive online with expert web design, branding, and marketing.
             </p>
@@ -99,7 +99,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-          <p>&copy; {currentYear} SooooLab. All rights reserved.</p>
+          <p>&copy; {currentYear} AzeemLab. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/privacy" className="hover:text-accent transition-colors">
               Privacy Policy

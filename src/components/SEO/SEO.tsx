@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://azeemlab.vercel.app';
 const siteName = 'Azeem Lab';
-const twitterHandle = '@SooooLab';
+const twitterHandle = '@AzeemLab';
 
 interface SEOConfig {
   title: string;

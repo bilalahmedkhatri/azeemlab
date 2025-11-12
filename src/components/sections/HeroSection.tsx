@@ -27,11 +27,12 @@ export const HeroSection: React.FC = () => {
   };
 
   const floatingAnimation = {
-    y: [0, -20, 0],
+    y: [0, -10, 0],
     transition: {
-      duration: 3,
+      duration: 4,
       repeat: Infinity,
-      ease: "linear" as const,
+      ease: "easeInOut" as const,
+      repeatType: "loop" as const,
     },
   };
 
@@ -189,13 +190,13 @@ export const HeroSection: React.FC = () => {
               {/* Floating Elements */}
               <motion.div
                 animate={{
-                  y: [0, -15, 0],
-                  rotate: [0, 5, 0],
+                  y: [0, -10, 0],
                 }}
                 transition={{
-                  duration: 4,
+                  duration: 5,
                   repeat: Infinity,
                   ease: 'easeInOut',
+                  repeatType: 'loop',
                 }}
                 className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-2xl shadow-lg flex items-center justify-center"
               >
@@ -204,13 +205,13 @@ export const HeroSection: React.FC = () => {
 
               <motion.div
                 animate={{
-                  y: [0, 15, 0],
-                  rotate: [0, -5, 0],
+                  y: [0, 10, 0],
                 }}
                 transition={{
-                  duration: 3.5,
+                  duration: 6,
                   repeat: Infinity,
                   ease: 'easeInOut',
+                  repeatType: 'loop',
                 }}
                 className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl shadow-lg flex items-center justify-center"
               >

@@ -36,7 +36,7 @@ export function ChatbotWindow({ onClose }: { onClose: () => void }) {
   useEffect(scrollToBottom, [messages]);
 
   useEffect(() => {
-    setMessages([{ text: "Hello! I'm an AI assistant from SooooLab. How can I help you with your project today?", sender: 'bot' }]);
+    setMessages([{ text: "Hello! I'm an AI assistant from AzeemLab. How can I help you with your project today?", sender: 'bot' }]);
   }, []);
 
   const handleSend = async (text?: string) => {
@@ -92,15 +92,10 @@ export function ChatbotWindow({ onClose }: { onClose: () => void }) {
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 20, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: 20, scale: 0.95 }}
-      transition={{ 
-        duration: 0.5, 
-        ease: [0.25, 0.1, 0.25, 1], // Smooth cubic-bezier easing
-        opacity: { duration: 0.3 },
-        scale: { duration: 0.4, ease: [0.34, 1.56, 0.64, 1] } // Subtle bounce at the end
-      }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.2 }}
       className="fixed bottom-24 right-4 sm:right-8 w-[calc(100vw-2rem)] sm:w-96 h-[70vh] max-h-[600px] bg-card shadow-2xl rounded-2xl flex flex-col overflow-hidden border border-border/50 z-[60]"
     >
       <header className="bg-card p-4 flex justify-between items-center border-b border-border/50">

@@ -427,7 +427,7 @@ export default function CareersClientPage() {
                         className="text-center mb-16"
                     >
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-neutral-dark mb-4">
-                            Why Join SooooLab?
+                            Why Join AzeemLab?
                         </h2>
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                             We believe in creating an environment where you can do your best work
@@ -465,7 +465,7 @@ export default function CareersClientPage() {
                         className="text-center mb-16"
                     >
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-neutral-dark mb-4">
-                            Life at SooooLab
+                            Life at AzeemLab
                         </h2>
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                             A glimpse into our culture, workspace, and team collaboration
@@ -892,7 +892,7 @@ export default function CareersClientPage() {
                                                 {/* Why Join Us */}
                                                 <div>
                                                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                        Why do you want to join SooooLab? <span className="text-red-500">*</span>
+                                                        Why do you want to join AzeemLab? <span className="text-red-500">*</span>
                                                     </label>
                                                     <textarea
                                                         name="whyJoin"

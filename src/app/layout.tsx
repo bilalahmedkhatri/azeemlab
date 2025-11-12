@@ -8,7 +8,7 @@ import { organizationSchema, websiteSchema } from "@/lib/schema";
 // import { ThemeProvider } from "@/contexts/ThemeContext";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Chatbot } from "@/components/chatbot/Chatbot";
+import { ChatbotLoader } from "@/components/chatbot/ChatbotLoader";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@SooooLab',
-    creator: '@SooooLab',
+    site: '@AzeemLab',
+    creator: '@AzeemLab',
     title: 'Azeem Lab - Transform Your Vision Into Powerful Digital Solutions',
     description: 'Expert web design, development, branding, and digital solutions.',
     images: ['/og-image.png'],
@@ -93,7 +93,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <Chatbot />
+        <ChatbotLoader />
         <Analytics />
         <SpeedInsights />
       </body>

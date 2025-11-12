@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${planName} Plan - Detailed Features | SooooLab`,
+    title: `${planName} Plan - Detailed Features | AzeemLab`,
     description: `Explore all the features and benefits of our ${planName} plan. Perfect for your business needs with comprehensive support and features.`,
   };
 }
