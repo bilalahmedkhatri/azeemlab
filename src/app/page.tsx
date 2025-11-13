@@ -3,58 +3,60 @@ import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { ServicesSection } from '@/components/sections/ServicesSection';
-import { JSONLD } from '@/components/SEO/JSONLD';
-import { servicesSchema } from '@/lib/schema';
 import { StatsSection } from '@/components/sections/StatsSection';
 import { CompaniesSection } from '@/components/sections/CompaniesSection';
-import LoadingAnimation from '@/components/ui/LoadingAnimation';
 
-// Lazy load heavy components below the fold
+// Lazy load heavy components below the fold with individual Suspense boundaries
 const PortfolioSection = dynamic(() => import('@/components/sections/PortfolioSection').then(mod => ({ default: mod.PortfolioSection })), {
-  loading: () => <div className="min-h-[400px] animate-pulse bg-muted/20" />,
+  loading: () => <div className="min-h-[400px] bg-background" />,
   ssr: true,
 });
 
 const PricingSection = dynamic(() => import('@/components/sections/PricingSection').then(mod => ({ default: mod.PricingSection })), {
-  loading: () => <div className="min-h-[400px] animate-pulse bg-muted/20" />,
+  loading: () => <div className="min-h-[400px] bg-background" />,
   ssr: true,
 });
 
 const AboutSection = dynamic(() => import('@/components/sections/AboutSection').then(mod => ({ default: mod.AboutSection })), {
-  loading: () => <div className="min-h-[400px] animate-pulse bg-muted/20" />,
+  loading: () => <div className="min-h-[400px] bg-background" />,
   ssr: true,
 });
 
 const CTASection = dynamic(() => import('@/components/sections/CTASection').then(mod => ({ default: mod.CTASection })), {
-  loading: () => <div className="min-h-[200px] animate-pulse bg-muted/20" />,
+  loading: () => <div className="min-h-[200px] bg-background" />,
   ssr: true,
 });
 
 export const metadata: Metadata = {
   title: 'Home',
-  // ... existing metadata ...
+  description: 'Professional web development services specializing in modern, responsive websites and web applications.',
 };
 
-// Async component with delay to trigger loading
-async function DelayedContent() {
+export default function Home() {
   return (
     <>
+      {/* Critical above-the-fold content - render immediately */}
       <HeroSection />
       <CompaniesSection />
       <StatsSection />
       <ServicesSection />
-      <PortfolioSection />
-      <PricingSection />
-      <AboutSection />
-      <CTASection />
+      
+      {/* Below-the-fold content - lazy loaded individually */}
+      <Suspense fallback={<div className="min-h-[400px] bg-background" />}>
+        <PortfolioSection />
+      </Suspense>
+      
+      <Suspense fallback={<div className="min-h-[400px] bg-background" />}>
+        <PricingSection />
+      </Suspense>
+      
+      <Suspense fallback={<div className="min-h-[400px] bg-background" />}>
+        <AboutSection />
+      </Suspense>
+      
+      <Suspense fallback={<div className="min-h-[200px] bg-background" />}>
+        <CTASection />
+      </Suspense>
     </>
-  );
-}
-
-export default function Home() {
-  return (
-    <Suspense fallback={<LoadingAnimation />}>
-      <DelayedContent />
-    </Suspense>
   );
 }
