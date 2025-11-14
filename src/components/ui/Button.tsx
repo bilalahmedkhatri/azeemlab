@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -25,7 +24,7 @@ export const Button: React.FC<ButtonProps> = ({
   type = 'button',
   disabled = false,
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 hover:scale-105 active:scale-95';
   
   const variantStyles = {
     primary: 'bg-accent text-white hover:bg-accent-dark focus:ring-accent shadow-md hover:shadow-lg',
@@ -42,31 +41,22 @@ export const Button: React.FC<ButtonProps> = ({
   
   const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
   
-  const motionProps = {
-    whileHover: !disabled ? { scale: 1.05 } : undefined,
-    whileTap: !disabled ? { scale: 0.95 } : undefined,
-    transition: { duration: 0.2 },
-  };
-  
   if (href) {
     return (
-      <motion.div {...motionProps} className="inline-block">
-        <Link href={href} className={classes}>
-          {children}
-        </Link>
-      </motion.div>
+      <Link href={href} className={classes}>
+        {children}
+      </Link>
     );
   }
   
   return (
-    <motion.button
+    <button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${classes} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
-      {...motionProps}
+      className={`${classes} ${disabled ? 'opacity-50 cursor-not-allowed hover:scale-100' : ''}`}
     >
       {children}
-    </motion.button>
+    </button>
   );
 };

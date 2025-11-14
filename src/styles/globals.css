@@ -213,3 +213,83 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--primary-foreground);
 }
 
+/* Performance-optimized CSS animations for HeroSection */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes progress-100 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes progress-85 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 85%;
+  }
+}
+
+@keyframes progress-60 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 60%;
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 6s ease-in-out infinite;
+}
+
+.animate-progress-100 {
+  animation: progress-100 1.5s ease-out 0.5s both;
+}
+
+.animate-progress-85 {
+  animation: progress-85 1.5s ease-out 0.7s both;
+}
+
+.animate-progress-60 {
+  animation: progress-60 1.5s ease-out 0.9s both;
+}
+
+
