@@ -75,7 +75,7 @@ export const Footer: React.FC = () => {
             <h4 className="font-heading font-semibold mb-4">Get in Touch</h4>
             <ul className="space-y-2 text-gray-300">
               <li>Email: bilalahmedkhatri@outlook.com</li>
-              <li>Phone: (555) 123-4567</li>
+              <li>Phone: +92 (321) 300-9321</li>
               <li className="flex space-x-4 mt-4">
                 <a href="#" className="hover:text-accent transition-colors" aria-label="LinkedIn">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
