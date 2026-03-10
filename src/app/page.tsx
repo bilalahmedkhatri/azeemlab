@@ -12,10 +12,6 @@ const PortfolioSection = dynamic(() => import('@/components/sections/PortfolioSe
   ssr: true,
 });
 
-const PricingSection = dynamic(() => import('@/components/sections/PricingSection').then(mod => ({ default: mod.PricingSection })), {
-  loading: () => <div className="min-h-[400px] bg-background" />,
-  ssr: true,
-});
 
 const AboutSection = dynamic(() => import('@/components/sections/AboutSection').then(mod => ({ default: mod.AboutSection })), {
   loading: () => <div className="min-h-[400px] bg-background" />,
@@ -44,10 +40,6 @@ export default function Home() {
       {/* Below-the-fold content - lazy loaded individually */}
       <Suspense fallback={<div className="min-h-[400px] bg-background" />}>
         <PortfolioSection />
-      </Suspense>
-      
-      <Suspense fallback={<div className="min-h-[400px] bg-background" />}>
-        <PricingSection />
       </Suspense>
       
       <Suspense fallback={<div className="min-h-[400px] bg-background" />}>

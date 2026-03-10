@@ -24,7 +24,6 @@ const poppins = Poppins({
   display: 'swap',
   preload: true,
 });
-
 export const metadata: Metadata = {
   title: {
     default: "Azeem Lab - Transform Your Vision Into Powerful Digital Solutions",
@@ -75,7 +74,6 @@ export const metadata: Metadata = {
     },
   },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
