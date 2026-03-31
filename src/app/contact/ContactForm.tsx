@@ -8,6 +8,7 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     projectType: '',
     message: ''
   });
@@ -20,25 +21,36 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    try {
+      // Points to your general Next.js API route
+      const response = await fetch('/azeemlab-send-msg-to-w8sapp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // For now, just log the data (replace with actual API call)
-    console.log('Form submitted:', formData);
-    
-    setIsSubmitting(false);
-    setSubmitStatus('success');
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      projectType: '',
-      message: ''
-    });
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
 
-    // Reset success message after 5 seconds
-    setTimeout(() => setSubmitStatus('idle'), 5000);
+      setSubmitStatus('success');
+      // Reset all fields
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        projectType: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -58,17 +70,29 @@ export default function ContactForm() {
         required
         placeholder="John Doe"
       />
-      
-      <Input
-        label="Email"
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        required
-        placeholder="john@example.com"
-      />
-      
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Input
+          label="Email"
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          placeholder="john@example.com"
+        />
+
+        <Input
+          label="Phone Number"
+          type="tel"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          required
+          placeholder="+92 300 1234567"
+        />
+      </div>
+
       <Select
         label="Project Type"
         name="projectType"
@@ -84,7 +108,7 @@ export default function ContactForm() {
         <option value="consulting">Strategy Consulting</option>
         <option value="other">Other</option>
       </Select>
-      
+
       <TextArea
         label="Tell us about your project"
         name="message"
@@ -94,8 +118,7 @@ export default function ContactForm() {
         placeholder="Share details about your goals, timeline, and any specific requirements..."
         rows={6}
       />
-      
-      {/* Privacy & Security Notice */}
+
       <div className="bg-neutral-light border border-gray-200 rounded-lg p-4">
         <div className="flex items-start gap-3">
           <svg className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,28 +127,24 @@ export default function ContactForm() {
           <div className="text-sm text-gray-600">
             <strong className="text-neutral-dark">🔒 Your Privacy Matters</strong>
             <p className="mt-1">
-              We respect your privacy and will never share your information with third parties. 
-              Your data is encrypted and stored securely. By submitting this form, you agree to our{' '}
-              <a href="/privacy" className="text-accent hover:text-accent-dark underline">
-                Privacy Policy
-              </a>.
+              We respect your privacy and will never share your information. Data is processed securely via our automated WhatsApp gateway.
             </p>
           </div>
         </div>
       </div>
-      
+
       {submitStatus === 'success' && (
         <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
-          <strong>✓ Message sent successfully!</strong> We&apos;ll get back to you within 24 hours.
+          <strong>✓ Message sent successfully!</strong> It has been forwarded to our WhatsApp.
         </div>
       )}
-      
+
       {submitStatus === 'error' && (
         <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
           <strong>✗ Something went wrong.</strong> Please try again or email us directly at bilalahmedkhatri@outlook.com
         </div>
       )}
-      
+
       <Button
         type="submit"
         variant="primary"
@@ -133,10 +152,9 @@ export default function ContactForm() {
         className="w-full"
         disabled={isSubmitting}
       >
-        {isSubmitting ? 'Sending Your Message...' : 'Send My Inquiry →'}
+        {isSubmitting ? 'Sending to WhatsApp...' : 'Send My Inquiry →'}
       </Button>
 
-      {/* Response Time Promise */}
       <div className="flex items-center gap-2 text-sm text-gray-600">
         <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />

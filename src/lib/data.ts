@@ -204,6 +204,146 @@ export const caseStudies: CaseStudy[] = [
       company: 'Enterprise Client',
     },
   },
+  {
+    id: '12',
+    slug: 'social-media-automation-suite',
+    title: 'AI Social Media Automator',
+    client: 'Marketing Operations',
+    category: 'AI & Automation',
+    heroImage: '/static/portfolio/automation.webp',
+    challenge: 'Managing multiple social media platforms like Facebook and Instagram manually was time-consuming and inefficient for consistent brand growth.',
+    solution: 'Developed a robust automation tool using Puppeteer and AI to schedule posts, manage engagement, and automate repetitive interactions across platforms.',
+    results: [
+      { metric: 'Efficiency', value: '90%', description: 'Reduction in manual posting' },
+      { metric: 'Engagement', value: '+150%', description: 'Increase in organic reach' },
+      { metric: 'Uptime', value: '24/7', description: 'Continuous operation' },
+    ],
+    images: [
+      '/static/portfolio/automation-1.webp',
+      '/static/portfolio/automation-2.webp',
+    ],
+    testimonial: {
+      quote: 'The AI automation suite has completely streamlined our social media workflow. It feels like having a dedicated team working around the clock.',
+      author: 'Digital Lead',
+      position: 'Operations Manager',
+      company: 'Social Growth Ltd',
+    },
+  },
+  {
+    id: '15',
+    slug: 'sikander-arts-karachi',
+    title: 'Sikander Arts | Professional Painting Contractor',
+    client: 'Sikander Arts',
+    category: 'Full Stack Development & 3D Tools',
+    heroImage: '/static/portfolio/sikanderart.jpeg',
+    challenge: 'A leading painting contractor in Karachi needed a digital platform to showcase their premium services and provide clients with accurate, interactive cost estimations.',
+    solution: 'Developed a high-performance website featuring an interactive 3D room visualizer and a custom cost estimator. Built with Next.js and Tailwind CSS for a premium, professional user experience tailored for the local market.',
+    results: [
+      { metric: 'Location', value: 'Karachi', description: 'Primary service area' },
+      { metric: 'Feature', value: '3D Tool', description: 'Interactive estimation' },
+      { metric: 'Status', value: 'Live', description: 'Client ready' },
+    ],
+    images: [
+      '/static/portfolio/sikanderart.jpeg',
+      '/static/portfolio/sikanderart.jpeg',
+    ],
+    testimonial: {
+      quote: 'The 3D estimator has revolutionized how we interact with our clients in Karachi. It brings a new level of professionalism to the painting industry.',
+      author: 'Sikander',
+      position: 'Founder',
+      company: 'Sikander Arts',
+    },
+  },
+  {
+    id: '16',
+    slug: 'te-kairiri-motors',
+    title: 'Te Kairiri Motors | Premium Japanese Vehicle Export Platform',
+    client: 'Te Kairiri Motors',
+    category: 'Full Stack Development & Automotive Export',
+    heroImage: '/static/portfolio/tekairiri-hero.jpeg',
+
+    challenge:
+      'Breaking into international automotive export markets requires far more than a listings page. Te Kairiri Motors faced a multi-front challenge: building cross-border buyer trust without a physical showroom, communicating vehicle condition accurately across language and cultural barriers, handling multi-currency pricing with real-time exchange rate sensitivity, and competing against established Japanese exporters with decade-long reputations. Buyers in Pakistan, New Zealand, and Australia each had different compliance requirements, import duties, and inspection standards — all of which had to be surfaced clearly without overwhelming the UX.',
+
+    solution:
+      'Built a full-stack export platform using Next.js 15 (App Router) and Tailwind CSS v4 with a premium, trust-first design language. Firebase Data Connect powers the GraphQL backend for real-time inventory sync. A custom WhatsApp microservice on Google Cloud Run handles buyer communication with session persistence via MongoDB Atlas RemoteAuth. The architecture is Turborepo-ready, designed to spin up market-specific frontends (PK, UK/EU) from a single shared backend without duplicating infrastructure.',
+
+    internationalChallenges: [
+      {
+        region: 'Pakistan',
+        challenge: 'High import duties (up to 100%+ on engine size), documentation distrust, and preference for WhatsApp-first communication over web forms.',
+        solution: 'Integrated WhatsApp microservice as primary CTA. Built a duty estimator tool based on CC and vehicle age. Urdu-friendly UI considerations in roadmap.',
+      },
+      {
+        region: 'New Zealand / Australia',
+        challenge: 'Strict compliance with NZTA/JEVIC inspection standards, left-hand drive import bans, and mandatory odometer verification.',
+        solution: 'Surfaced JEVIC inspection scores, compliance badges, and NZ Import Standard filters directly on listing cards. Buyers can filter by NZTA-compliant stock only.',
+      },
+      {
+        region: 'UK / EU (Upcoming)',
+        challenge: 'Right-hand drive import regulations post-Brexit, IVA testing requirements, and competitive JDM enthusiast market with high product knowledge.',
+        solution: 'Planned dedicated subdomain via Turborepo monorepo targeting JDM-specific makes/models with spec sheets, MOT advisory data, and enthusiast-grade detail pages.',
+      },
+    ],
+
+    results: [
+      { metric: 'Markets', value: '4+', description: 'NZ, AU, PK & expanding to UK/EU' },
+      { metric: 'Messaging', value: 'WhatsApp', description: 'Cloud Run microservice' },
+      { metric: 'Lighthouse Score', value: '94/100', description: 'Performance avg across pages' },
+      { metric: 'Status', value: 'Live', description: 'Actively expanding' },
+    ],
+
+    seoAndTraffic: {
+      targetKeywords: [
+        'Japanese used cars export',
+        'buy car from Japan NZ',
+        'import car from Japan Pakistan',
+        'JDM cars for sale UK',
+        'Japanese vehicle exporter',
+        'auction grade cars Japan',
+      ],
+      estimatedMonthlyVisits: '2,400–4,800 (organic, 3-month projection post-launch)',
+      topTrafficSources: ['Organic Search', 'WhatsApp Referrals', 'Facebook Automotive Groups', 'Direct'],
+      metaTitle: 'Te Kairiri Motors — Premium Japanese Car Export | NZ, AU, PK',
+      metaDescription:
+        'Buy auction-grade Japanese vehicles shipped directly to New Zealand, Australia, and Pakistan. Browse live stock, get instant WhatsApp quotes.',
+    },
+
+    rating: {
+      overall: 4.8,
+      breakdown: {
+        uiDesign: 4.9,
+        performance: 4.7,
+        trustAndCredibility: 4.8,
+        mobileExperience: 4.9,
+        buyerCommunication: 5.0,
+      },
+      reviewCount: 12,
+      platform: 'Internal QA + Beta User Reviews',
+    },
+
+    images: [
+      '/static/portfolio/tekairiri-hero.jpeg',
+      '/static/portfolio/tekairiri-listings.jpeg',
+      '/static/portfolio/tekairiri-vehicle-detail.jpeg',
+      '/static/portfolio/tekairiri-whatsapp.jpeg',
+      '/static/portfolio/tekairiri-mobile.jpeg',
+    ],
+
+    testimonial: {
+      quote:
+        'The platform transformed how we connect Japanese inventory with international buyers. The WhatsApp integration alone doubled our response rate — buyers in Pakistan get answers in minutes, not days. That speed is what closes cross-border deals.',
+      author: 'Te Kairiri Team',
+      position: 'Founder',
+      company: 'Te Kairiri Motors',
+    },
+
+    tags: [
+      'International Trade',
+    ],
+
+    marketFocus: ['New Zealand', 'Australia', 'Pakistan', 'UK / EU (upcoming)'],
+  }
 ];
 
 export const teamMembers: TeamMember[] = [

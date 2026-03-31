@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: pageMetadata.about.title,
     description: pageMetadata.about.description,
     type: 'website',
-    url: '/about',
+    url: '/about-us',
     images: ['/og-image.png'],
   },
   twitter: {

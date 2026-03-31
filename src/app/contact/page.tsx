@@ -50,8 +50,11 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-heading font-bold text-foreground mb-1">Phone</h3>
-                    <a href="tel:+15551234567" className="text-primary hover:underline transition-colors">
-                      +92 (321) 300 93 21
+                    <a href="whatsapp:+923213009321" className="text-primary hover:underline transition-colors">
+                      +92 (321) 300 9321
+                    </a><br />
+                    <a href="tel:+79998515949" className="text-primary hover:underline transition-colors">
+                      +7 (999) 851 5949
                     </a>
                   </div>
                 </div>
