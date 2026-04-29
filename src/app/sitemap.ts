@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   
   const staticRoutes = [
     '',
-    '/about',
+    '/about-us',
     '/services',
     '/services/web-design',
     '/services/branding',
@@ -17,10 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/portfolio/ai-letter-generator',
     '/portfolio/blog-platform',
     '/portfolio/linkedin-automation-bot',
-    '/pricing',
-    '/pricing/plan_detail/starter',
-    '/pricing/plan_detail/business',
-    '/pricing/plan_detail/enterprise',
     '/careers',
     '/process',
     '/contact',

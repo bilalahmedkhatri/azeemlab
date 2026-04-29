@@ -25,6 +25,29 @@ export interface PricingTier {
   highlighted?: boolean;
 }
 
+export interface InternationalChallenge {
+  region: string;
+  challenge: string;
+  solution: string;
+}
+
+export interface SEOAndTraffic {
+  targetKeywords: string[];
+  estimatedMonthlyVisits: string;
+  topTrafficSources: string[];
+  metaTitle: string;
+  metaDescription: string;
+}
+
+export interface Rating {
+  overall: number;
+  breakdown: {
+    [key: string]: number;
+  };
+  reviewCount: number;
+  platform: string;
+}
+
 export interface CaseStudy {
   id: string;
   slug: string;
@@ -37,6 +60,11 @@ export interface CaseStudy {
   results: Result[];
   images: string[];
   testimonial?: Testimonial;
+  internationalChallenges?: InternationalChallenge[];
+  seoAndTraffic?: SEOAndTraffic;
+  rating?: Rating;
+  tags?: string[];
+  marketFocus?: string[];
 }
 
 export interface Result {

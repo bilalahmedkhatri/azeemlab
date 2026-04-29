@@ -138,7 +138,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'AI Letter Generator Platform',
     client: 'www.ailettergen.com',
     category: 'AI Application',
-    heroImage: '/portfolio/ailettergen.jpeg',
+    heroImage: '/static/portfolio/ailettergen.jpeg',
     challenge: 'Students and professionals struggled to craft compelling professional letters, spending hours writing and revising cover letters, recommendation letters, and formal correspondence.',
     solution: 'Built an AI-powered letter generation platform with intelligent analysis, customizable templates, and instant generation. Features include multi-language support, professional formatting, and tailored suggestions based on user details and opportunities. The platform is fully deployed and generating significant traffic.',
     results: [
@@ -147,7 +147,7 @@ export const caseStudies: CaseStudy[] = [
       { metric: 'User Satisfaction', value: '4.9/5', description: 'Average user rating' },
     ],
     images: [
-      '/portfolio/ailettergen.jpeg',
+      '/static/portfolio/ailettergen.jpeg',
     ],
     testimonial: {
       quote: 'This platform has revolutionized how people create professional letters. The AI advisor is incredibly intelligent and the results are outstanding. The website generates excellent traffic and engagement.',
@@ -368,16 +368,6 @@ export const teamMembers: TeamMember[] = [
     },
   },
   {
-    name: 'Sarah Johnson',
-    position: 'Lead Full-Stack Developer',
-    bio: 'Expert in modern web technologies including Next.js, React, Node.js, and cloud architecture. Builds scalable applications that deliver exceptional user experiences.',
-    image: '/images/team/sarah.jpg',
-    social: {
-      linkedin: 'https://linkedin.com/in/sarahjohnson',
-      github: 'https://github.com/sarahjohnson',
-    },
-  },
-  {
     name: 'Muhammad Talat',
     position: 'UI/UX Designer',
     bio: 'Award-winning designer with a keen eye for detail and user-centered design principles. Creates beautiful, intuitive interfaces that users love.',
@@ -385,26 +375,6 @@ export const teamMembers: TeamMember[] = [
     social: {
       linkedin: 'https://linkedin.com/in/davidchen',
       twitter: 'https://twitter.com/davidchen',
-    },
-  },
-  {
-    name: 'Emily Rodriguez',
-    position: 'AI & Backend Specialist',
-    bio: 'Specializes in AI integration, machine learning, and backend development using Python, Django, and FastAPI. Brings intelligent solutions to complex problems.',
-    image: '/images/team/emily.jpg',
-    social: {
-      linkedin: 'https://linkedin.com/in/emilyrodriguez',
-      github: 'https://github.com/emilyrodriguez',
-    },
-  },
-  {
-    name: 'Michael Park',
-    position: 'DevOps Engineer',
-    bio: 'Cloud infrastructure expert ensuring seamless deployments, scalability, and 99.9% uptime. Proficient in AWS, Azure, Docker, and Kubernetes.',
-    image: '/images/team/michael.jpg',
-    social: {
-      linkedin: 'https://linkedin.com/in/michaelpark',
-      github: 'https://github.com/michaelpark',
     },
   },
 ];
