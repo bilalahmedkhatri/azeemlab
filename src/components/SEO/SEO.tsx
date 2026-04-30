@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://azeemlab.vercel.app';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://azeemlab.com';
 const siteName = 'Azeem Lab';
 const twitterHandle = '@AzeemLab';
 

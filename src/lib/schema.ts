@@ -1,6 +1,6 @@
 import { Organization, WebSite, Service, FAQPage, BreadcrumbList } from 'schema-dts';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://azeemlab.vercel.app';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://azeemlab.com';
 
 export const organizationSchema: Organization = {
   '@type': 'Organization',
@@ -120,7 +120,7 @@ export function createBreadcrumbSchema(items: { name: string; url: string }[]): 
 
 export function injectSchema(schema: Organization | WebSite | Service | FAQPage | BreadcrumbList | Service[]) {
   let schemaWithContext: Record<string, unknown>;
-  
+
   if (Array.isArray(schema)) {
     schemaWithContext = {
       '@context': 'https://schema.org',
@@ -132,7 +132,7 @@ export function injectSchema(schema: Organization | WebSite | Service | FAQPage 
       ...(schema as unknown as Record<string, unknown>),
     };
   }
-  
+
   return {
     __html: JSON.stringify(schemaWithContext),
   };

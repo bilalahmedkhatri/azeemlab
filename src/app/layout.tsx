@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Azeem Lab" }],
   creator: "Azeem Lab",
   publisher: "Azeem Lab",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://azeemlab.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://azeemlab.com'),
   alternates: {
     canonical: '/',
   },
@@ -85,11 +85,11 @@ export default function RootLayout({
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
+
         {/* DNS prefetch for external resources */}
         <link rel="dns-prefetch" href="https://vercel-insights.com" />
         <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
-        
+
         <JSONLD data={{
           '@context': 'https://schema.org',
           '@graph': [organizationSchema, websiteSchema],

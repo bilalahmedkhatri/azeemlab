@@ -126,7 +126,7 @@ Resume files are uploaded to a **Google Drive folder** named `azeemlab_career` a
 
 ## Testing
 
-1. Go to your careers page: `https://azeemlab.vercel.app/careers`
+1. Go to your careers page: `https://azeemlab.com/careers`
 2. Click on any job position
 3. Fill out the application form
 4. Submit
