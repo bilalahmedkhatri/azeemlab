@@ -9,6 +9,7 @@ import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ChatbotLoader } from "@/components/chatbot/ChatbotLoader";
+import Script from "next/script";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -94,6 +95,22 @@ export default function RootLayout({
           '@context': 'https://schema.org',
           '@graph': [organizationSchema, websiteSchema],
         }} />
+        
+        {/* Google Analytics (gtag.js) */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-C3NLM4SBTQ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-C3NLM4SBTQ');
+          `}
+        </Script>
       </head>
       <body
         className={`${inter.variable} ${poppins.variable} antialiased bg-background text-foreground transition-colors duration-300 overflow-x-hidden`}
