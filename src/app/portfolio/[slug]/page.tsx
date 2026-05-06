@@ -160,6 +160,31 @@ export default async function CaseStudyPage({ params }: PageProps) {
         </section>
       )}
 
+      {/* Next Project Navigation */}
+      <section className="py-16 border-t border-gray-100 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="text-center md:text-left">
+                <span className="text-sm uppercase tracking-wider text-muted-foreground font-semibold">Next Case Study</span>
+                <h3 className="text-2xl md:text-3xl font-bold text-neutral-dark mt-2">
+                  {caseStudies[(caseStudies.findIndex(cs => cs.slug === slug) + 1) % caseStudies.length].title}
+                </h3>
+              </div>
+              <Button 
+                href={`/portfolio/${caseStudies[(caseStudies.findIndex(cs => cs.slug === slug) + 1) % caseStudies.length].slug}`}
+                variant="outline" 
+                size="lg"
+                className="group border-accent text-accent hover:bg-accent hover:text-white"
+              >
+                View Next Project
+                <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-gradient-to-br from-accent to-accent-dark text-white">
         <div className="container mx-auto px-6">
