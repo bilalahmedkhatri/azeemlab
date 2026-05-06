@@ -35,7 +35,7 @@ export default function NotFound() {
               Portfolio
             </a>
             <span className="text-gray-300">•</span>
-            <a href="/about" className="text-accent hover:text-accent-dark transition-colors">
+            <a href="/about-us" className="text-accent hover:text-accent-dark transition-colors">
               About Us
             </a>
             <span className="text-gray-300">•</span>

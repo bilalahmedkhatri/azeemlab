@@ -171,7 +171,7 @@ This report documents all improvements made to the AzeemLab agency website based
 1. `src/components/sections/HeroSection.tsx` - Enhanced UVP and social proof
 2. `src/app/services/page.tsx` - Benefit-focused content and case study links
 3. `src/app/portfolio/[slug]/page.tsx` - Conversion-focused CTAs
-4. `src/app/about/page.tsx` - Discovery call CTA
+4. `src/app/about-us/page.tsx` - Discovery call CTA
 5. `src/app/contact/ContactForm.tsx` - Privacy notice and improvements
 
 ### Key Changes:

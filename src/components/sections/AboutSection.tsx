@@ -18,7 +18,7 @@ export const AboutSection: React.FC = () => {
               <p className="text-lg text-muted-foreground mb-8">
                 Our team of experts brings together years of experience in web design, branding, and digital marketing to help businesses of all sizes reach their full potential online.
               </p>
-              <Button href="/about" variant="outline">
+              <Button href="/about-us" variant="outline">
                 Learn More About Us
               </Button>
             </div>

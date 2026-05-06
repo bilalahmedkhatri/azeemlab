@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Azeem Lab" }],
   creator: "Azeem Lab",
   publisher: "Azeem Lab",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://azeemlab.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.azeemlab.com'),
   alternates: {
     canonical: '/',
   },
@@ -95,7 +95,7 @@ export default function RootLayout({
           '@context': 'https://schema.org',
           '@graph': [organizationSchema, websiteSchema],
         }} />
-        
+
         {/* Google Analytics (gtag.js) */}
         <Script
           async

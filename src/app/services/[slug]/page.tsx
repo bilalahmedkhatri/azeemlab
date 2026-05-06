@@ -1,21 +1,33 @@
-'use client';
-
 import React from 'react';
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
+import { Metadata } from 'next';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { services } from '@/lib/data';
-import { Check, Zap, Shield, Smartphone, Code, Sparkles, TrendingUp, Eye } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { use } from 'react';
+import { Check, Zap, Shield, Smartphone, Code, Sparkles, TrendingUp } from 'lucide-react';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export default function ServiceDetailPage({ params }: PageProps) {
-  const { slug } = use(params);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const service = services.find((s) => s.slug === slug);
+
+  if (!service) return { title: 'Service Not Found' };
+
+  return {
+    title: `${service.title} | AzeemLab`,
+    description: service.description,
+    openGraph: {
+      title: `${service.title} | AzeemLab`,
+      description: service.description,
+    },
+  };
+}
+
+export default async function ServiceDetailPage({ params }: PageProps) {
+  const { slug } = await params;
   const service = services.find((s) => s.slug === slug);
 
   if (!service) {
@@ -59,15 +71,6 @@ export default function ServiceDetailPage({ params }: PageProps) {
     }
   ] : [];
 
-  const webDesignTechnologies = slug === 'web-design' ? [
-    { name: 'Next.js', logo: '⚡' },
-    { name: 'React', logo: '⚛️' },
-    { name: 'Tailwind CSS', logo: '🎨' },
-    { name: 'TypeScript', logo: '📘' },
-    { name: 'Framer Motion', logo: '🎭' },
-    { name: 'Vercel', logo: '▲' }
-  ] : [];
-
   const webDesignBenefits = slug === 'web-design' ? [
     'Increase user engagement by up to 160%',
     'Reduce bounce rates significantly',
@@ -85,7 +88,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
       <section className="bg-gradient-to-br from-neutral-light to-white py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="text-6xl mb-6 text-center text-accent">
+            <div className="mb-6 text-center text-accent">
               <IconComponent className="w-16 h-16 mx-auto" />
             </div>
             <h1 className="font-heading text-5xl md:text-6xl font-bold text-neutral-dark mb-6 text-center">
@@ -115,10 +118,10 @@ export default function ServiceDetailPage({ params }: PageProps) {
                 <p className="text-gray-600">{service.problem}</p>
               </Card>
               <Card className="bg-accent text-white">
-                <h2 className="font-heading text-2xl font-bold text-neutral-dark mb-4">
+                <h2 className="font-heading text-2xl font-bold text-neutral-dark mb-4 text-white">
                   Our Solution
                 </h2>
-                <p className="text-gray-600">{service.solution}</p>
+                <p className="text-white opacity-90">{service.solution}</p>
               </Card>
             </div>
           </div>

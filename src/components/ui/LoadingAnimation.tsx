@@ -52,8 +52,11 @@ export default function LoadingAnimation() {
 
       {/* Content */}
       <div className="relative z-10 text-center">
+        {/* Visually hidden H1 for SEO */}
+        <h1 className="sr-only">AzeemLab - Loading...</h1>
+        
         {/* Animated brand name */}
-        <div className="flex items-center justify-center gap-1 mb-8">
+        <div className="flex items-center justify-center gap-1 mb-8" aria-hidden="true">
           {letters.map((letter, index) => (
             <motion.span
               key={index}

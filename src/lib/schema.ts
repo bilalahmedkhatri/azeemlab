@@ -1,6 +1,6 @@
 import { Organization, WebSite, Service, FAQPage, BreadcrumbList } from 'schema-dts';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://azeemlab.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.azeemlab.com';
 
 export const organizationSchema: Organization = {
   '@type': 'Organization',

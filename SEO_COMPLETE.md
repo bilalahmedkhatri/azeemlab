@@ -13,7 +13,7 @@ Your Azeem Lab website is now **fully optimized for search engines and social sh
 
 **Created Files**:
 - ✅ `src/lib/data.ts` - Added `pageMetadata` object with all SEO data
-- ✅ `src/app/about/layout.tsx` - About Us metadata
+- ✅ `src/app/about-us/layout.tsx` - About Us metadata
 - ✅ `src/app/services/layout.tsx` - Services metadata
 - ✅ `src/app/portfolio/layout.tsx` - Portfolio metadata
 - ✅ `src/app/pricing/layout.tsx` - Pricing metadata

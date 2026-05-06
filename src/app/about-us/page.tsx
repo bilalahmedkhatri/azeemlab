@@ -71,7 +71,7 @@ export default function AboutPage() {
               </div>
               <div className="relative h-96 rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/static/about/our_story.jpg"
+                  src="/static/about-us/our_story.jpg"
                   alt="Our Story - AzeemLab Team"
                   fill
                   className="object-cover"

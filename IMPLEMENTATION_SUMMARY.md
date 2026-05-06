@@ -146,7 +146,7 @@ Based on the agency website audit checklist analyzing **Strategy & Content**, **
    - Added trust builders
    - Dual CTA options
 
-4. `src/app/about/page.tsx`
+4. `src/app/about-us/page.tsx`
    - Discovery call CTA
    - Trust messaging
 

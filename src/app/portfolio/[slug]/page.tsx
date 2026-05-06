@@ -1,7 +1,7 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { caseStudies } from '@/lib/data';
@@ -15,6 +15,23 @@ export async function generateStaticParams() {
   return caseStudies.map((caseStudy) => ({
     slug: caseStudy.slug,
   }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const caseStudy = caseStudies.find((cs) => cs.slug === slug);
+
+  if (!caseStudy) return { title: 'Project Not Found' };
+
+  return {
+    title: `${caseStudy.title} | AzeemLab Case Study`,
+    description: caseStudy.challenge.substring(0, 160),
+    openGraph: {
+      title: `${caseStudy.title} | AzeemLab Case Study`,
+      description: caseStudy.challenge.substring(0, 160),
+      images: [caseStudy.heroImage],
+    },
+  };
 }
 
 export default async function CaseStudyPage({ params }: PageProps) {

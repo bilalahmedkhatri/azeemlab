@@ -70,13 +70,18 @@ export const Footer: React.FC = () => {
               Services
             </h4>
             <ul className="space-y-2">
-              {['Web Design', 'Branding', 'SEO & Marketing', 'E-commerce'].map((service, i) => (
+              {[
+                { name: 'Web Design', slug: 'web-design' },
+                { name: 'Branding', slug: 'branding' },
+                { name: 'SEO & Marketing', slug: 'seo' },
+                { name: 'E-commerce', slug: 'ecommerce' }
+              ].map((service, i) => (
                 <li key={i}>
                   <Link
-                    href={`/services/${service.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
+                    href={`/services/${service.slug}`}
                     className="text-black hover:text-accent transition-colors"
                   >
-                    {service}
+                    {service.name}
                   </Link>
                 </li>
               ))}

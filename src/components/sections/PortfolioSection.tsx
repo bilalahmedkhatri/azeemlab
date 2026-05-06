@@ -10,12 +10,12 @@ import { ArrowRight, TrendingUp, Zap, CheckCircle } from 'lucide-react';
 import Image from 'next/image';
 
 export const PortfolioSection: React.FC = () => {
-  const featuredCase = caseStudies[0];
+  const featuredCase = caseStudies[6];
 
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -39,18 +39,17 @@ export const PortfolioSection: React.FC = () => {
           <Card className="max-w-5xl mx-auto mb-12 overflow-hidden group">
             <div className="grid md:grid-cols-2">
               <div className="relative h-80 md:h-auto overflow-hidden">
-                <Image 
+                <Image
                   src={featuredCase.heroImage}
                   alt={featuredCase.title}
-                  layout="fill"
-                  objectFit="cover"
-                  className="transition-transform duration-500 group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 p-8">
-                    <h3 className="font-heading text-3xl font-bold text-white">
-                        {featuredCase.title}
-                    </h3>
+                  <h3 className="font-heading text-3xl font-bold text-white">
+                    {featuredCase.title}
+                  </h3>
                 </div>
               </div>
               <div className="p-8 flex flex-col justify-center">
@@ -59,7 +58,7 @@ export const PortfolioSection: React.FC = () => {
                 </p>
                 <div className="space-y-4 mb-8">
                   {featuredCase.results.map((result, index) => (
-                    <motion.div 
+                    <motion.div
                       key={index}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}

@@ -16,24 +16,6 @@ export const services: Service[] = [
       { title: 'Develop', description: 'Build a fast, responsive, SEO-optimized site' },
       { title: 'Deploy', description: 'Launch and provide training and support' },
     ],
-    pricing: [
-      {
-        name: 'Basic',
-        price: '$2,999',
-        features: ['5-page website', 'Responsive design', 'Basic SEO', '30-day support'],
-      },
-      {
-        name: 'Pro',
-        price: '$5,999',
-        features: ['10-page website', 'Advanced animations', 'CMS integration', 'SEO optimization', '90-day support'],
-        highlighted: true,
-      },
-      {
-        name: 'Enterprise',
-        price: 'Custom',
-        features: ['Unlimited pages', 'Custom functionality', 'E-commerce', 'Ongoing support', 'Priority updates'],
-      },
-    ],
   },
   {
     id: '2',
@@ -383,7 +365,7 @@ export const teamMembers: TeamMember[] = [
 export const pageMetadata = {
   about: {
     title: 'About Us - Our Story, Values & Mission',
-    description: 'Meet Azeem Lab - a digital agency dedicated to transparency, innovation, and results-driven solutions. Learn about our values, mission, and commitment to your success.',
+    description: 'Azeem Lab is a digital agency dedicated to transparency and innovation. Learn about our mission and commitment to delivering results-driven solutions.',
     keywords: 'about azeem lab, digital agency team, our values, company mission, transparency, innovation, partnership',
   },
   services: {

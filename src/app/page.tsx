@@ -24,8 +24,8 @@ const CTASection = dynamic(() => import('@/components/sections/CTASection').then
 });
 
 export const metadata: Metadata = {
-  title: 'Home',
-  description: 'Professional web development services specializing in modern, responsive websites and web applications.',
+  title: 'AzeemLab | Premium Web Design & Digital Growth Solutions',
+  description: 'AzeemLab transforms businesses with high-converting web design, strategic branding, and data-driven SEO solutions. Start your digital journey today.',
 };
 
 export default function Home() {
