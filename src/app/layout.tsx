@@ -111,6 +111,17 @@ export default function RootLayout({
             gtag('config', 'G-C3NLM4SBTQ');
           `}
         </Script>
+
+        <Script id="ahrefs-analytics">
+          {`
+            var ahrefs_analytics_script = document.createElement('script');
+            ahrefs_analytics_script.async = true;
+            ahrefs_analytics_script.src = 'https://analytics.ahrefs.com/analytics.js';
+            ahrefs_analytics_script.setAttribute('data-key', 'iXDHuq+9nTFqxjfb000nhw');
+            document.getElementsByTagName('head')[0].appendChild(ahrefs_analytics_script);
+          `}
+        </Script>
+
       </head>
       <body
         className={`${inter.variable} ${poppins.variable} antialiased bg-background text-foreground transition-colors duration-300 overflow-x-hidden`}
