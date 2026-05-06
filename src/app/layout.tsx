@@ -112,7 +112,7 @@ export default function RootLayout({
           `}
         </Script>
 
-        <Script id="ahrefs-analytics">
+        {/* <Script id="ahrefs-analytics">
           {`
             var ahrefs_analytics_script = document.createElement('script');
             ahrefs_analytics_script.async = true;
@@ -120,7 +120,9 @@ export default function RootLayout({
             ahrefs_analytics_script.setAttribute('data-key', 'iXDHuq+9nTFqxjfb000nhw');
             document.getElementsByTagName('head')[0].appendChild(ahrefs_analytics_script);
           `}
-        </Script>
+        </Script> */}
+
+        <script src="https://analytics.ahrefs.com/analytics.js" data-key="iXDHuq+9nTFqxjfb000nhw" async></script>
 
       </head>
       <body
