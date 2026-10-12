@@ -1,186 +1,57 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronDown } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { useScrolled } from '@/hooks/useAnimations';
+import { useEffect, useRef, useState } from 'react';
+import { ArrowUpRight, ChevronDown, Code2, Menu, X } from 'lucide-react';
 import { navLinks } from '@/lib/navigation';
+import styles from './SiteLayout.module.css';
 
-/* ================= BRAND LOGO ================= */
-const Logo: React.FC<{ small?: boolean }> = ({ small = false }) => {
-  return (
-    <Link href="/" className="flex items-center gap-3 group select-none">
-
-      {/* ICON - Code Brackets with Gradient */}
-      <div
-        className={`relative flex items-center justify-center
-        ${small ? 'w-10 h-10' : 'w-12 h-12'}`}
-      >
-        {/* Outer Glow */}
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 to-indigo-500/20 
-          rounded-lg blur-sm group-hover:blur-md transition-all" />
-        
-        {/* Main Icon Container */}
-        <div className="relative bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-600 
-          rounded-lg p-2 shadow-md group-hover:shadow-lg transition-all">
-          
-          {/* Code Brackets Symbol */}
-          <svg 
-            className={`${small ? 'w-6 h-6' : 'w-8 h-8'} text-white`}
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2.5" 
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" 
-              d="M17.25 6.75L22.5 12l-5.25 5.25M6.75 17.25L1.5 12l5.25-5.25M14.25 3.75l-4.5 16.5" />
-          </svg>
-        </div>
-      </div>
-
-      {/* TEXT */}
-      <div className="leading-tight">
-        <div
-          className={`font-extrabold uppercase tracking-wide
-          bg-clip-text text-transparent
-          bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600
-          transition-all duration-300 group-hover:from-violet-700 
-          group-hover:via-purple-700 group-hover:to-indigo-700
-          ${small ? 'text-xl' : 'text-3xl'}`}
-          style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
-        >
-          AzeemLab
-        </div>
-
-        <div
-          className={`text-[10px] uppercase tracking-[0.25em] text-gray-500
-          group-hover:text-gray-600 transition-colors
-          ${small ? 'hidden' : 'block'}`}
-        >
-          Digital Powerhouse
-        </div>
-      </div>
-    </Link>
-  );
-};
-
-/* ================= HEADER ================= */
-export const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
-
+export const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const isScrolled = useScrolled(50);
-
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const navigation = useRef<HTMLElement>(null);
+  const active = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
+  const closeMenus = () => {
+    setIsOpen(false);
+    navigation.current?.querySelectorAll('details[open]').forEach(detail => detail.removeAttribute('open'));
+  };
   useEffect(() => {
-    setIsMenuOpen(false);
-    setExpandedMobile(null);
-  }, [pathname]);
-
-  useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset';
-    return () => {
-      document.body.style.overflow = 'unset';
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+        navigation.current?.querySelectorAll('details[open]').forEach(detail => detail.removeAttribute('open'));
+        menuButton.current?.focus();
+      }
     };
-  }, [isMenuOpen]);
-
-  const isActiveLink = (href: string) =>
-    href === '/' ? pathname === '/' : pathname.startsWith(href);
-
-  const isParentActive = (link: typeof navLinks[0]) =>
-    isActiveLink(link.href) ||
-    link.children?.some((child) => isActiveLink(child.href));
+    const onOutside = (event: PointerEvent) => {
+      if (!navigation.current?.contains(event.target as Node)) {
+        setIsOpen(false);
+        navigation.current?.querySelectorAll('details[open]').forEach(detail => detail.removeAttribute('open'));
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('pointerdown', onOutside);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('pointerdown', onOutside);
+    };
+  }, []);
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300
-      ${isScrolled
-        ? 'bg-white/60 backdrop-blur-xl shadow-sm py-3'
-        : 'bg-transparent py-5'
-      }`}
-    >
-      <nav className="container mx-auto px-6">
-        <div className="flex items-center justify-between">
-
-          {/* LOGO */}
-          <Logo small={isScrolled} />
-
-          {/* DESKTOP NAV */}
-          <div className="hidden lg:flex items-center space-x-6">
-            {navLinks.map((link) => (
-              <div
-                key={link.href}
-                className="relative"
-                onMouseEnter={() =>
-                  link.children && setOpenDropdown(link.label)
-                }
-                onMouseLeave={() => setOpenDropdown(null)}
-              >
-                {link.children ? (
-                  <>
-                    <Link
-                      href={link.href}
-                      className={`flex items-center gap-1 font-medium transition-colors
-                      ${isParentActive(link)
-                        ? 'text-indigo-600'
-                        : 'text-gray-800'
-                      }`}
-                    >
-                      {link.label}
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform
-                        ${openDropdown === link.label ? 'rotate-180' : ''}`}
-                      />
-                    </Link>
-
-                    {openDropdown === link.label && (
-                      <div className="absolute top-full mt-2 w-64 rounded-xl bg-white shadow-lg border p-2">
-                        {link.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            className={`block px-4 py-2 rounded-md text-sm transition
-                            ${isActiveLink(child.href)
-                              ? 'bg-indigo-50 text-indigo-600 font-medium'
-                              : 'hover:bg-gray-100'
-                            }`}
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <Link
-                    href={link.href}
-                    className={`font-medium transition-colors
-                    ${isActiveLink(link.href)
-                      ? 'text-indigo-600'
-                      : 'text-gray-800'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                )}
-              </div>
-            ))}
-
-            <Button href="/contact" size="sm">
-              Start Project
-            </Button>
-          </div>
-
-          {/* MOBILE BUTTON */}
-          <button
-            className="lg:hidden text-gray-800 text-2xl"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            ☰
-          </button>
+    <header className={styles.header}>
+      <nav className={`container ${styles.nav}`} aria-label="Main navigation" ref={navigation}>
+        <Link href="/" className={styles.logo} aria-label="AzeemLab home" onClick={closeMenus}><span className={styles.logoMark}><Code2 size={22} strokeWidth={1.7} /></span>azeemlab<span className={styles.logoDot}>.</span></Link>
+        <button ref={menuButton} className={styles.menuButton} type="button" onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen} aria-controls="site-navigation" aria-label={isOpen ? 'Close navigation' : 'Open navigation'}>{isOpen ? <X size={22} /> : <Menu size={22} />}</button>
+        <div id="site-navigation" className={`${styles.links} ${isOpen ? styles.linksOpen : ''}`}>
+          {navLinks.filter(link => link.href !== '/contact').map(link => link.children ? (
+            <details key={link.href} className={styles.dropdown}>
+              <summary className={active(link.href) ? styles.active : ''}>{link.label}<ChevronDown size={13} /></summary>
+              <div className={styles.dropdownPanel}><Link href={link.href} onClick={closeMenus}>All services <ArrowUpRight size={14} /></Link>{link.children.map(child => <Link key={child.href} href={child.href} onClick={closeMenus} aria-current={pathname === child.href ? 'page' : undefined}>{child.label}</Link>)}</div>
+            </details>
+          ) : <Link key={link.href} href={link.href} className={active(link.href) ? styles.active : ''} aria-current={pathname === link.href ? 'page' : undefined} onClick={closeMenus}>{link.label}</Link>)}
+          <Link href="/contact" className={styles.contactButton} onClick={closeMenus}>Let’s talk <ArrowUpRight size={16} /></Link>
         </div>
       </nav>
     </header>

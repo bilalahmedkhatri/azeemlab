@@ -9,11 +9,12 @@ export const Input: React.FC<InputProps> = ({ label, error, className = '', ...p
   return (
     <div className="w-full">
       {label && (
-        <label className="block text-sm font-medium text-neutral-dark mb-2">
+        <label htmlFor={props.id || props.name} className="block text-sm font-medium text-neutral-dark mb-2">
           {label}
         </label>
       )}
       <input
+        id={props.id || props.name}
         className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all ${className}`}
         {...props}
       />
@@ -33,11 +34,12 @@ export const TextArea: React.FC<TextAreaProps> = ({ label, error, className = ''
   return (
     <div className="w-full">
       {label && (
-        <label className="block text-sm font-medium text-neutral-dark mb-2">
+        <label htmlFor={props.id || props.name} className="block text-sm font-medium text-neutral-dark mb-2">
           {label}
         </label>
       )}
       <textarea
+        id={props.id || props.name}
         className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-none ${className}`}
         {...props}
       />
@@ -59,11 +61,12 @@ export const Select: React.FC<SelectProps> = ({ label, error, options, children,
   return (
     <div className="w-full">
       {label && (
-        <label className="block text-sm font-medium text-neutral-dark mb-2">
+        <label htmlFor={props.id || props.name} className="block text-sm font-medium text-neutral-dark mb-2">
           {label}
         </label>
       )}
       <select
+        id={props.id || props.name}
         className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all ${className}`}
         {...props}
       >

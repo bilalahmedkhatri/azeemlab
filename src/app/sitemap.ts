@@ -1,35 +1,24 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
+import { services, caseStudies, blogPosts } from '@/lib/data';
+import { absoluteUrl } from '@/lib/site';
+import { agencyVisual, serviceVisuals, articleVisuals } from '@/lib/visuals';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.azeemlab.com';
-
-  const staticRoutes = [
-    '',
-    '/about-us',
-    '/services',
-    '/services/web-design',
-    '/services/branding',
-    '/services/seo',
-    '/services/ecommerce',
-    '/portfolio',
-    '/portfolio/quantumleap-ai-platform',
-    '/portfolio/greenlife-ecommerce',
-    '/portfolio/ai-letter-generator',
-    '/portfolio/blog-platform',
-    '/portfolio/linkedin-automation-bot',
-    '/careers',
-    '/process',
-    '/contact',
-    '/privacy',
-    '/terms',
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1 : route.includes('portfolio') || route.includes('services') ? 0.8 : 0.5,
-  }));
-
-  return staticRoutes;
+  const paths = [
+    '/', '/about', '/services', '/portfolio', '/blog', '/careers', '/process', '/contact', '/privacy', '/terms',
+    ...services.map(service => `/services/${service.slug}`),
+    ...services.flatMap(service => (service.locationPages || []).map(location => `/services/${service.slug}/${location.slug}`)),
+    ...caseStudies.map(project => `/portfolio/${project.slug}`),
+    ...blogPosts.map(post => `/blog/${post.slug}`),
+  ];
+  // Do not invent modification dates for pages with no maintained revision date.
+  return [...new Set(paths)].map(path => {
+    const slug = path.split('/').pop() || '';
+    const image = path === '/' ? agencyVisual.src
+      : path.startsWith('/blog/') ? articleVisuals[slug]?.src
+      : /^\/services\/[^/]+$/.test(path) ? serviceVisuals[slug]?.src
+      : path.startsWith('/portfolio/') ? caseStudies.find(project => project.slug === slug)?.heroImage
+      : undefined;
+    return { url: absoluteUrl(path), ...(image ? { images: [absoluteUrl(image)] } : {}) };
+  });
 }
-
-

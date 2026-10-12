@@ -2,14 +2,15 @@ import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/data';
 
 export const metadata: Metadata = {
-  title: pageMetadata.about.title,
+  alternates: { canonical: '/about' },
+  title: { absolute: pageMetadata.about.title },
   description: pageMetadata.about.description,
   keywords: pageMetadata.about.keywords,
   openGraph: {
     title: pageMetadata.about.title,
     description: pageMetadata.about.description,
     type: 'website',
-    url: '/about-us',
+    url: '/about',
     images: ['/og-image.png'],
   },
   twitter: {

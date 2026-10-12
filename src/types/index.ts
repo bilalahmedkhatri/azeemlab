@@ -11,6 +11,97 @@ export interface Service {
   solution: string;
   process: ProcessStep[];
   pricing?: PricingTier[];
+  faq?: FAQItem[];
+  locationPages?: LocationPage[];
+  leadMagnet?: LeadMagnet;
+  highlights?: ServiceHighlight[];
+  techStack?: string[];
+  relatedCaseStudies?: string[];
+}
+
+export interface ServiceHighlight {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface LocationPage {
+  slug: string;
+  city: string;
+  headline: string;
+  description?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  images?: LocationImage[];
+  issues?: { title: string; body: string }[];
+  paragraphs?: ContentParagraph[];
+  relatedLinks?: { text: string; href: string }[];
+  cta?: {
+    primary: string;
+    secondary: string;
+    href: string;
+  };
+}
+
+export interface LocationImage {
+  imageAfterIndex?: number | null;
+  src: string;
+  localPath: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+  loading: 'eager' | 'lazy';
+  fetchpriority: 'high' | 'auto' | 'low';
+  schema: {
+    '@type': string;
+    contentUrl: string;
+    description: string;
+    license: string;
+    creditText: string;
+  };
+  credit: string;
+  unsplashUrl: string;
+}
+
+export interface ContentParagraph {
+  id: string;
+  imageAfterIndex?: number | null;
+  text: string;
+  isHeading?: boolean;
+  headingLevel?: number;
+  heading?: string | null;
+}
+
+export interface LeadMagnet {
+  title: string;
+  description: string;
+  fileName: string;
+  ctaText: string;
+}
+
+export interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  metaTitle: string;
+  metaDescription: string;
+  excerpt: string;
+  publishDate: string;
+  readTime: string;
+  ctaText: string;
+  ctaHref: string;
+  relatedKeywords: string[];
+  internalLinks: { text: string; href: string }[];
+  hasFreeDownload?: boolean;
+  downloadFile?: string;
+  faqSection?: { q: string; a: string }[];
+  seoNote?: string;
 }
 
 export interface ProcessStep {
@@ -65,6 +156,15 @@ export interface CaseStudy {
   rating?: Rating;
   tags?: string[];
   marketFocus?: string[];
+  aiTags?: string[];
+  technicalDetails?: {
+    aiModel: string;
+    knowledgeBase: string;
+    integrations: string[];
+    deployment: string;
+    trainingTime: string;
+  };
+  internalLinkAnchors?: { text: string; href: string }[];
 }
 
 export interface Result {

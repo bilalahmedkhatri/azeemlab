@@ -2,218 +2,41 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
 import { caseStudies } from '@/lib/data';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, ChevronLeft, Calendar, Clock } from 'lucide-react';
+import { getPortfolioSections } from '@/lib/portfolio-content';
 
-interface PageProps {
-  params: Promise<{ slug: string }>;
-}
+interface PageProps { params: Promise<{ slug: string }> }
 
-export async function generateStaticParams() {
-  return caseStudies.map((caseStudy) => ({
-    slug: caseStudy.slug,
-  }));
-}
+export async function generateStaticParams() { return caseStudies.map((caseStudy) => ({ slug: caseStudy.slug })); }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const caseStudy = caseStudies.find((cs) => cs.slug === slug);
-
   if (!caseStudy) return { title: 'Project Not Found' };
-
-  return {
-    title: `${caseStudy.title} | AzeemLab Case Study`,
-    description: caseStudy.challenge.substring(0, 160),
-    openGraph: {
-      title: `${caseStudy.title} | AzeemLab Case Study`,
-      description: caseStudy.challenge.substring(0, 160),
-      images: [caseStudy.heroImage],
-    },
-  };
+  return { alternates: { canonical: `/portfolio/${slug}` }, title: { absolute: `${caseStudy.title} | AzeemLab Case Study` }, description: caseStudy.challenge.substring(0, 160), openGraph: { url: `/portfolio/${slug}`, title: `${caseStudy.title} | AzeemLab Case Study`, description: caseStudy.challenge.substring(0, 160), images: [caseStudy.heroImage || '/og-image.png'] } };
 }
 
 export default async function CaseStudyPage({ params }: PageProps) {
   const { slug } = await params;
   const caseStudy = caseStudies.find((cs) => cs.slug === slug);
-
-  if (!caseStudy) {
-    notFound();
-  }
+  if (!caseStudy) notFound();
+  const sections = getPortfolioSections(caseStudy);
+  const nextProject = caseStudies[(caseStudies.findIndex(cs => cs.slug === slug) + 1) % caseStudies.length];
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-neutral-light to-white py-20">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <span className="text-accent font-semibold text-lg">{caseStudy.category}</span>
-            <h1 className="font-heading text-5xl md:text-6xl font-bold text-neutral-dark my-6">
-              {caseStudy.title}
-            </h1>
-            <p className="text-xl text-gray-600 mb-8">Client: {caseStudy.client}</p>
-            
-            {/* Hero Image - Clickable if website URL exists */}
-            <div className="relative h-[32rem] md:h-[36rem] lg:h-[40rem] rounded-xl overflow-hidden group">
-              {caseStudy.heroImage ? (
-                <>
-                  <Image
-                    src={caseStudy.heroImage}
-                    alt={caseStudy.title}
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                  {/* Overlay with website link if available */}
-                  {caseStudy.client && caseStudy.client.includes('.') && (
-                    <a
-                      href={`https://${caseStudy.client.replace(/^https?:\/\//, '')}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-                    >
-                      <div className="bg-white text-accent px-6 py-3 rounded-full font-semibold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <ExternalLink className="w-5 h-5" />
-                        Visit Website
-                      </div>
-                    </a>
-                  )}
-                </>
-              ) : (
-                <div className="bg-gradient-to-br from-accent to-accent-dark h-full rounded-xl"></div>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Results Overview */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading text-3xl font-bold text-neutral-dark mb-8 text-center">
-              Results Achieved
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {caseStudy.results.map((result, index) => (
-                <Card key={index} className="text-center">
-                  <div className="text-5xl font-bold text-accent mb-3">{result.value}</div>
-                  <h3 className="font-heading text-xl font-bold text-neutral-dark mb-2">
-                    {result.metric}
-                  </h3>
-                  <p className="text-gray-600">{result.description}</p>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Challenge */}
-      <section className="py-20 bg-neutral-light">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading text-3xl font-bold text-neutral-dark mb-6">
-              The Challenge
-            </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">{caseStudy.challenge}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Solution */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading text-3xl font-bold text-neutral-dark mb-6">
-              Our Solution
-            </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">{caseStudy.solution}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonial */}
-      {caseStudy.testimonial && (
-        <section className="py-20 bg-gradient-to-br from-accent to-accent-dark text-white">
-          <div className="container mx-auto px-6">
-            <div className="max-w-3xl mx-auto text-center">
-              <svg
-                className="w-16 h-16 mx-auto mb-6 opacity-50"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
-              </svg>
-              <blockquote className="text-2xl font-medium mb-6 italic">
-                "{caseStudy.testimonial.quote}"
-              </blockquote>
-              <div>
-                <div className="font-bold text-lg">{caseStudy.testimonial.author}</div>
-                <div className="opacity-90">
-                  {caseStudy.testimonial.position}, {caseStudy.testimonial.company}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Next Project Navigation */}
-      <section className="py-16 border-t border-gray-100 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-              <div className="text-center md:text-left">
-                <span className="text-sm uppercase tracking-wider text-muted-foreground font-semibold">Next Case Study</span>
-                <h3 className="text-2xl md:text-3xl font-bold text-neutral-dark mt-2">
-                  {caseStudies[(caseStudies.findIndex(cs => cs.slug === slug) + 1) % caseStudies.length].title}
-                </h3>
-              </div>
-              <Button 
-                href={`/portfolio/${caseStudies[(caseStudies.findIndex(cs => cs.slug === slug) + 1) % caseStudies.length].slug}`}
-                variant="outline" 
-                size="lg"
-                className="group border-accent text-accent hover:bg-accent hover:text-white"
-              >
-                View Next Project
-                <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-accent to-accent-dark text-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">
-              Want Results Like {caseStudy.client}?
-            </h2>
-            <p className="text-xl mb-2 opacity-90">
-              They achieved <strong className="font-bold">{caseStudy.results[0].value} {caseStudy.results[0].description.toLowerCase()}</strong>
-            </p>
-            <p className="text-lg mb-8 opacity-80">
-              Let&apos;s create a custom strategy to deliver similar breakthrough results for your business.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/contact" variant="secondary" size="lg">
-                Schedule Strategy Call →
-              </Button>
-              <Button href="/services" variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-accent">
-                View Our Services
-              </Button>
-            </div>
-            <div className="mt-8 pt-6 border-t border-white border-opacity-20">
-              <p className="text-sm opacity-75">
-                ✓ Free 30-minute consultation &nbsp; • &nbsp; ✓ Custom proposal within 48 hours &nbsp; • &nbsp; ✓ No obligation
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+    <article className="min-h-screen bg-background pt-32 pb-20">
+      <div className="container mx-auto w-full max-w-7xl px-6"><div className="w-full">
+        <Link href="/portfolio" className="inline-flex items-center text-gray-500 hover:text-accent mb-12"><ChevronLeft className="w-5 h-5 mr-1" />Back to Portfolio</Link>
+        <header className="mb-12"><div className="flex flex-wrap items-center gap-5 text-gray-500 mb-6"><span className="text-accent font-semibold">{caseStudy.category}</span><span className="inline-flex items-center gap-2"><Calendar className="w-4 h-4" />Case study</span><span className="inline-flex items-center gap-2"><Clock className="w-4 h-4" />12 min read</span></div><h1 className="font-heading text-4xl md:text-6xl font-bold text-neutral-dark mb-6">{caseStudy.title}</h1><p className="text-xl text-gray-600">A documented project for {caseStudy.client}: the challenge, decisions, implementation and evidence behind the result.</p></header>
+        <div className="relative h-[24rem] md:h-[34rem] rounded-3xl overflow-hidden mb-14 bg-gradient-to-br from-accent to-accent-dark">{caseStudy.heroImage ? <Image src={caseStudy.heroImage} alt={`${caseStudy.title} project`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 1024px" priority /> : <div className="h-full" />}{caseStudy.client.includes('.') && <a href={`https://${caseStudy.client.replace(/^https?:\/\//, '')}`} target="_blank" rel="noopener noreferrer" className="absolute bottom-6 right-6 bg-white text-accent px-5 py-3 rounded-full font-semibold flex items-center gap-2"><ExternalLink className="w-4 h-4" />Visit website</a>}</div>
+        <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden mb-16"><div className="overflow-x-auto"><table className="w-full text-left"><caption className="sr-only">Results summary for {caseStudy.title}</caption><thead className="bg-neutral-light"><tr><th className="px-6 py-4 font-bold text-neutral-dark">Measure</th><th className="px-6 py-4 font-bold text-neutral-dark">Recorded result</th><th className="px-6 py-4 font-bold text-neutral-dark">Context</th></tr></thead><tbody>{caseStudy.results.map((result) => <tr key={result.metric} className="border-t border-gray-100"><th scope="row" className="px-6 py-4 text-neutral-dark">{result.metric}</th><td className="px-6 py-4 text-accent font-bold">{result.value}</td><td className="px-6 py-4 text-gray-600">{result.description}</td></tr>)}</tbody></table></div></div>
+        <div className="prose prose-lg max-w-5xl mx-auto text-gray-600">{sections.map(([heading, text]) => <section key={heading} className="mb-10"><h2 className="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">{heading}</h2><p className="leading-relaxed">{text}</p></section>)}</div>
+        {caseStudy.testimonial && <blockquote className="my-16 rounded-3xl bg-accent p-10 text-white text-xl italic">“{caseStudy.testimonial.quote}”<footer className="mt-5 text-base not-italic font-semibold">{caseStudy.testimonial.author}, {caseStudy.testimonial.position}</footer></blockquote>}
+        <footer className="border-t border-gray-200 pt-12 mt-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"><div><p className="text-sm uppercase tracking-wider text-gray-500 font-semibold">Next case study</p><h2 className="text-2xl font-bold text-neutral-dark mt-2">{nextProject.title}</h2></div><Button href={`/portfolio/${nextProject.slug}`} variant="outline">Read next project <ExternalLink className="w-4 h-4 ml-2" /></Button></footer>
+      </div></div>
+    </article>
   );
 }

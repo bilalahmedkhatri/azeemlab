@@ -17,13 +17,14 @@ const servicesNavItems = services.map(service => ({
 
 export const navLinks: NavLink[] = [
   { href: '/', label: 'Home' },
-  { 
-    href: '/services', 
+  {
+    href: '/services',
     label: 'Services',
     children: servicesNavItems
   },
   { href: '/portfolio', label: 'Portfolio' },
+  { href: '/blog', label: 'Blog' },
   { href: '/process', label: 'Process' },
-  { href: '/about-us', label: 'About' },
+  { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];

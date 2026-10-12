@@ -1,17 +1,16 @@
 import { Organization, WebSite, Service, FAQPage, BreadcrumbList } from 'schema-dts';
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.azeemlab.com';
+import { siteUrl } from './site';
 
 export const organizationSchema: Organization = {
   '@type': 'Organization',
   '@id': `${siteUrl}/#organization`,
-  name: 'Azeem Lab',
+  name: 'AzeemLab',
   url: siteUrl,
-  logo: `${siteUrl}/logo.png`,
+  logo: `${siteUrl}/brand-mark.svg`,
   sameAs: [
-    'https://twitter.com/AzeemLab',
-    'https://linkedin.com/company/AzeemLab',
-    'https://github.com/AzeemLab',
+    'https://www.linkedin.com/company/azeem-lab/',
+    'https://www.facebook.com/azeemlab.0',
+    'https://www.instagram.com/azeem.lab/',
   ],
   contactPoint: {
     '@type': 'ContactPoint',
@@ -42,7 +41,7 @@ export const websiteSchema: WebSite = {
   '@type': 'WebSite',
   '@id': `${siteUrl}/#website`,
   url: siteUrl,
-  name: 'Azeem Lab',
+  name: 'AzeemLab',
   description: 'Transform your vision into powerful digital solutions with custom web design, development, and branding services.',
   publisher: {
     '@id': `${siteUrl}/#organization`,

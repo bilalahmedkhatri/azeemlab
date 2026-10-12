@@ -2,7 +2,8 @@ import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/data';
 
 export const metadata: Metadata = {
-  title: pageMetadata.privacy.title,
+  alternates: { canonical: '/privacy' },
+  title: { absolute: pageMetadata.privacy.title },
   description: pageMetadata.privacy.description,
   keywords: pageMetadata.privacy.keywords,
   openGraph: {

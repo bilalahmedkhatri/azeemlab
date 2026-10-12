@@ -1,70 +1,36 @@
 import { NextResponse } from 'next/server';
 
-// 1. Define the TypeScript structure for the contact form data
-interface ContactFormData {
-  name: string;
-  email: string;
-  phone?: string; // Optional field
-  projectType: string;
-  message: string;
-}
+const projectTypes = new Set(['web-design', 'branding', 'seo', 'ecommerce', 'ai-integrations', 'ai-automation', 'consulting', 'other']);
 
 export async function POST(request: Request) {
+  let body: Record<string, unknown>;
   try {
-    // 2. Receive and type-cast the incoming body
-    const body: ContactFormData = await request.json();
-
-    const complete_message = `
-      *🚀 New Project Inquiry*
-      --------------------------------
-      *👤 Name:* ${body.name}
-      *📧 Email:* ${body.email}
-      *📞 Phone:* ${body.phone || 'Not provided'}
-      *💼 Project:* ${body.projectType}
-
-      *📝 Message:*
-      ${body.message}
-      --------------------------------
-      _Sent from Website Contact Form_`.trim();
-
-    // 2. Prepare the payload for your Backend API
-    const payload = {
-      number: body.phone, // YOUR destination WhatsApp number (country code, no +)
-      message: complete_message
-    };
-
-    // 3. Use an environment variable for the endpoint (Better for security/switching envs)
-    // Fallback to localhost if the variable isn't set
-    const EXTERNAL_API_URL = process.env.WHATSAPP_API_URL || 'http://localhost:8080/api/v1';
-
-    const response = await fetch(EXTERNAL_API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
+    const raw = await request.text();
+    if (raw.length > 16000) return NextResponse.json({ error: 'Message is too large.' }, { status: 413 });
+    const parsed: unknown = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) throw new Error('Invalid object');
+    body = parsed as Record<string, unknown>;
+  } catch {
+    return NextResponse.json({ error: 'Please send valid form data.' }, { status: 400 });
+  }
+  const text = (key: string) => typeof body[key] === 'string' ? (body[key] as string).trim() : '';
+  const name = text('name'), email = text('email'), phone = text('phone'), projectType = text('projectType'), message = text('message');
+  if (!name || name.length > 120 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254 || phone.length > 60 || !projectTypes.has(projectType) || message.length < 10 || message.length > 5000) {
+    return NextResponse.json({ error: 'Please check your name, email, service and project details (10–5,000 characters).' }, { status: 400 });
+  }
+  const endpoint = process.env.WHATSAPP_API_URL;
+  if (!endpoint) return NextResponse.json({ error: 'The enquiry form is temporarily unavailable. Please email bilalahmedkhatri@outlook.com.' }, { status: 503 });
+  try {
+    const response = await fetch(endpoint, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      // A visitor's phone is contact information, never the delivery destination.
+      body: JSON.stringify({ number: process.env.WHATSAPP_RECIPIENT_NUMBER || '923213009321', message: `New AzeemLab project enquiry\nName: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\nService: ${projectType}\n\n${message}` }),
+      signal: AbortSignal.timeout(10000),
     });
-
     const result = await response.json();
-
-    // 4. Handle external API failure
-    if (!response.ok) {
-      throw new Error(result.error || 'External message service failed');
-    }
-
-    return NextResponse.json({
-      success: true,
-      message: 'Message processed successfully',
-      data: result
-    });
-
-  } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    console.error('API_PROXY_ERROR:', errorMessage);
-
-    return NextResponse.json(
-      { error: 'Internal server error while forwarding message' },
-      { status: 500 }
-    );
+    if (!response.ok || result?.success !== true || result.error) throw new Error('Delivery failed');
+    return NextResponse.json({ success: true });
+  } catch {
+    return NextResponse.json({ error: 'Your enquiry could not be delivered. Please email bilalahmedkhatri@outlook.com.' }, { status: 502 });
   }
 }

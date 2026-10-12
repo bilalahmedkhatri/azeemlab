@@ -2,7 +2,8 @@ import { Metadata } from 'next';
 import { pageMetadata } from '@/lib/data';
 
 export const metadata: Metadata = {
-  title: pageMetadata.portfolio.title,
+  alternates: { canonical: '/portfolio' },
+  title: { absolute: pageMetadata.portfolio.title },
   description: pageMetadata.portfolio.description,
   keywords: pageMetadata.portfolio.keywords,
   openGraph: {

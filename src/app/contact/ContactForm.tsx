@@ -13,6 +13,7 @@ export default function ContactForm() {
     message: ''
   });
 
+  const [errorMessage, setErrorMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
@@ -20,10 +21,11 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setErrorMessage('');
 
     try {
       // Points to your general Next.js API route
-      const response = await fetch('/azeemlab-send-msg-to-w8sapp', {
+      const response = await fetch('/api/whatsapp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,9 +33,12 @@ export default function ContactForm() {
         body: JSON.stringify(formData),
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to send message');
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Your enquiry could not be delivered.');
       }
+      const analytics = window as Window & { gtag?: (...args: unknown[]) => void };
+      analytics.gtag?.('event', 'generate_lead', { method: 'contact_form', service: formData.projectType });
 
       setSubmitStatus('success');
       // Reset all fields
@@ -45,11 +50,11 @@ export default function ContactForm() {
         message: ''
       });
     } catch (error) {
-      console.error('Submission error:', error);
+      setErrorMessage(error instanceof Error ? error.message : 'Your enquiry could not be delivered.');
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus('idle'), 5000);
+
     }
   };
 
@@ -64,6 +69,8 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       <Input
         label="Name"
+        autoComplete="name"
+        maxLength={120}
         name="name"
         value={formData.name}
         onChange={handleChange}
@@ -74,6 +81,8 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Input
           label="Email"
+          autoComplete="email"
+          maxLength={254}
           type="email"
           name="email"
           value={formData.email}
@@ -83,12 +92,13 @@ export default function ContactForm() {
         />
 
         <Input
-          label="Phone Number"
+          label="Phone number (optional)"
+          autoComplete="tel"
+          maxLength={60}
           type="tel"
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          required
           placeholder="+92 300 1234567"
         />
       </div>
@@ -105,6 +115,8 @@ export default function ContactForm() {
         <option value="branding">Branding & Identity</option>
         <option value="seo">SEO & Marketing</option>
         <option value="ecommerce">E-Commerce Solutions</option>
+        <option value="ai-integrations">AI Chatbots & Integration</option>
+        <option value="ai-automation">Business Workflow Automation</option>
         <option value="consulting">Strategy Consulting</option>
         <option value="other">Other</option>
       </Select>
@@ -116,6 +128,8 @@ export default function ContactForm() {
         onChange={handleChange}
         required
         placeholder="Share details about your goals, timeline, and any specific requirements..."
+        minLength={10}
+        maxLength={5000}
         rows={6}
       />
 
@@ -127,21 +141,21 @@ export default function ContactForm() {
           <div className="text-sm text-gray-600">
             <strong className="text-neutral-dark">🔒 Your Privacy Matters</strong>
             <p className="mt-1">
-              We respect your privacy and will never share your information. Data is processed securely via our automated WhatsApp gateway.
+              Your details are used to respond to your project enquiry. <a href="/privacy" className="underline">Read our privacy policy</a> for more information.
             </p>
           </div>
         </div>
       </div>
 
       {submitStatus === 'success' && (
-        <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
-          <strong>✓ Message sent successfully!</strong> It has been forwarded to our WhatsApp.
+        <div role="status" className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
+          <strong>✓ Message sent successfully!</strong> Your enquiry has been delivered to our team.
         </div>
       )}
 
       {submitStatus === 'error' && (
-        <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
-          <strong>✗ Something went wrong.</strong> Please try again or email us directly at bilalahmedkhatri@outlook.com
+        <div role="alert" className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
+          <strong>Enquiry not delivered.</strong> {errorMessage} <a className="underline" href="mailto:bilalahmedkhatri@outlook.com">Email our team</a>.
         </div>
       )}
 
@@ -152,14 +166,14 @@ export default function ContactForm() {
         className="w-full"
         disabled={isSubmitting}
       >
-        {isSubmitting ? 'Sending to WhatsApp...' : 'Send My Inquiry →'}
+        {isSubmitting ? 'Sending enquiry…' : 'Send My Inquiry →'}
       </Button>
 
       <div className="flex items-center gap-2 text-sm text-gray-600">
         <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-        <span><strong>Quick Response:</strong> We typically reply within 2-4 business hours</span>
+        <span>Share your goals and preferred timeline so we can discuss the next steps.</span>
       </div>
     </form>
   );

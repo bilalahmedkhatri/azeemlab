@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
 import "../styles/globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -10,21 +9,8 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ChatbotLoader } from "@/components/chatbot/ChatbotLoader";
 import Script from "next/script";
+import { siteUrl } from '@/lib/site';
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: 'swap',
-  preload: true,
-});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: 'swap',
-  preload: true,
-});
 export const metadata: Metadata = {
   title: {
     default: "Azeem Lab - Transform Your Vision Into Powerful Digital Solutions",
@@ -35,10 +21,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Azeem Lab" }],
   creator: "Azeem Lab",
   publisher: "Azeem Lab",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.azeemlab.com'),
-  alternates: {
-    canonical: '/',
-  },
+  metadataBase: new URL(siteUrl),
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -57,8 +40,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@AzeemLab',
-    creator: '@AzeemLab',
     title: 'Azeem Lab - Transform Your Vision Into Powerful Digital Solutions',
     description: 'Expert web design, development, branding, and digital solutions.',
     images: ['/og-image.png'],
@@ -100,9 +81,9 @@ export default function RootLayout({
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-C3NLM4SBTQ"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -112,24 +93,14 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* <Script id="ahrefs-analytics">
-          {`
-            var ahrefs_analytics_script = document.createElement('script');
-            ahrefs_analytics_script.async = true;
-            ahrefs_analytics_script.src = 'https://analytics.ahrefs.com/analytics.js';
-            ahrefs_analytics_script.setAttribute('data-key', 'iXDHuq+9nTFqxjfb000nhw');
-            document.getElementsByTagName('head')[0].appendChild(ahrefs_analytics_script);
-          `}
-        </Script> */}
 
-        <script src="https://analytics.ahrefs.com/analytics.js" data-key="iXDHuq+9nTFqxjfb000nhw" async></script>
+        <Script id="ahrefs-analytics" src="https://analytics.ahrefs.com/analytics.js" data-key="iXDHuq+9nTFqxjfb000nhw" strategy="lazyOnload" />
 
       </head>
-      <body
-        className={`${inter.variable} ${poppins.variable} antialiased bg-background text-foreground transition-colors duration-300 overflow-x-hidden`}
-      >
+      <body className="antialiased bg-background text-foreground transition-colors duration-300 overflow-x-hidden">
+        {/* <a className="skip-link" href="#main-content">Skip to content</a> */}
         <Header />
-        <main className="min-h-screen flex flex-col">
+        <main id="main-content" className="min-h-screen flex flex-col">
           {children}
         </main>
         <Footer />
