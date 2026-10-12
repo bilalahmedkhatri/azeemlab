@@ -37,7 +37,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-neutral-light to-white py-20">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-7xl mx-auto text-center">
             <h1 className="font-heading text-5xl md:text-6xl font-bold text-neutral-dark mb-6">
               About <span className="text-accent">AzeemLab</span>
             </h1>
@@ -307,7 +307,7 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-accent to-accent-dark text-white">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-7xl mx-auto text-center">
             <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">
               Willing to JOIN US?
             </h2>

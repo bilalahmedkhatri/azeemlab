@@ -39,7 +39,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
-          className="max-w-3xl mx-auto"
+          className="max-w-7xl mx-auto"
         >
           <motion.div variants={fadeInUp} className="text-center mb-12">
             <h2 className="font-heading text-4xl md:text-5xl font-bold text-neutral-dark mb-4">
@@ -103,7 +103,7 @@ const FAQItem: React.FC<{ faq: FAQ; isOpen: boolean; onClick: () => void }> = ({
           <FiChevronDown className="w-6 h-6 text-accent" />
         </motion.div>
       </button>
-      
+
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div

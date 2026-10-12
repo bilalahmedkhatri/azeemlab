@@ -525,7 +525,7 @@ export default function CareersClientPage() {
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
                                 className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 hover:border-accent/30 hover:-translate-y-1"
-              >
+                            >
                                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
                                     <div>
                                         <h3 className="font-heading text-2xl font-bold text-neutral-dark mb-2">
@@ -564,7 +564,7 @@ export default function CareersClientPage() {
             {/* Job Details Modal */}
             <AnimatePresence>
                 {selectedJob && (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -580,103 +580,103 @@ export default function CareersClientPage() {
                             className="bg-white rounded-2xl max-w-4xl w-full my-8 max-h-[90vh] overflow-y-auto"
                             onClick={(e) => e.stopPropagation()}
                         >
-                        <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-start">
-                            <div>
-                                <h2 className="font-heading text-3xl font-bold text-neutral-dark mb-2">
-                                    {selectedJob.title}
-                                </h2>
-                                <div className="flex flex-wrap gap-3 text-sm text-gray-600">
-                                    <span className="flex items-center gap-1">
-                                        <Briefcase className="w-4 h-4" />
-                                        {selectedJob.department}
-                                    </span>
-                                    <span className="flex items-center gap-1">
-                                        <MapPin className="w-4 h-4" />
-                                        {selectedJob.location}
-                                    </span>
-                                    <span className="flex items-center gap-1">
-                                        <Clock className="w-4 h-4" />
-                                        {selectedJob.type}
-                                    </span>
+                            <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-start">
+                                <div>
+                                    <h2 className="font-heading text-3xl font-bold text-neutral-dark mb-2">
+                                        {selectedJob.title}
+                                    </h2>
+                                    <div className="flex flex-wrap gap-3 text-sm text-gray-600">
+                                        <span className="flex items-center gap-1">
+                                            <Briefcase className="w-4 h-4" />
+                                            {selectedJob.department}
+                                        </span>
+                                        <span className="flex items-center gap-1">
+                                            <MapPin className="w-4 h-4" />
+                                            {selectedJob.location}
+                                        </span>
+                                        <span className="flex items-center gap-1">
+                                            <Clock className="w-4 h-4" />
+                                            {selectedJob.type}
+                                        </span>
+                                    </div>
+                                </div>
+                                <button
+                                    onClick={() => setSelectedJob(null)}
+                                    className="text-gray-400 hover:text-gray-600 text-3xl leading-none transition-all hover:rotate-90 hover:scale-110"
+                                >
+                                    ×
+                                </button>
+                            </div>
+
+                            <div className="p-6 space-y-8">
+                                <div>
+                                    <h3 className="font-heading text-xl font-bold mb-4">About the Role</h3>
+                                    <p className="text-gray-600 leading-relaxed">{selectedJob.description}</p>
+                                </div>
+
+                                <div>
+                                    <h3 className="font-heading text-xl font-bold mb-4">Responsibilities</h3>
+                                    <ul className="space-y-3">
+                                        {selectedJob.responsibilities.map((item, index) => (
+                                            <li key={index} className="flex items-start gap-3">
+                                                <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                                                <span className="text-gray-600">{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h3 className="font-heading text-xl font-bold mb-4">Requirements</h3>
+                                    <ul className="space-y-3">
+                                        {selectedJob.requirements.map((item, index) => (
+                                            <li key={index} className="flex items-start gap-3">
+                                                <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                                                <span className="text-gray-600">{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h3 className="font-heading text-xl font-bold mb-4">Benefits</h3>
+                                    <ul className="space-y-3">
+                                        {selectedJob.benefits.map((item, index) => (
+                                            <li key={index} className="flex items-start gap-3">
+                                                <Heart className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                                                <span className="text-gray-600">{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div className="flex gap-4 pt-4">
+                                    <Button
+                                        onClick={handleApplyClick}
+                                        size="lg"
+                                        className="flex-1 transition-all hover:scale-105"
+                                    >
+                                        Apply for This Position
+                                    </Button>
+                                    <Button
+                                        onClick={() => setSelectedJob(null)}
+                                        variant="outline"
+                                        size="lg"
+                                        className="flex-1 transition-all hover:scale-105"
+                                    >
+                                        Close
+                                    </Button>
                                 </div>
                             </div>
-                            <button
-                                onClick={() => setSelectedJob(null)}
-                                className="text-gray-400 hover:text-gray-600 text-3xl leading-none transition-all hover:rotate-90 hover:scale-110"
-                            >
-                                ×
-                            </button>
-                        </div>
-
-                        <div className="p-6 space-y-8">
-                            <div>
-                                <h3 className="font-heading text-xl font-bold mb-4">About the Role</h3>
-                                <p className="text-gray-600 leading-relaxed">{selectedJob.description}</p>
-                            </div>
-
-                            <div>
-                                <h3 className="font-heading text-xl font-bold mb-4">Responsibilities</h3>
-                                <ul className="space-y-3">
-                                    {selectedJob.responsibilities.map((item, index) => (
-                                        <li key={index} className="flex items-start gap-3">
-                                            <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                                            <span className="text-gray-600">{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div>
-                                <h3 className="font-heading text-xl font-bold mb-4">Requirements</h3>
-                                <ul className="space-y-3">
-                                    {selectedJob.requirements.map((item, index) => (
-                                        <li key={index} className="flex items-start gap-3">
-                                            <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                                            <span className="text-gray-600">{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div>
-                                <h3 className="font-heading text-xl font-bold mb-4">Benefits</h3>
-                                <ul className="space-y-3">
-                                    {selectedJob.benefits.map((item, index) => (
-                                        <li key={index} className="flex items-start gap-3">
-                                            <Heart className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                                            <span className="text-gray-600">{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div className="flex gap-4 pt-4">
-                                <Button
-                                    onClick={handleApplyClick}
-                                    size="lg"
-                                    className="flex-1 transition-all hover:scale-105"
-                                >
-                                    Apply for This Position
-                                </Button>
-                                <Button
-                                    onClick={() => setSelectedJob(null)}
-                                    variant="outline"
-                                    size="lg"
-                                    className="flex-1 transition-all hover:scale-105"
-                                >
-                                    Close
-                                </Button>
-                            </div>
-                        </div>
+                        </motion.div>
                     </motion.div>
-                </motion.div>
                 )}
             </AnimatePresence>
 
             {/* Application Form Modal */}
             <AnimatePresence mode="wait">
                 {showApplicationForm && jobForApplication && (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -692,263 +692,263 @@ export default function CareersClientPage() {
                             className="bg-white rounded-2xl max-w-3xl w-full my-8 max-h-[90vh] overflow-y-auto"
                             onClick={(e) => e.stopPropagation()}
                         >
-                                    {submitSuccess ? (
-                                        <div className="p-12 text-center">
-                                            <motion.div
-                                                initial={{ scale: 0 }}
-                                                animate={{ scale: 1 }}
-                                                transition={{ type: "spring", duration: 0.5 }}
+                            {submitSuccess ? (
+                                <div className="p-12 text-center">
+                                    <motion.div
+                                        initial={{ scale: 0 }}
+                                        animate={{ scale: 1 }}
+                                        transition={{ type: "spring", duration: 0.5 }}
+                                    >
+                                        <CheckCircle2 className="w-20 h-20 text-green-500 mx-auto mb-6" />
+                                    </motion.div>
+                                    <h2 className="font-heading text-3xl font-bold text-neutral-dark mb-4">
+                                        Application Submitted!
+                                    </h2>
+                                    <p className="text-xl text-gray-600 mb-2">
+                                        Thank you for applying to the {jobForApplication.title} position.
+                                    </p>
+                                    <p className="text-gray-500">
+                                        We'll review your application and get back to you within 5-7 business days.
+                                    </p>
+                                </div>
+                            ) : (
+                                <>
+                                    <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-start rounded-t-2xl">
+                                        <div className="flex items-center gap-4">
+                                            <button
+                                                onClick={handleBackToJobDetails}
+                                                className="text-gray-400 hover:text-gray-600 transition-colors"
+                                                title="Back to job details"
                                             >
-                                                <CheckCircle2 className="w-20 h-20 text-green-500 mx-auto mb-6" />
-                                            </motion.div>
-                                            <h2 className="font-heading text-3xl font-bold text-neutral-dark mb-4">
-                                                Application Submitted!
-                                            </h2>
-                                            <p className="text-xl text-gray-600 mb-2">
-                                                Thank you for applying to the {jobForApplication.title} position.
-                                            </p>
-                                            <p className="text-gray-500">
-                                                We'll review your application and get back to you within 5-7 business days.
-                                            </p>
-                                        </div>
-                                    ) : (
-                                        <>
-                                            <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-start rounded-t-2xl">
-                                                <div className="flex items-center gap-4">
-                                                    <button
-                                                        onClick={handleBackToJobDetails}
-                                                        className="text-gray-400 hover:text-gray-600 transition-colors"
-                                                        title="Back to job details"
-                                                    >
-                                                        <ChevronRight className="w-6 h-6 rotate-180" />
-                                                    </button>
-                                                    <div>
-                                                        <h2 className="font-heading text-2xl font-bold text-neutral-dark mb-2">
-                                                            Apply for {jobForApplication.title}
-                                                        </h2>
-                                                        <p className="text-gray-600">Fill out the form below to submit your application</p>
-                                                    </div>
-                                                </div>
-                                                <button
-                                                    onClick={closeApplicationForm}
-                                                    className="text-gray-400 hover:text-gray-600 text-3xl leading-none"
-                                                >
-                                                    ×
-                                                </button>
+                                                <ChevronRight className="w-6 h-6 rotate-180" />
+                                            </button>
+                                            <div>
+                                                <h2 className="font-heading text-2xl font-bold text-neutral-dark mb-2">
+                                                    Apply for {jobForApplication.title}
+                                                </h2>
+                                                <p className="text-gray-600">Fill out the form below to submit your application</p>
                                             </div>
+                                        </div>
+                                        <button
+                                            onClick={closeApplicationForm}
+                                            className="text-gray-400 hover:text-gray-600 text-3xl leading-none"
+                                        >
+                                            ×
+                                        </button>
+                                    </div>
 
-                                            <form onSubmit={handleSubmitApplication} className="p-6 space-y-6">
-                                                {/* Personal Information */}
-                                                <div>
-                                                    <h3 className="font-heading text-lg font-bold mb-4 text-neutral-dark">Personal Information</h3>
-                                                    <div className="grid md:grid-cols-2 gap-4">
-                                                        <div>
-                                                            <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                                Full Name <span className="text-red-500">*</span>
-                                                            </label>
-                                                            <input
-                                                                type="text"
-                                                                name="fullName"
-                                                                value={formData.fullName}
-                                                                onChange={handleInputChange}
-                                                                required
-                                                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
-                                                                placeholder="John Doe"
-                                                            />
-                                                        </div>
-                                                        <div>
-                                                            <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                                Email Address <span className="text-red-500">*</span>
-                                                            </label>
-                                                            <input
-                                                                type="email"
-                                                                name="email"
-                                                                value={formData.email}
-                                                                onChange={handleInputChange}
-                                                                required
-                                                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
-                                                                placeholder="john@example.com"
-                                                            />
-                                                        </div>
-                                                        <div>
-                                                            <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                                Phone Number <span className="text-red-500">*</span>
-                                                            </label>
-                                                            <input
-                                                                type="tel"
-                                                                name="phone"
-                                                                value={formData.phone}
-                                                                onChange={handleInputChange}
-                                                                required
-                                                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
-                                                                placeholder="+1 (555) 123-4567"
-                                                            />
-                                                        </div>
-                                                        <div>
-                                                            <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                                LinkedIn Profile
-                                                            </label>
-                                                            <input
-                                                                type="url"
-                                                                name="linkedIn"
-                                                                value={formData.linkedIn}
-                                                                onChange={handleInputChange}
-                                                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
-                                                                placeholder="linkedin.com/in/johndoe"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                {/* Professional Information */}
-                                                <div>
-                                                    <h3 className="font-heading text-lg font-bold mb-4 text-neutral-dark">Professional Information</h3>
-                                                    <div className="space-y-4">
-                                                        <div>
-                                                            <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                                Portfolio / Website
-                                                            </label>
-                                                            <input
-                                                                type="url"
-                                                                name="portfolio"
-                                                                value={formData.portfolio}
-                                                                onChange={handleInputChange}
-                                                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
-                                                                placeholder="https://yourportfolio.com"
-                                                            />
-                                                        </div>
-                                                        <div className="grid md:grid-cols-2 gap-4">
-                                                            <div>
-                                                                <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                                    Years of Experience <span className="text-red-500">*</span>
-                                                                </label>
-                                                                <select
-                                                                    name="experience"
-                                                                    value={formData.experience}
-                                                                    onChange={handleInputChange}
-                                                                    required
-                                                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
-                                                                >
-                                                                    <option value="">Select...</option>
-                                                                    <option value="0-1">0-1 years</option>
-                                                                    <option value="1-3">1-3 years</option>
-                                                                    <option value="3-5">3-5 years</option>
-                                                                    <option value="5-10">5-10 years</option>
-                                                                    <option value="10+">10+ years</option>
-                                                                </select>
-                                                            </div>
-                                                            <div>
-                                                                <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                                    When can you start? <span className="text-red-500">*</span>
-                                                                </label>
-                                                                <select
-                                                                    name="availability"
-                                                                    value={formData.availability}
-                                                                    onChange={handleInputChange}
-                                                                    required
-                                                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
-                                                                >
-                                                                    <option value="">Select...</option>
-                                                                    <option value="immediately">Immediately</option>
-                                                                    <option value="2-weeks">2 weeks notice</option>
-                                                                    <option value="1-month">1 month notice</option>
-                                                                    <option value="2-months">2 months notice</option>
-                                                                    <option value="flexible">Flexible</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div>
-                                                            <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                                Expected Salary Range (Annual)
-                                                            </label>
-                                                            <input
-                                                                type="text"
-                                                                name="expectedSalary"
-                                                                value={formData.expectedSalary}
-                                                                onChange={handleInputChange}
-                                                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
-                                                                placeholder="e.g., $80,000 - $100,000"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                {/* Resume/Portfolio Link */}
+                                    <form onSubmit={handleSubmitApplication} className="p-6 space-y-6">
+                                        {/* Personal Information */}
+                                        <div>
+                                            <h3 className="font-heading text-lg font-bold mb-4 text-neutral-dark">Personal Information</h3>
+                                            <div className="grid md:grid-cols-2 gap-4">
                                                 <div>
                                                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                        Resume/Portfolio Link (Optional)
+                                                        Full Name <span className="text-red-500">*</span>
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        name="fullName"
+                                                        value={formData.fullName}
+                                                        onChange={handleInputChange}
+                                                        required
+                                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                                                        placeholder="John Doe"
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                        Email Address <span className="text-red-500">*</span>
+                                                    </label>
+                                                    <input
+                                                        type="email"
+                                                        name="email"
+                                                        value={formData.email}
+                                                        onChange={handleInputChange}
+                                                        required
+                                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                                                        placeholder="john@example.com"
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                        Phone Number <span className="text-red-500">*</span>
+                                                    </label>
+                                                    <input
+                                                        type="tel"
+                                                        name="phone"
+                                                        value={formData.phone}
+                                                        onChange={handleInputChange}
+                                                        required
+                                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                                                        placeholder="+1 (555) 123-4567"
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                        LinkedIn Profile
                                                     </label>
                                                     <input
                                                         type="url"
-                                                        name="resume"
-                                                        value={formData.resume}
+                                                        name="linkedIn"
+                                                        value={formData.linkedIn}
                                                         onChange={handleInputChange}
-                                                        placeholder="https://drive.google.com/... or https://your-portfolio.com/resume.pdf"
                                                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                                                        placeholder="linkedin.com/in/johndoe"
                                                     />
-                                                    <p className="text-sm text-gray-500 mt-1">Share a link to your resume (Google Drive, Dropbox, etc.) or portfolio</p>
                                                 </div>
+                                            </div>
+                                        </div>
 
-                                                {/* Why Join Us */}
+                                        {/* Professional Information */}
+                                        <div>
+                                            <h3 className="font-heading text-lg font-bold mb-4 text-neutral-dark">Professional Information</h3>
+                                            <div className="space-y-4">
                                                 <div>
                                                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                        Why do you want to join AzeemLab? <span className="text-red-500">*</span>
+                                                        Portfolio / Website
                                                     </label>
-                                                    <textarea
-                                                        name="whyJoin"
-                                                        value={formData.whyJoin}
+                                                    <input
+                                                        type="url"
+                                                        name="portfolio"
+                                                        value={formData.portfolio}
                                                         onChange={handleInputChange}
-                                                        required
-                                                        rows={4}
-                                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent resize-none"
-                                                        placeholder="Tell us what excites you about this opportunity and why you'd be a great fit for our team..."
+                                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                                                        placeholder="https://yourportfolio.com"
                                                     />
                                                 </div>
+                                                <div className="grid md:grid-cols-2 gap-4">
+                                                    <div>
+                                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                            Years of Experience <span className="text-red-500">*</span>
+                                                        </label>
+                                                        <select
+                                                            name="experience"
+                                                            value={formData.experience}
+                                                            onChange={handleInputChange}
+                                                            required
+                                                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                                                        >
+                                                            <option value="">Select...</option>
+                                                            <option value="0-1">0-1 years</option>
+                                                            <option value="1-3">1-3 years</option>
+                                                            <option value="3-5">3-5 years</option>
+                                                            <option value="5-10">5-10 years</option>
+                                                            <option value="10+">10+ years</option>
+                                                        </select>
+                                                    </div>
+                                                    <div>
+                                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                            When can you start? <span className="text-red-500">*</span>
+                                                        </label>
+                                                        <select
+                                                            name="availability"
+                                                            value={formData.availability}
+                                                            onChange={handleInputChange}
+                                                            required
+                                                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                                                        >
+                                                            <option value="">Select...</option>
+                                                            <option value="immediately">Immediately</option>
+                                                            <option value="2-weeks">2 weeks notice</option>
+                                                            <option value="1-month">1 month notice</option>
+                                                            <option value="2-months">2 months notice</option>
+                                                            <option value="flexible">Flexible</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                        Expected Salary Range (Annual)
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        name="expectedSalary"
+                                                        value={formData.expectedSalary}
+                                                        onChange={handleInputChange}
+                                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                                                        placeholder="e.g., $80,000 - $100,000"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                                {/* Submit Buttons */}
-                                                <div className="flex gap-4 pt-4">
-                                                    <button
-                                                        type="submit"
-                                                        disabled={isSubmitting}
-                                                        className="flex-1 bg-accent hover:bg-accent-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                                                    >
-                                                        {isSubmitting ? (
-                                                            <>
-                                                                <motion.div
-                                                                    animate={{ rotate: 360 }}
-                                                                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                                                                >
-                                                                    <Send className="w-5 h-5" />
-                                                                </motion.div>
-                                                                Submitting...
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <Send className="w-5 h-5" />
-                                                                Submit Application
-                                                            </>
-                                                        )}
-                                                    </button>
-                                                    <button
-                                                        type="button"
-                                                        onClick={closeApplicationForm}
-                                                        className="flex-1 border border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold py-3 px-6 rounded-lg transition-colors"
-                                                    >
-                                                        Cancel
-                                                    </button>
-                                </div>
-                            </form>
-                        </>
-                    )}
-                </motion.div>
-            </motion.div>
-        )}
-    </AnimatePresence>
+                                        {/* Resume/Portfolio Link */}
+                                        <div>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                Resume/Portfolio Link (Optional)
+                                            </label>
+                                            <input
+                                                type="url"
+                                                name="resume"
+                                                value={formData.resume}
+                                                onChange={handleInputChange}
+                                                placeholder="https://drive.google.com/... or https://your-portfolio.com/resume.pdf"
+                                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                                            />
+                                            <p className="text-sm text-gray-500 mt-1">Share a link to your resume (Google Drive, Dropbox, etc.) or portfolio</p>
+                                        </div>
+
+                                        {/* Why Join Us */}
+                                        <div>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                Why do you want to join AzeemLab? <span className="text-red-500">*</span>
+                                            </label>
+                                            <textarea
+                                                name="whyJoin"
+                                                value={formData.whyJoin}
+                                                onChange={handleInputChange}
+                                                required
+                                                rows={4}
+                                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent resize-none"
+                                                placeholder="Tell us what excites you about this opportunity and why you'd be a great fit for our team..."
+                                            />
+                                        </div>
+
+                                        {/* Submit Buttons */}
+                                        <div className="flex gap-4 pt-4">
+                                            <button
+                                                type="submit"
+                                                disabled={isSubmitting}
+                                                className="flex-1 bg-accent hover:bg-accent-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                            >
+                                                {isSubmitting ? (
+                                                    <>
+                                                        <motion.div
+                                                            animate={{ rotate: 360 }}
+                                                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                                                        >
+                                                            <Send className="w-5 h-5" />
+                                                        </motion.div>
+                                                        Submitting...
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <Send className="w-5 h-5" />
+                                                        Submit Application
+                                                    </>
+                                                )}
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={closeApplicationForm}
+                                                className="flex-1 border border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold py-3 px-6 rounded-lg transition-colors"
+                                            >
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </form>
+                                </>
+                            )}
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             {/* CTA Section */}
             <section className="py-20 bg-gradient-to-br from-accent to-accent-dark text-white">
                 <div className="container mx-auto px-6">
-                    <div className="max-w-3xl mx-auto text-center">
+                    <div className="max-w-7xl mx-auto text-center">
                         <Zap className="w-16 h-16 mx-auto mb-6" />
                         <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">
                             Don't See a Perfect Fit?

@@ -23,7 +23,7 @@ export default function ServicesPage() {
           <h1 className="font-heading text-5xl md:text-7xl font-bold text-neutral-dark mb-6">
             Our Digital Expertise
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-7xl mx-auto">
             We build beautiful, effective, and scalable digital solutions that drive growth and deliver tangible results for your business.
           </p>
         </div>
@@ -48,17 +48,17 @@ export default function ServicesPage() {
               >
                 <div className={`md:order-${isReversed ? '2' : '1'}`}>
                   <div className="relative w-full aspect-square max-w-md mx-auto">
-                     <div className="absolute inset-0 bg-primary/10 rounded-3xl transform -rotate-6 transition-transform group-hover:rotate-0"></div>
-                     <div className="absolute inset-0 bg-background border-2 border-border rounded-3xl flex items-center justify-center p-8">
-                        <Icon className="w-3/5 h-3/5 text-primary opacity-80" />
-                     </div>
+                    <div className="absolute inset-0 bg-primary/10 rounded-3xl transform -rotate-6 transition-transform group-hover:rotate-0"></div>
+                    <div className="absolute inset-0 bg-background border-2 border-border rounded-3xl flex items-center justify-center p-8">
+                      <Icon className="w-3/5 h-3/5 text-primary opacity-80" />
+                    </div>
                   </div>
                 </div>
 
                 <div className={`md:order-${isReversed ? '1' : '2'}`}>
                   <h2 className="font-heading text-4xl font-bold text-neutral-dark mb-4">{service.title}</h2>
                   <p className="text-lg text-muted-foreground mb-6">{service.problem}</p>
-                  
+
                   <ul className="space-y-3 mb-8">
                     {service.process.slice(0, 3).map(step => (
                       <li key={step.title} className="flex items-start">

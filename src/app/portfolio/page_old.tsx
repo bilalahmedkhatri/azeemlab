@@ -15,19 +15,19 @@ export default function PortfolioPage() {
       {/* Hero Section */}
       <section className="py-15">
         <div className="container mx-auto px-6">
-          <motion.div 
+          <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="max-w-3xl mx-auto text-center"
+            className="max-w-7xl mx-auto text-center"
           >
-            <motion.h1 
+            <motion.h1
               variants={fadeInUp}
               className="font-heading text-5xl md:text-6xl font-bold text-foreground mb-6"
             >
               Our <span className="text-primary">Portfolio</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               variants={fadeInUp}
               className="text-xl text-muted-foreground"
             >
@@ -40,7 +40,7 @@ export default function PortfolioPage() {
       {/* Portfolio Grid */}
       <section className="pb-15">
         <div className="container mx-auto px-6">
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="text-center text-muted-foreground mb-8"
@@ -48,7 +48,7 @@ export default function PortfolioPage() {
             Showing {caseStudies.length} {caseStudies.length === 1 ? 'project' : 'projects'}
           </motion.p>
 
-          <motion.div 
+          <motion.div
             layout
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
@@ -78,7 +78,7 @@ export default function PortfolioPage() {
                           {caseStudy.category}
                         </span>
                         <p className="text-muted-foreground mb-6 line-clamp-3">{caseStudy.challenge}</p>
-                        
+
                         <div className="space-y-4 mb-6">
                           {caseStudy.results.slice(0, 2).map((result, index) => (
                             <div key={index} className="flex items-center gap-3">
@@ -110,20 +110,20 @@ export default function PortfolioPage() {
       {/* CTA Section */}
       <section className="py-20 bg-muted">
         <div className="container mx-auto px-6">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="max-w-3xl mx-auto text-center"
+            className="max-w-7xl mx-auto text-center"
           >
-            <motion.h2 
+            <motion.h2
               variants={fadeInUp}
               className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6"
             >
               Want Results Like These?
             </motion.h2>
-            <motion.p 
+            <motion.p
               variants={fadeInUp}
               className="text-xl text-muted-foreground mb-8"
             >

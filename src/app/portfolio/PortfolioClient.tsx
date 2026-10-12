@@ -18,9 +18,9 @@ export default function PortfolioPage() {
           <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div 
+          <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
@@ -30,8 +30,8 @@ export default function PortfolioPage() {
               <Award className="w-4 h-4" />
               <span>Our Success Stories</span>
             </motion.div>
-            
-            <motion.h1 
+
+            <motion.h1
               variants={fadeInUp}
               className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight"
             >
@@ -40,10 +40,10 @@ export default function PortfolioPage() {
                 Digital Success
               </span>
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               variants={fadeInUp}
-              className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto"
+              className="text-xl md:text-2xl text-muted-foreground max-w-7xl mx-auto"
             >
               Real projects. Real results. Discover how we've helped businesses achieve remarkable growth through innovative digital solutions.
             </motion.p>
@@ -54,7 +54,7 @@ export default function PortfolioPage() {
       {/* Portfolio Grid */}
       <section className="py-16 pb-24">
         <div className="container mx-auto px-6">
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="text-center text-muted-foreground mb-12 text-lg"
@@ -84,7 +84,7 @@ export default function PortfolioPage() {
                           className="object-cover"
                         />
                       )}
-                      
+
                     </div>
 
                     {/* Content */}
@@ -93,11 +93,11 @@ export default function PortfolioPage() {
                       <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                         {caseStudy.title}
                       </h3>
-                      
+
                       <p className="text-muted-foreground mb-6 line-clamp-2 leading-relaxed">
                         {caseStudy.challenge}
                       </p>
-                      
+
                       {/* Results Preview */}
                       <div className="space-y-3 mb-6">
                         {caseStudy.results.slice(0, 2).map((result, idx) => (
@@ -137,36 +137,36 @@ export default function PortfolioPage() {
           <div className="absolute top-10 left-10 w-64 h-64 bg-white rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="max-w-3xl mx-auto text-center"
+            className="max-w-7xl mx-auto text-center"
           >
-            <motion.h2 
+            <motion.h2
               variants={fadeInUp}
               className="font-heading text-4xl md:text-5xl font-bold text-white mb-6"
             >
               Ready to Write Your Success Story?
             </motion.h2>
-            <motion.p 
+            <motion.p
               variants={fadeInUp}
               className="text-xl text-white/90 mb-10"
             >
               Let's create something extraordinary together. Transform your vision into a digital masterpiece.
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
+              <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-white/90 hover:scale-105 transition-all duration-300 shadow-xl"
               >
                 Start Your Project
                 <ExternalLink className="w-5 h-5" />
               </Link>
-              <Link 
+              <Link
                 href="/services"
                 className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 hover:scale-105 transition-all duration-300"
               >
