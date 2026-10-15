@@ -38,6 +38,7 @@ yarn-error.log*
 !package.json
 !tsconfig.json
 !next.config.json
+!/src/data/sample-lead-report.json
 
 # vercel
 .vercel

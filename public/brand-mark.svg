@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" rx="30" fill="#202228"/><path d="m44 42-22 22 22 22m40-44 22 22-22 22M73 31 55 97" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">AzeemLab AL monogram</title>
+  <desc id="desc">A white AL monogram on a dark rounded square.</desc>
+  <rect width="128" height="128" rx="30" fill="#202228"/>
+  <path d="M18 91 38 35h9l20 56H57l-4-13H32l-4 13H18Zm18-25h13l-6.5-20L36 66Zm39-31h11v46h24v10H75V35Z" fill="#fff"/>
+</svg>

@@ -1,0 +1,108 @@
+{
+  "report_id": "LEADS-20261016-0100",
+  "generated_at": "2026-10-16T01:00:00+05:00",
+  "timezone": "Asia/Karachi",
+  "run": {
+    "number": 1,
+    "scheduled_time": "01:00",
+    "countries": ["Germany", "Russia"],
+    "search_languages": ["German", "Russian", "English"]
+  },
+  "summary": {
+    "total_leads_found": 2,
+    "leads_with_email": 1,
+    "leads_with_other_contact": 1
+  },
+  "leads": [
+    {
+      "lead_id": "DE-20261016-001",
+      "country": "Germany",
+      "city": "Berlin",
+      "client_name": "Max Beispiel",
+      "project": {
+        "title": "E-commerce Website Development",
+        "description": "Client needs an online store with product management and payment integration.",
+        "required_services": ["E-commerce Development", "Payment Integration"],
+        "budget": { "min": 2000, "max": 5000, "currency": "EUR", "is_confirmed": true }
+      },
+      "source": {
+        "platform": "LinkedIn",
+        "post_url": "https://example.com/demo/001",
+        "published_at": "2026-10-15T18:30:00+02:00",
+        "language": "German",
+        "original_excerpt": "Wir suchen einen Entwickler für unseren Onlineshop.",
+        "evidence": "Client publicly requested an online store developer."
+      },
+      "previous_activity": { "related_posts_found": false, "posts": [] },
+      "contact": {
+        "email": "max@example.com",
+        "email_verified": true,
+        "email_source_url": "https://example.com/demo/contact",
+        "website": null,
+        "linkedin": null,
+        "other_contact_method": null,
+        "preferred_method": "email"
+      },
+      "service_match": {
+        "matched_services": ["E-commerce Development", "API Integration"],
+        "match_score": 95,
+        "reason": "Matches full-stack and e-commerce development services."
+      },
+      "outreach": {
+        "status": "not_contacted",
+        "email_sent": false,
+        "suggested_subject": "E-commerce Website Development",
+        "suggested_message": "Hello Max, I came across your post about developing an online store. I work with e-commerce websites, payment integrations, and full-stack development. Would you be open to discussing your project requirements?"
+      }
+    },
+    {
+      "lead_id": "RU-20261016-002",
+      "country": "Russia",
+      "city": "Moscow",
+      "client_name": "Ivan Petrov",
+      "company_name": "Example Tech LLC",
+      "industry": "Technology",
+      "project": {
+        "title": "Python Backend Development",
+        "description": "Client needs API development and database integration.",
+        "required_services": ["Backend Development", "API Integration"],
+        "technologies": ["Python", "Django", "PostgreSQL"],
+        "budget": { "min": null, "max": null, "currency": null, "is_confirmed": false }
+      },
+      "source": {
+        "platform": "Company Website",
+        "post_url": "https://example.com/demo/002",
+        "published_at": "2026-10-15T20:00:00+03:00",
+        "language": "Russian",
+        "original_excerpt": "Ищем разработчика Python для API.",
+        "evidence": "Client requested Python API development."
+      },
+      "previous_activity": { "related_posts_found": false, "posts": [] },
+      "contact": {
+        "email": null,
+        "email_verified": false,
+        "email_source_url": null,
+        "website": "https://example.com",
+        "linkedin": null,
+        "other_contact_method": "Official contact form",
+        "preferred_method": "contact_form"
+      },
+      "service_match": {
+        "matched_services": ["Python", "Django", "API Development"],
+        "match_score": 94,
+        "reason": "Matches backend development experience."
+      },
+      "outreach": {
+        "status": "not_contacted",
+        "email_sent": false,
+        "suggested_subject": "Python Backend Development Support",
+        "suggested_message": "Hello Ivan, I noticed your requirement for Python backend and API development. I work with Django, PostgreSQL, and API integrations. I'd be interested in discussing your technical requirements."
+      }
+    }
+  ],
+  "search_metadata": {
+    "sources_checked": ["Google", "LinkedIn", "Company Websites"],
+    "duplicate_check": true,
+    "excluded_old_posts": true
+  }
+}

@@ -1,9 +1,10 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { ArrowUpRight, ChevronDown, Code2, Menu, X } from 'lucide-react';
+import { ArrowUpRight, ChevronDown, Menu, X } from 'lucide-react';
 import { navLinks } from '@/lib/navigation';
 import styles from './SiteLayout.module.css';
 
@@ -42,7 +43,7 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <nav className={`container ${styles.nav}`} aria-label="Main navigation" ref={navigation}>
-        <Link href="/" className={styles.logo} aria-label="AzeemLab home" onClick={closeMenus}><span className={styles.logoMark}><Code2 size={22} strokeWidth={1.7} /></span>azeemlab<span className={styles.logoDot}>.</span></Link>
+        <Link href="/" className={styles.logo} aria-label="AzeemLab home" onClick={closeMenus}><span className={styles.logoMark}><Image src="/brand-mark.svg" alt="" width={34} height={34} priority /></span>azeemlab<span className={styles.logoDot}>.</span></Link>
         <button ref={menuButton} className={styles.menuButton} type="button" onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen} aria-controls="site-navigation" aria-label={isOpen ? 'Close navigation' : 'Open navigation'}>{isOpen ? <X size={22} /> : <Menu size={22} />}</button>
         <div id="site-navigation" className={`${styles.links} ${isOpen ? styles.linksOpen : ''}`}>
           {navLinks.filter(link => link.href !== '/contact').map(link => link.children ? (

@@ -22,6 +22,10 @@ export const metadata: Metadata = {
   creator: "Azeem Lab",
   publisher: "Azeem Lab",
   metadataBase: new URL(siteUrl),
+  icons: {
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    apple: [{ url: '/apple-icon.svg', type: 'image/svg+xml' }],
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',

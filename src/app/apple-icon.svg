@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-labelledby="title desc">
+  <title id="title">AzeemLab AL monogram</title>
+  <desc id="desc">A white AL monogram on a dark rounded square.</desc>
+  <rect width="180" height="180" rx="42" fill="#202228"/>
+  <path d="M26 128 54 49h13l28 79H78l-6-18H49l-6 18H26Zm29-35h14L62 65 55 93Zm55-44h15v65h31v14h-46V49Z" fill="#fff"/>
+</svg>
