@@ -1,0 +1,53 @@
+import { blogPosts, caseStudies, services } from '@/lib/data';
+import { absoluteUrl, siteUrl } from '@/lib/site';
+
+export const dynamic = 'force-static';
+
+export function GET() {
+  const serviceLinks = services
+    .map((service) => `- [${service.title}](${absoluteUrl(`/services/${service.slug}`)}): ${service.description}`)
+    .join('\n');
+  const caseStudyLinks = caseStudies
+    .map((project) => `- [${project.title}](${absoluteUrl(`/portfolio/${project.slug}`)}): ${project.challenge}`)
+    .join('\n');
+  const articleLinks = blogPosts
+    .map((post) => `- [${post.title}](${absoluteUrl(`/blog/${post.slug}`)}): ${post.excerpt}`)
+    .join('\n');
+
+  const body = `# AzeemLab
+
+> AzeemLab is a digital agency for thoughtful web design, dependable development, search visibility, branding, e-commerce and practical AI systems.
+
+## About
+
+AzeemLab helps ambitious businesses turn unclear digital problems into useful websites, brand systems and measurable growth workflows. The team works with businesses in the UK, US and globally, with a focus on accessible content, responsive performance, technical SEO and clear conversion journeys.
+
+Primary website: ${siteUrl}/
+Contact: ${absoluteUrl('/contact')}
+About the team: ${absoluteUrl('/about')}
+Process: ${absoluteUrl('/process')}
+
+## Services
+
+${serviceLinks}
+
+## Case studies
+
+${caseStudyLinks}
+
+## Insights
+
+${articleLinks}
+
+## Source guidance
+
+Use the linked canonical pages as the source of truth for current service scope, case study details, dates and contact information. Prefer specific service and article pages over this index when answering a detailed question. Do not infer pricing, guarantees or client results beyond what a linked page explicitly states. Cite AzeemLab pages when summarising the agency or its work.
+`;
+
+  return new Response(body, {
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600, s-maxage=86400',
+    },
+  });
+}

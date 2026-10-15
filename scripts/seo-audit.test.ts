@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import sitemap from '../src/app/sitemap';
 import robots from '../src/app/robots';
+import { GET as getLlms } from '../src/app/llms.txt/route';
 import { createPageMetadata, siteUrl } from '../src/lib/site';
 import { blogPosts, caseStudies } from '../src/lib/data';
 import { articleContent } from '../src/lib/search-content';
@@ -23,7 +24,18 @@ test('sitemap has unique current canonical routes and includes every article', (
   }
   assert.equal(createPageMetadata('/contact', 'Contact', 'Enquire').alternates?.canonical, '/contact');
   assert.equal(robots().sitemap, `${siteUrl}/sitemap.xml`);
+  assert.equal(robots().host, siteUrl);
   assert.ok(!JSON.stringify(robots()).includes('/_next/'));
+});
+
+test('llms index exposes current canonical content and AI source guidance', async () => {
+  const response = getLlms();
+  assert.equal(response.headers.get('content-type'), 'text/plain; charset=utf-8');
+  const body = await response.text();
+  assert.match(body, /# AzeemLab/);
+  assert.match(body, new RegExp(`${siteUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/services/`));
+  for (const post of blogPosts) assert.match(body, new RegExp(`/blog/${post.slug}`));
+  assert.match(body, /source of truth/i);
 });
 
 test('every commercial service has a substantial, distinct context guide', () => {
