@@ -39,8 +39,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-heading font-bold text-foreground mb-1">Email</h3>
-                    <a href="mailto:bilalahmedkhatri@outlook.com" className="break-all text-primary hover:underline transition-colors">
-                      bilalahmedkhatri@outlook.com
+                    <a href="mailto:bilalahmed@azeemlab.com" className="break-all text-primary hover:underline transition-colors">
+                      bilalahmed@azeemlab.com
                     </a>
                   </div>
                 </div>

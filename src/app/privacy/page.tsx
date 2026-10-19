@@ -109,7 +109,7 @@ export default function PrivacyPage() {
                 If you have any questions about this Privacy Policy, please contact us at:
               </p>
               <p className="text-accent font-semibold mt-4">
-                Email: bilalahmedkhatri@outlook.com<br />
+                Email: bilalahmed@azeemlab.com<br />
                 Phone: +92 (321) 300 93 21
               </p>
             </section>

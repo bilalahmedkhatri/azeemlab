@@ -20,7 +20,7 @@ const SYSTEM_PROMPT = `You are an intelligent AI assistant for AzeemLab, a premi
 - Pakistan: Shahray-e-Faisal Fortune Tower, 1705 SQFT
 
 **Contact**:
-- Email: bilalahmedkhatri@outlook.com
+- Email: bilalahmed@azeemlab.com
 - Phone: +92 321 300 93 21
 - Office Hours: Monday-Friday, 9:00 AM - 6:00 PM
 
@@ -139,7 +139,7 @@ const SYSTEM_PROMPT = `You are an intelligent AI assistant for AzeemLab, a premi
 **For specific questions beyond your knowledge**: Encourage visitors to:
 - Schedule a free 30-minute consultation
 - Fill out the contact form (24-hour response time)
-- Email bilalahmedkhatri@outlook.com
+- Email bilalahmed@azeemlab.com
 - Call +92 321 300 93 21
 
 ## CONVERSATION STYLE
@@ -176,8 +176,8 @@ export async function POST(req: NextRequest) {
     const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'AzeemLab';
 
     if (!apiKey || apiKey === 'your-openrouter-api-key-here') {
-      return NextResponse.json({ 
-        error: 'OpenRouter API key not configured. Please add your API key to .env.local' 
+      return NextResponse.json({
+        error: 'OpenRouter API key not configured. Please add your API key to .env.local'
       }, { status: 500 });
     }
 
@@ -211,7 +211,7 @@ export async function POST(req: NextRequest) {
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       console.error('OpenRouter API error:', errorData);
-      return NextResponse.json({ 
+      return NextResponse.json({
         error: `OpenRouter API error: ${response.statusText}`,
         details: errorData
       }, { status: response.status });
@@ -223,7 +223,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ reply: botResponse });
   } catch (error) {
     console.error('Error in chat API:', error);
-    return NextResponse.json({ 
+    return NextResponse.json({
       error: 'Internal Server Error',
       message: error instanceof Error ? error.message : 'Unknown error'
     }, { status: 500 });

@@ -155,7 +155,7 @@ export default function ContactForm() {
 
       {submitStatus === 'error' && (
         <div role="alert" className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
-          <strong>Enquiry not delivered.</strong> {errorMessage} <a className="underline" href="mailto:bilalahmedkhatri@outlook.com">Email our team</a>.
+          <strong>Enquiry not delivered.</strong> {errorMessage} <a className="underline" href="mailto:bilalahmed@azeemlab.com">Email our team</a>.
         </div>
       )}
 

@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Please check your name, email, service and project details (10–5,000 characters).' }, { status: 400 });
   }
   const endpoint = process.env.WHATSAPP_API_URL;
-  if (!endpoint) return NextResponse.json({ error: 'The enquiry form is temporarily unavailable. Please email bilalahmedkhatri@outlook.com.' }, { status: 503 });
+  if (!endpoint) return NextResponse.json({ error: 'The enquiry form is temporarily unavailable. Please email bilalahmed@azeemlab.com.' }, { status: 503 });
   try {
     const response = await fetch(endpoint, {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -31,6 +31,6 @@ export async function POST(request: Request) {
     if (!response.ok || result?.success !== true || result.error) throw new Error('Delivery failed');
     return NextResponse.json({ success: true });
   } catch {
-    return NextResponse.json({ error: 'Your enquiry could not be delivered. Please email bilalahmedkhatri@outlook.com.' }, { status: 502 });
+    return NextResponse.json({ error: 'Your enquiry could not be delivered. Please email bilalahmed@azeemlab.com.' }, { status: 502 });
   }
 }

@@ -16,7 +16,7 @@ export const organizationSchema: Organization = {
     '@type': 'ContactPoint',
     telephone: '+92-321-300-9321',
     contactType: 'customer service',
-    email: 'bilalahmedkhatri@outlook.com',
+    email: 'bilalahmed@azeemlab.com',
     availableLanguage: ['English'],
   },
   address: [

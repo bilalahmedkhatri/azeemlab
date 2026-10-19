@@ -80,7 +80,7 @@ keywords: 'about azeem lab, digital agency team, our values, company mission'
 
 **Changed To** (Real Data):
 - ✅ Phone: `+92-321-300-9321`
-- ✅ Email: `bilalahmedkhatri@outlook.com`
+- ✅ Email: `bilalahmed@azeemlab.com`
 - ✅ Address 1: Srednyaya Pereyaslavskaya Street, 14с1, Moscow, Russia
 - ✅ Address 2: Shahray-e-Faisal Fortune Tower, 1705 SQFT, Karachi, Pakistan
 
