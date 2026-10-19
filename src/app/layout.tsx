@@ -102,6 +102,8 @@ export default function RootLayout({
 
       </head>
       <body className="antialiased bg-background text-foreground transition-colors duration-300 overflow-x-hidden">
+        {/* Yandex Webmaster Verification */}
+        <div style={{ display: 'none' }}>Verification: 80bedcbac9b5f02d</div>
         {/* <a className="skip-link" href="#main-content">Skip to content</a> */}
         <Header />
         <main id="main-content" className="min-h-screen flex flex-col">
