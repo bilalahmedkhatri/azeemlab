@@ -16,10 +16,10 @@ export const services: Service[] = [
     // CHANGED: added "responsive web design" + "front end development" naturally
     title: 'Responsive Web Design & Front End Development',
     description:
-      'Beautiful, responsive websites built with best-in-class front end development techniques — turning visitors into customers for UK, US, and global businesses.',
+      'Beautiful, responsive websites built with best-in-class front end development techniques -turning visitors into customers for UK, US, and global businesses.',
     icon: Palette,
     problem:
-      'Your website looks outdated on mobile and desktop, failing to engage visitors — leading to high bounce rates and lost revenue.',
+      'Your website looks outdated on mobile and desktop, failing to engage visitors -leading to high bounce rates and lost revenue.',
     solution:
       'We create modern, responsive web designs that follow industry best practices. Our front end development approach guides visitors through an intentional journey, increasing engagement and conversions.',
     process: [
@@ -29,12 +29,12 @@ export const services: Service[] = [
       { title: 'Develop', description: 'Build a fast, responsive, SEO-optimised site using proven front end development techniques' },
       { title: 'Deploy', description: 'Launch with training, support, and ongoing performance monitoring' },
     ],
-    // NEW: FAQ entries for the web-design page — rendered in /services/web-design
+    // NEW: FAQ entries for the web-design page -rendered in /services/web-design
     faq: [
       {
         question: 'What is responsive web design?',
         answer:
-          'Responsive web design is the practice of building websites that automatically adjust their layout, images, and content to fit any screen size — from mobile phones to large desktop monitors. It ensures every visitor gets a great experience, regardless of device.',
+          'Responsive web design is the practice of building websites that automatically adjust their layout, images, and content to fit any screen size -from mobile phones to large desktop monitors. It ensures every visitor gets a great experience, regardless of device.',
       },
       {
         question: 'What are the basics of responsive web design?',
@@ -229,7 +229,7 @@ export const caseStudies: CaseStudy[] = [
       "QuantumLeap needed a scalable platform to showcase their complex AI models. Their initial MVP was slow, not intuitive, and couldn't handle user traffic.",
     // CHANGED: added "responsive" and "front end development" naturally
     solution:
-      'We engineered a high-performance Next.js application with a custom dashboard for real-time data visualisation. The front end development was completely overhauled — responsive web design techniques ensured the platform worked flawlessly across desktop, tablet, and mobile.',
+      'We engineered a high-performance Next.js application with a custom dashboard for real-time data visualisation. The front end development was completely overhauled -responsive web design techniques ensured the platform worked flawlessly across desktop, tablet, and mobile.',
     results: [
       { metric: 'User Engagement', value: '+160%', description: 'Increase in daily active users' },
       { metric: 'Performance', value: '98/100', description: 'Lighthouse performance score' },
@@ -258,7 +258,7 @@ export const caseStudies: CaseStudy[] = [
       'GreenLife had a high cart abandonment rate (78%) due to a complicated checkout process and poor mobile experience.',
     // CHANGED: added "responsive web design" and "front end development" to solution naturally
     solution:
-      'We rebuilt their e-commerce platform using responsive web design techniques and modern front end development practices. A streamlined checkout, improved mobile responsiveness, and integrated inventory management reduced friction at every step — with a focus on performance and user experience.',
+      'We rebuilt their e-commerce platform using responsive web design techniques and modern front end development practices. A streamlined checkout, improved mobile responsiveness, and integrated inventory management reduced friction at every step -with a focus on performance and user experience.',
     results: [
       { metric: 'Cart Abandonment', value: '-52%', description: 'Reduction in abandoned carts' },
       { metric: 'Mobile Sales', value: '+267%', description: 'Increase in mobile conversions' },
@@ -455,7 +455,7 @@ export const caseStudies: CaseStudy[] = [
       ],
       estimatedMonthlyVisits: '2,400–4,800 (organic, 3-month projection post-launch)',
       topTrafficSources: ['Organic Search', 'WhatsApp Referrals', 'Facebook Automotive Groups', 'Direct'],
-      metaTitle: 'Te Kairiri Motors — Premium Japanese Car Export | NZ, AU, PK',
+      metaTitle: 'Te Kairiri Motors -Premium Japanese Car Export | NZ, AU, PK',
       metaDescription:
         'Buy auction-grade Japanese vehicles shipped directly to New Zealand, Australia, and Pakistan. Browse live stock, get instant WhatsApp quotes.',
     },
@@ -480,7 +480,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     testimonial: {
       quote:
-        'The platform transformed how we connect Japanese inventory with international buyers. The WhatsApp integration alone doubled our response rate — buyers in Pakistan get answers in minutes, not days.',
+        'The platform transformed how we connect Japanese inventory with international buyers. The WhatsApp integration alone doubled our response rate -buyers in Pakistan get answers in minutes, not days.',
       author: 'Te Kairiri Team',
       position: 'Founder',
       company: 'Te Kairiri Motors',
@@ -491,7 +491,7 @@ export const caseStudies: CaseStudy[] = [
 ];
 
 // ─── TEAM ───────────────────────────────────────────────────────────────────────
-// Unchanged — team data does not affect target keywords
+// Unchanged -team data does not affect target keywords
 
 export const teamMembers: TeamMember[] = [
   {
@@ -528,13 +528,13 @@ export const teamMembers: TeamMember[] = [
 
 // ─── PAGE METADATA ──────────────────────────────────────────────────────────────
 // SEO Changes:
-//   - home:     NEW entry — added to cover homepage keywords
+//   - home:     NEW entry -added to cover homepage keywords
 //   - about:    updated description to include "front end development agency"
 //   - services: updated keywords to include all target keywords
 //   - web-design: NEW sub-page entry with all RWD keywords
 
 export const pageMetadata = {
-  // NEW: homepage meta (was missing — this is a critical SEO gap)
+  // NEW: homepage meta (was missing -this is a critical SEO gap)
   home: {
     title: 'AzeemLab | Responsive Web Design & Front End Development Agency',
     description:
@@ -545,7 +545,7 @@ export const pageMetadata = {
 
   about: {
     // CHANGED: "front end development agency" added to title and description
-    title: 'About AzeemLab — Front End Development Agency | Our Story & Mission',
+    title: 'About AzeemLab -Front End Development Agency | Our Story & Mission',
     description:
       'AzeemLab is a front end development agency dedicated to transparency and innovation. We combine responsive web design best practices with conversion-focused strategy to deliver real growth for our clients.',
     keywords:
@@ -553,7 +553,7 @@ export const pageMetadata = {
   },
 
   services: {
-    title: 'Our Services — Responsive Web Design, Front End Development & SEO',
+    title: 'Our Services -Responsive Web Design, Front End Development & SEO',
     description:
       'Expert digital services: responsive web design for UK & US businesses, strategic branding, SEO & digital marketing, and e-commerce solutions. Transform your business online.',
     // CHANGED: all target keywords added
@@ -563,7 +563,7 @@ export const pageMetadata = {
 
   // NEW: dedicated /services/web-design page meta
   webDesign: {
-    title: 'Responsive Web Design Services UK — Best Practices & Results | AzeemLab',
+    title: 'Responsive Web Design Services UK -Best Practices & Results | AzeemLab',
     description:
       'AzeemLab delivers the best responsive web design services for UK, London, and New York businesses. We apply proven responsive web design techniques and front end development best practices to every project.',
     keywords:
@@ -571,7 +571,7 @@ export const pageMetadata = {
   },
 
   portfolio: {
-    title: 'Portfolio — Success Stories & Case Studies',
+    title: 'Portfolio -Success Stories & Case Studies',
     description:
       'Explore our proven results: +160% engagement, +267% mobile conversions, +180% revenue growth. See how we help businesses thrive with real case studies.',
     keywords:
@@ -579,7 +579,7 @@ export const pageMetadata = {
   },
 
   pricing: {
-    title: 'Pricing Plans — Starter, Business & Enterprise Packages',
+    title: 'Pricing Plans -Starter, Business & Enterprise Packages',
     description:
       'Transparent pricing from $500–$2000+. Choose Starter (3 pages), Business (10 pages + AI), or Enterprise (unlimited + full AI suite). No hidden fees.',
     keywords:
@@ -587,7 +587,7 @@ export const pageMetadata = {
   },
 
   careers: {
-    title: 'Careers — Join Our Team at AzeemLab',
+    title: 'Careers -Join Our Team at AzeemLab',
     description:
       'Join a team that values innovation, collaboration, and growth. Explore career opportunities at AzeemLab and help us build exceptional digital experiences.',
     keywords:
@@ -595,7 +595,7 @@ export const pageMetadata = {
   },
 
   contact: {
-    title: 'Contact Us — Get in Touch with AzeemLab',
+    title: 'Contact Us -Get in Touch with AzeemLab',
     description:
       'Ready to transform your digital presence? Contact us for a free 30-minute consultation. Email: bilalahmed@azeemlab.com | Phone: +92 321 300 93 21',
     keywords:
@@ -603,7 +603,7 @@ export const pageMetadata = {
   },
 
   process: {
-    title: 'Our Process — How We Work & Deliver Results',
+    title: 'Our Process -How We Work & Deliver Results',
     description:
       'Discover our proven 4-step process: Discover, Design, Develop, Deploy. Transparent collaboration, clear milestones, and exceptional results every time.',
     keywords:
@@ -611,7 +611,7 @@ export const pageMetadata = {
   },
 
   privacy: {
-    title: 'Privacy Policy — How We Protect Your Data',
+    title: 'Privacy Policy -How We Protect Your Data',
     description:
       'Your privacy matters. Read our privacy policy to understand how AzeemLab collects, uses, and protects your personal information.',
     keywords:
@@ -619,7 +619,7 @@ export const pageMetadata = {
   },
 
   terms: {
-    title: 'Terms of Service — Website Terms & Conditions',
+    title: 'Terms of Service -Website Terms & Conditions',
     description:
       "Read our terms of service to understand the rules, rights, and responsibilities when using AzeemLab's website and services.",
     keywords:
@@ -635,7 +635,7 @@ export const pageMetadata = {
   },
 };
 
-// ─── BLOG POSTS (NEW — needed for informational keyword targeting) ──────────────
+// ─── BLOG POSTS (NEW -needed for informational keyword targeting) ──────────────
 // These objects can feed a /blog page using the same data-driven pattern  as services and caseStudies.
 // as services and caseStudies. Create /app/blog/[slug]/page.tsx to render them.
 
@@ -647,7 +647,7 @@ export const blogPosts = [
     title: 'Responsive Web Design Basics: A Complete Beginner&apos;s Guide',
     metaTitle: 'Responsive Web Design Basics: Complete Guide 2026 | AzeemLab',
     metaDescription:
-      'Learn the fundamentals of responsive web design — fluid grids, flexible images, and media queries explained clearly. Includes a free PDF checklist.',
+      'Learn the fundamentals of responsive web design -fluid grids, flexible images, and media queries explained clearly. Includes a free PDF checklist.',
     excerpt:
       'Everything you need to know about the basics of responsive web design, written for business owners and aspiring developers alike.',
     publishDate: '2026-04-10',
@@ -667,7 +667,7 @@ export const blogPosts = [
     title: '7 Responsive Web Design Techniques We Use on Every Project',
     metaTitle: '7 Responsive Web Design Techniques That Actually Work | AzeemLab',
     metaDescription:
-      'Discover the responsive web design techniques our front end development team applies to every client project — with real examples from our portfolio.',
+      'Discover the responsive web design techniques our front end development team applies to every client project -with real examples from our portfolio.',
     excerpt:
       'From fluid grids to container queries, these are the responsive web design techniques that separate good sites from great ones.',
     publishDate: '2026-04-18',
@@ -686,11 +686,11 @@ export const blogPosts = [
     slug: 'responsive-web-design-best-practices-pdf',
     // Targets: "responsive web design pdf" (KD 22, 590/mo) + "responsive web design guide"
     title: 'Responsive Web Design Best Practices 2026 (Free PDF Guide)',
-    metaTitle: 'Responsive Web Design Best Practices PDF — Free Download | AzeemLab',
+    metaTitle: 'Responsive Web Design Best Practices PDF -Free Download | AzeemLab',
     metaDescription:
       'Download our free responsive web design best practices PDF. 2026 edition covering basics, techniques, and a step-by-step implementation checklist.',
     excerpt:
-      'Get our free PDF guide to responsive web design best practices — the same checklist our team uses on every project.',
+      'Get our free PDF guide to responsive web design best practices -the same checklist our team uses on every project.',
     publishDate: '2026-05-01',
     readTime: '5 min read',
     hasFreeDownload: true,

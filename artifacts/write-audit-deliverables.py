@@ -83,7 +83,7 @@ The live-test screenshot says the homepage can be crawled/indexed and declares t
 
 The links screenshot reports 2 external links; the Ahrefs screenshot reports 767 referring domains, DR 0 and zero organic keywords/traffic. These are different datasets and dates/coverage. Do not treat 767 as verified valuable backlinks or infer spam from this discrepancy alone. Inspect linking URLs, relevance and genuine referrals before any backlink action. No links were submitted or disavowed.
 
-### Supplied PageSpeed baseline — deployed old homepage
+### Supplied PageSpeed baseline -deployed old homepage
 
 Both reports were read in the browser. Both show www as the tested destination and no Chrome UX Report field data.
 

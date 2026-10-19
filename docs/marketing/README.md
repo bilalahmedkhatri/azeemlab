@@ -435,9 +435,9 @@ Day 1 aapki actual starting date hai. Roz ka normal workload Section 3 wala hai.
 
 | Day | Main task aur estimated focused time | Publish / distribution | Done ka proof |
 | --- | --- | --- | --- |
-| 1 | 90 min: offer, mobile/contact test, latest search baseline, tracking sheet | — | Test delivery; baseline date; URL list |
-| 2 | 90 min: Google/Bing/Yandex ownership/sitemap review; GEO sample | — | Account status pending/verified; screenshot/notes |
-| 3 | 90 min: two primary service pages ka buyer-focused review; owned social profiles, master bios | — | Fix backlog; correct profile links |
+| 1 | 90 min: offer, mobile/contact test, latest search baseline, tracking sheet | -| Test delivery; baseline date; URL list |
+| 2 | 90 min: Google/Bing/Yandex ownership/sitemap review; GEO sample | -| Account status pending/verified; screenshot/notes |
+| 3 | 90 min: two primary service pages ka buyer-focused review; owned social profiles, master bios | -| Fix backlog; correct profile links |
 | 4 | 60 min: R1 mobile checklist improve; master carousel A | EN-1 LinkedIn | Live post + working resource link |
 | 5 | 60 min: VK setup/check; Russian pinned note, relevant group rules | RU-1 VK; Telegram optional | Published URL; 2 communities evaluated |
 | 6 | 60 min: PT-BR adaptation; Brazil buyer conversations read | PT-1 LinkedIn/relevant allowed community | Post + 1 useful reply |
@@ -462,9 +462,9 @@ Day 1 aapki actual starting date hai. Roz ka normal workload Section 3 wala hai.
 | 25 | 75 min: final 2 tailored pitches; long video edit + captions | FR-4 LinkedIn | Total 8 pitches; export ready |
 | 26 | 60 min: ES SEO note; publish long video and website transcript if ready | ES-4 LinkedIn | Video/audio language + subtitle status |
 | 27 | 60 min: NL SEO note; remaining selected Pins, partner follow-up | NL-4 LinkedIn | 24th core post; 6 Pins total target |
-| 28 | 90 min: conditional one localized service-page brief; otherwise strongest English page improve | — | Real demand + review capacity before locale launch |
-| 29 | 90 min: technical/search status, inquiry and attribution check, due editor follow-ups | — | Latest URLs/results; pending exclusions listed |
-| 30 | 90 min: 28-day comparison + GEO sample + commercial review; next-month plan | — | Top 2 markets, top 2 channels, next 3 actions |
+| 28 | 90 min: conditional one localized service-page brief; otherwise strongest English page improve | -| Real demand + review capacity before locale launch |
+| 29 | 90 min: technical/search status, inquiry and attribution check, due editor follow-ups | -| Latest URLs/results; pending exclusions listed |
+| 30 | 90 min: 28-day comparison + GEO sample + commercial review; next-month plan | -| Top 2 markets, top 2 channels, next 3 actions |
 
 **Schedule rule:** focused time ke ilawa replies/publishing/tracking add karke normal daily 2.5–3 hours cap maintain karein. Koi recording/website task barh jaye to optional Pin/cross-post/secondary upload postpone karein. Missed core post ko next free slot shift karein; ek din mein six posts dump nahi.
 
@@ -480,13 +480,13 @@ Har post ke sath suggested visual aur relevant destination dein. Link ka final U
 
 Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully translated page real publish ho tab matching link aur language note update karein. Har draft ko exact group rules/format ke mutabiq adapt karein; community answer ke liye sales CTA hata kar sawaal ka actual jawab dein.
 
-### 14.1 Russian — RU
+### 14.1 Russian -RU
 
 **Bio**
 
-> AzeemLab: сайты, интернет-магазины, SEO, фирменный стиль и практичная автоматизация с ИИ. Начинаем с задачи бизнеса и понятного объёма работ. Опишите вашу задачу: https://www.azeemlab.com/contact — сайт на английском.
+> AzeemLab: сайты, интернет-магазины, SEO, фирменный стиль и практичная автоматизация с ИИ. Начинаем с задачи бизнеса и понятного объёма работ. Опишите вашу задачу: https://www.azeemlab.com/contact -сайт на английском.
 
-**RU-1 — Мобильный сайт: 5 проверок**
+**RU-1 -Мобильный сайт: 5 проверок**
 
 > На телефоне сразу понятно, чем занимается ваша компания и как с вами связаться?
 >
@@ -496,7 +496,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Страница на английском. #СайтДляБизнеса #ВебРазработка
 
-**RU-2 — Начните автоматизацию с одной заявки**
+**RU-2 -Начните автоматизацию с одной заявки**
 
 > Приходится вручную переносить заявки из формы в таблицу и напоминать команде об ответе?
 >
@@ -506,7 +506,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Страница на английском. #Автоматизация #МалыйБизнес
 
-**RU-3 — Чат-боту нужны границы**
+**RU-3 -Чат-боту нужны границы**
 
 > Полезный ИИ-чат-бот должен знать не только ответ, но и момент, когда нужен человек.
 >
@@ -516,7 +516,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Страница на английском. #ИИДляБизнеса #ЧатБот
 
-**RU-4 — SEO начинается с доступной страницы**
+**RU-4 -SEO начинается с доступной страницы**
 
 > Если страницу услуги трудно найти, начните с основ: открывается ли она, доступна ли поисковому роботу и ясно ли объясняет предложение?
 >
@@ -526,7 +526,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Страница на английском. #SEO #ПродвижениеСайта
 
-**RU-5 — Что мешает покупке? — optional / next month**
+**RU-5 -Что мешает покупке? -optional / next month**
 
 > Переделка интернет-магазина начинается не с анимации. Покупателю нужны понятные характеристики, условия доставки, возврата и удобное оформление заказа на телефоне.
 >
@@ -534,7 +534,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Страница на английском. #ИнтернетМагазин #ЭлектроннаяКоммерция
 
-**RU-6 — Фирменный стиль за пределами логотипа — optional / next month**
+**RU-6 -Фирменный стиль за пределами логотипа -optional / next month**
 
 > Совпадает ли визуальный язык вашего сайта, презентации и публикаций?
 >
@@ -544,17 +544,17 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Страница на английском. #Брендинг #ФирменныйСтиль
 
-**Manual GEO prompt — unbranded**
+**Manual GEO prompt -unbranded**
 
 > Как выбрать подрядчика для сайта небольшой сервисной компании и автоматизации обработки заявок? Укажите критерии выбора и источники.
 
-### 14.2 Portuguese, Brazil — PT-BR
+### 14.2 Portuguese, Brazil -PT-BR
 
 **Bio**
 
-> AzeemLab: sites, lojas virtuais, SEO, identidade visual e automação com IA. Começamos pelo problema do negócio e por um escopo claro. Conte o que você precisa: https://www.azeemlab.com/contact — site em inglês.
+> AzeemLab: sites, lojas virtuais, SEO, identidade visual e automação com IA. Começamos pelo problema do negócio e por um escopo claro. Conte o que você precisa: https://www.azeemlab.com/contact -site em inglês.
 
-**PT-1 — Seu site funciona para quem está no celular?**
+**PT-1 -Seu site funciona para quem está no celular?**
 
 > Abra seu site no celular e confira cinco pontos: proposta clara, texto legível, botão fácil de tocar, formulário curto e confirmação de envio.
 >
@@ -564,7 +564,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Página em inglês. #CriaçãoDeSites #PequenasEmpresas
 
-**PT-2 — Automatize um passo antes de automatizar tudo**
+**PT-2 -Automatize um passo antes de automatizar tudo**
 
 > Sua equipe copia solicitações do formulário para uma planilha e faz o acompanhamento manualmente?
 >
@@ -574,7 +574,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Página em inglês. #Automação #GestãoDeLeads
 
-**PT-3 — Um chatbot precisa saber quando pedir ajuda**
+**PT-3 -Um chatbot precisa saber quando pedir ajuda**
 
 > Antes de colocar IA no seu site, defina quais fontes ela pode usar, quais tarefas pode executar e quando deve encaminhar a conversa para uma pessoa.
 >
@@ -584,7 +584,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Página em inglês. #IAParaNegócios #Chatbot
 
-**PT-4 — SEO: comece pela página que o cliente precisa encontrar**
+**PT-4 -SEO: comece pela página que o cliente precisa encontrar**
 
 > A página do seu serviço está acessível aos buscadores e explica com clareza o que você oferece?
 >
@@ -594,7 +594,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Página em inglês. #SEO #MarketingDigital
 
-**PT-5 — O que falta para decidir uma compra? — optional / next month**
+**PT-5 -O que falta para decidir uma compra? -optional / next month**
 
 > Em uma loja virtual, fotos bonitas não respondem a tudo. O cliente precisa entender o produto, o frete, o prazo, a devolução e como concluir a compra no celular.
 >
@@ -602,7 +602,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Página em inglês. #LojaVirtual #Ecommerce
 
-**PT-6 — Sua marca continua a mesma fora do logotipo? — optional / next month**
+**PT-6 -Sua marca continua a mesma fora do logotipo? -optional / next month**
 
 > Compare o site, a apresentação comercial e as redes sociais. Tipografia, cores e imagens seguem a mesma direção?
 >
@@ -610,17 +610,17 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Página em inglês. #IdentidadeVisual #Branding
 
-**Manual GEO prompt — unbranded**
+**Manual GEO prompt -unbranded**
 
 > Como escolher um fornecedor para criar o site de uma pequena empresa de serviços e automatizar o recebimento de solicitações? Inclua critérios de escolha e fontes.
 
-### 14.3 French — FR
+### 14.3 French -FR
 
 **Bio**
 
-> AzeemLab : sites web, e-commerce, SEO, identité visuelle et automatisation avec l’IA. Nous partons du besoin métier pour définir un périmètre clair. Présentez votre projet : https://www.azeemlab.com/contact — site en anglais.
+> AzeemLab : sites web, e-commerce, SEO, identité visuelle et automatisation avec l’IA. Nous partons du besoin métier pour définir un périmètre clair. Présentez votre projet : https://www.azeemlab.com/contact -site en anglais.
 
-**FR-1 — Votre site facilite-t-il le contact sur mobile ?**
+**FR-1 -Votre site facilite-t-il le contact sur mobile ?**
 
 > Ouvrez votre site sur un téléphone et vérifiez cinq points : une offre claire, un texte lisible, un bouton facile à utiliser, un formulaire court et une confirmation d’envoi.
 >
@@ -630,7 +630,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Page en anglais. #CréationDeSite #PetiteEntreprise
 
-**FR-2 — Automatisez une étape avant de tout automatiser**
+**FR-2 -Automatisez une étape avant de tout automatiser**
 
 > Votre équipe recopie les demandes d’un formulaire dans un tableau et relance les responsables à la main ?
 >
@@ -640,7 +640,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Page en anglais. #Automatisation #PME
 
-**FR-3 — Un chatbot doit aussi savoir passer le relais**
+**FR-3 -Un chatbot doit aussi savoir passer le relais**
 
 > Avant d’ajouter de l’IA à votre site, définissez les sources autorisées, les tâches permises et les situations qui nécessitent une personne.
 >
@@ -650,7 +650,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Page en anglais. #IA #RelationClient
 
-**FR-4 — Le SEO commence par une page utile et accessible**
+**FR-4 -Le SEO commence par une page utile et accessible**
 
 > Votre page de service est-elle accessible aux moteurs de recherche et compréhensible pour un futur client ?
 >
@@ -660,7 +660,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Page en anglais. #SEO #Référencement
 
-**FR-5 — Qu’est-ce qui manque pour acheter ? — optional / next month**
+**FR-5 -Qu’est-ce qui manque pour acheter ? -optional / next month**
 
 > Sur une boutique en ligne, le client doit comprendre le produit, la livraison, les retours et les étapes de commande sur mobile.
 >
@@ -668,7 +668,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Page en anglais. #Ecommerce #BoutiqueEnLigne
 
-**FR-6 — Votre identité visuelle dépasse-t-elle le logo ? — optional / next month**
+**FR-6 -Votre identité visuelle dépasse-t-elle le logo ? -optional / next month**
 
 > Comparez votre site, vos présentations et vos publications. La typographie, les couleurs et les images racontent-elles la même histoire ?
 >
@@ -676,17 +676,17 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Page en anglais. #IdentitéVisuelle #Branding
 
-**Manual GEO prompt — unbranded**
+**Manual GEO prompt -unbranded**
 
 > Comment choisir un prestataire pour le site web d’une petite entreprise de services et l’automatisation du traitement des demandes ? Donnez des critères de choix et des sources.
 
-### 14.4 Spanish — ES
+### 14.4 Spanish -ES
 
 **Bio**
 
-> AzeemLab: sitios web, comercio electrónico, SEO, identidad visual y automatización con IA. Partimos del problema del negocio para definir un alcance claro. Cuéntanos tu proyecto: https://www.azeemlab.com/contact — sitio en inglés.
+> AzeemLab: sitios web, comercio electrónico, SEO, identidad visual y automatización con IA. Partimos del problema del negocio para definir un alcance claro. Cuéntanos tu proyecto: https://www.azeemlab.com/contact -sitio en inglés.
 
-**ES-1 — ¿Tu web facilita el contacto desde el móvil?**
+**ES-1 -¿Tu web facilita el contacto desde el móvil?**
 
 > Abre tu web en un teléfono y revisa cinco puntos: una propuesta clara, texto legible, un botón fácil de pulsar, un formulario breve y una confirmación de envío.
 >
@@ -696,7 +696,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Página en inglés. #DiseñoWeb #PequeñasEmpresas
 
-**ES-2 — Automatiza un paso antes de automatizarlo todo**
+**ES-2 -Automatiza un paso antes de automatizarlo todo**
 
 > ¿Tu equipo copia las consultas del formulario a una hoja de cálculo y hace el seguimiento de forma manual?
 >
@@ -706,7 +706,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Página en inglés. #Automatización #GestiónDeClientes
 
-**ES-3 — Un chatbot también debe saber cuándo pedir ayuda**
+**ES-3 -Un chatbot también debe saber cuándo pedir ayuda**
 
 > Antes de añadir IA a tu web, define qué fuentes puede consultar, qué tareas puede realizar y cuándo debe pasar la conversación a una persona.
 >
@@ -716,7 +716,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Página en inglés. #InteligenciaArtificial #Chatbot
 
-**ES-4 — El SEO empieza por una página útil y accesible**
+**ES-4 -El SEO empieza por una página útil y accesible**
 
 > ¿Los buscadores pueden acceder a tu página de servicio? ¿Un posible cliente entiende lo que ofreces?
 >
@@ -726,7 +726,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Página en inglés. #SEO #MarketingDigital
 
-**ES-5 — ¿Qué falta para decidir una compra? — optional / next month**
+**ES-5 -¿Qué falta para decidir una compra? -optional / next month**
 
 > En una tienda online, el cliente necesita entender el producto, el envío, las devoluciones y cómo completar el pedido desde el móvil.
 >
@@ -734,7 +734,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Página en inglés. #ComercioElectrónico #TiendaOnline
 
-**ES-6 — ¿Tu identidad visual va más allá del logotipo? — optional / next month**
+**ES-6 -¿Tu identidad visual va más allá del logotipo? -optional / next month**
 
 > Compara tu web, tus presentaciones y tus publicaciones. ¿La tipografía, los colores y las imágenes siguen una misma dirección?
 >
@@ -742,17 +742,17 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Página en inglés. #IdentidadVisual #Branding
 
-**Manual GEO prompt — unbranded**
+**Manual GEO prompt -unbranded**
 
 > ¿Cómo elegir un proveedor para crear la web de una pequeña empresa de servicios y automatizar la gestión de consultas? Incluye criterios de selección y fuentes.
 
-### 14.5 Dutch — NL
+### 14.5 Dutch -NL
 
 **Bio**
 
-> AzeemLab: websites, webshops, SEO, merkidentiteit en praktische AI-automatisering. We beginnen met het bedrijfsprobleem en een duidelijke projectomvang. Vertel ons wat je nodig hebt: https://www.azeemlab.com/contact — website in het Engels.
+> AzeemLab: websites, webshops, SEO, merkidentiteit en praktische AI-automatisering. We beginnen met het bedrijfsprobleem en een duidelijke projectomvang. Vertel ons wat je nodig hebt: https://www.azeemlab.com/contact -website in het Engels.
 
-**NL-1 — Kunnen klanten je makkelijk bereiken via hun telefoon?**
+**NL-1 -Kunnen klanten je makkelijk bereiken via hun telefoon?**
 
 > Open je website op een telefoon en controleer vijf dingen: een duidelijk aanbod, leesbare tekst, een goed bedienbare knop, een kort formulier en een verzendbevestiging.
 >
@@ -762,7 +762,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Pagina in het Engels. #Webdesign #MKB
 
-**NL-2 — Automatiseer eerst één stap**
+**NL-2 -Automatiseer eerst één stap**
 
 > Kopieert je team aanvragen uit een formulier naar een spreadsheet en gebeurt de opvolging handmatig?
 >
@@ -772,7 +772,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Pagina in het Engels. #Automatisering #Bedrijfsprocessen
 
-**NL-3 — Een chatbot moet ook weten wanneer een mens nodig is**
+**NL-3 -Een chatbot moet ook weten wanneer een mens nodig is**
 
 > Bepaal vóór de lancering welke bronnen je AI mag gebruiken, welke taken zijn toegestaan en wanneer een medewerker het overneemt.
 >
@@ -782,7 +782,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Pagina in het Engels. #AI #Klantenservice
 
-**NL-4 — SEO begint met een nuttige, bereikbare pagina**
+**NL-4 -SEO begint met een nuttige, bereikbare pagina**
 
 > Kunnen zoekmachines je dienstenpagina bereiken? En begrijpt een mogelijke klant direct wat je aanbiedt?
 >
@@ -792,7 +792,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Pagina in het Engels. #SEO #OnlineVindbaarheid
 
-**NL-5 — Wat ontbreekt om een aankoop te doen? — optional / next month**
+**NL-5 -Wat ontbreekt om een aankoop te doen? -optional / next month**
 
 > In een webshop wil een klant het product, de bezorgkosten, de levertijd, het retourbeleid en de betaalstappen begrijpen, ook op een telefoon.
 >
@@ -800,7 +800,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Pagina in het Engels. #Webshop #Ecommerce
 
-**NL-6 — Is je merk ook buiten het logo herkenbaar? — optional / next month**
+**NL-6 -Is je merk ook buiten het logo herkenbaar? -optional / next month**
 
 > Vergelijk je website, presentaties en socialmediaberichten. Volgen de typografie, kleuren en beelden dezelfde lijn?
 >
@@ -808,17 +808,17 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > Pagina in het Engels. #Merkidentiteit #Branding
 
-**Manual GEO prompt — unbranded**
+**Manual GEO prompt -unbranded**
 
 > Hoe kies ik een partij voor de website van een klein dienstverlenend bedrijf en de automatisering van klantaanvragen? Geef selectiecriteria en bronnen.
 
-### 14.6 English — EN
+### 14.6 English -EN
 
 **Bio**
 
 > AzeemLab builds websites, online stores, brand identities and practical AI workflows. We start with your business problem and a clear project scope. Tell us what you need: https://www.azeemlab.com/contact
 
-**EN-1 — Can a customer contact you on a phone?**
+**EN-1 -Can a customer contact you on a phone?**
 
 > Open your website on a phone and check five things: a clear offer, readable text, an easy-to-tap button, a short form and a submission confirmation.
 >
@@ -828,7 +828,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > #WebDesign #SmallBusiness
 
-**EN-2 — Automate one step before automating everything**
+**EN-2 -Automate one step before automating everything**
 
 > Does your team copy website enquiries into a spreadsheet and chase follow-ups manually?
 >
@@ -838,7 +838,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > #BusinessAutomation #LeadManagement
 
-**EN-3 — A useful chatbot needs a handoff**
+**EN-3 -A useful chatbot needs a handoff**
 
 > Before adding AI to your website, decide which approved sources it can use, what it may do and when a person should take over.
 >
@@ -848,7 +848,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > #AIIntegration #CustomerExperience
 
-**EN-4 — Start SEO with the page a buyer needs**
+**EN-4 -Start SEO with the page a buyer needs**
 
 > Can search engines access your service page? Can a potential customer understand the offer?
 >
@@ -858,7 +858,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > #SEO #SmallBusinessMarketing
 
-**EN-5 — What is missing from the buying decision? — optional / next month**
+**EN-5 -What is missing from the buying decision? -optional / next month**
 
 > In an online store, customers need clear product details, delivery costs, return information and a checkout that works on a phone.
 >
@@ -866,7 +866,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > #Ecommerce #OnlineStore
 
-**EN-6 — Does your brand work beyond the logo? — optional / next month**
+**EN-6 -Does your brand work beyond the logo? -optional / next month**
 
 > Compare your website, sales presentation and social posts. Do the type, colours and imagery follow the same direction?
 >
@@ -874,7 +874,7 @@ Copy mein destination English hone ka short note jaan-boojh kar hai. Jab fully t
 >
 > #BrandIdentity #Branding
 
-**Manual GEO prompt — unbranded**
+**Manual GEO prompt -unbranded**
 
 > How should a small service business choose a provider for its website and enquiry workflow automation? Include selection criteria and sources.
 
@@ -916,7 +916,7 @@ Sab variants ki destination web-design service ya **actual live R1 checklist** h
 
 | Language | Title | Description | Alt text |
 | --- | --- | --- | --- |
-| RU | Сайт на телефоне: 5 проверок перед запуском | Проверьте предложение, читаемость, кнопку связи, форму и получение заявки. Сохраните чек-лист для следующего обновления сайта. Услуги AzeemLab — на английском. | Чек-лист из пяти проверок мобильного сайта: предложение, текст, кнопка, форма и получение заявки. |
+| RU | Сайт на телефоне: 5 проверок перед запуском | Проверьте предложение, читаемость, кнопку связи, форму и получение заявки. Сохраните чек-лист для следующего обновления сайта. Услуги AzeemLab -на английском. | Чек-лист из пяти проверок мобильного сайта: предложение, текст, кнопка, форма и получение заявки. |
 | PT-BR | Site no celular: 5 verificações antes de publicar | Confira proposta, leitura, botão de contato, formulário e recebimento da solicitação. Salve a lista para a próxima revisão do seu site. Serviços da AzeemLab em página em inglês. | Lista com cinco verificações de um site no celular: proposta, texto, botão, formulário e recebimento. |
 | FR | Site mobile : 5 vérifications avant publication | Vérifiez l’offre, la lisibilité, le bouton de contact, le formulaire et la réception de la demande. Enregistrez cette liste pour votre prochaine mise à jour. Services AzeemLab sur une page en anglais. | Liste de cinq vérifications d’un site mobile : offre, texte, bouton, formulaire et réception. |
 | ES | Web móvil: 5 comprobaciones antes de publicar | Revisa la propuesta, la lectura, el botón de contacto, el formulario y la recepción de la consulta. Guarda esta lista para tu próxima revisión. Servicios de AzeemLab en una página en inglés. | Lista con cinco comprobaciones de una web móvil: propuesta, texto, botón, formulario y recepción. |
@@ -930,32 +930,32 @@ Suggested runtime 30–45 sec; actual read-through se time set karein. On-screen
 **RU**
 
 - **Title:** «Сайт на телефоне: проверьте путь заявки»
-- **Narration:** «Откройте свой сайт на телефоне. Понятно ли предложение? Читается ли текст? Удобно ли нажать кнопку связи? Заполните форму и проверьте подтверждение. Затем убедитесь, что заявка действительно дошла до нужного человека. В AzeemLab мы проектируем этот путь целиком. Ссылка на услугу — в профиле.»
-- **Description:** «Проверяем мобильный путь от первого экрана до получения заявки. Демонстрация, без обещаний роста продаж. AzeemLab: https://www.azeemlab.com/services/web-design — страница на английском.»
+- **Narration:** «Откройте свой сайт на телефоне. Понятно ли предложение? Читается ли текст? Удобно ли нажать кнопку связи? Заполните форму и проверьте подтверждение. Затем убедитесь, что заявка действительно дошла до нужного человека. В AzeemLab мы проектируем этот путь целиком. Ссылка на услугу -в профиле.»
+- **Description:** «Проверяем мобильный путь от первого экрана до получения заявки. Демонстрация, без обещаний роста продаж. AzeemLab: https://www.azeemlab.com/services/web-design -страница на английском.»
 
 **PT-BR**
 
 - **Title:** “Seu site no celular: teste o caminho até o contato”
 - **Narration:** “Abra seu site no celular. A proposta está clara? O texto é legível? É fácil tocar no botão de contato? Preencha o formulário e confira a confirmação. Depois, verifique se a solicitação chegou à pessoa certa. Na AzeemLab, projetamos esse caminho completo. O serviço está no link do perfil.”
-- **Description:** “Uma verificação do primeiro acesso até o recebimento da solicitação. Demonstração, sem promessa de aumento nas vendas. AzeemLab: https://www.azeemlab.com/services/web-design — página em inglês.”
+- **Description:** “Uma verificação do primeiro acesso até o recebimento da solicitação. Demonstração, sem promessa de aumento nas vendas. AzeemLab: https://www.azeemlab.com/services/web-design -página em inglês.”
 
 **FR**
 
 - **Title:** « Site mobile : testez le parcours de contact »
 - **Narration:** « Ouvrez votre site sur un téléphone. L’offre est-elle claire ? Le texte est-il lisible ? Le bouton de contact est-il facile à utiliser ? Remplissez le formulaire et vérifiez la confirmation. Assurez-vous ensuite que la demande arrive à la bonne personne. Chez AzeemLab, nous concevons ce parcours complet. Le lien du service est dans le profil. »
-- **Description:** « Un test du premier écran à la réception de la demande. Démonstration, sans promesse de hausse des ventes. AzeemLab : https://www.azeemlab.com/services/web-design — page en anglais. »
+- **Description:** « Un test du premier écran à la réception de la demande. Démonstration, sans promesse de hausse des ventes. AzeemLab : https://www.azeemlab.com/services/web-design -page en anglais. »
 
 **ES**
 
 - **Title:** “Web móvil: comprueba el recorrido hasta el contacto”
 - **Narration:** “Abre tu web en un teléfono. ¿La propuesta está clara? ¿El texto se lee bien? ¿Es fácil pulsar el botón de contacto? Rellena el formulario y revisa la confirmación. Después, comprueba que la consulta llega a la persona adecuada. En AzeemLab diseñamos ese recorrido completo. El enlace del servicio está en el perfil.”
-- **Description:** “Una prueba desde la primera pantalla hasta la recepción de la consulta. Demostración, sin promesas de aumento de ventas. AzeemLab: https://www.azeemlab.com/services/web-design — página en inglés.”
+- **Description:** “Una prueba desde la primera pantalla hasta la recepción de la consulta. Demostración, sin promesas de aumento de ventas. AzeemLab: https://www.azeemlab.com/services/web-design -página en inglés.”
 
 **NL**
 
 - **Title:** “Mobiele website: test de route naar contact”
 - **Narration:** “Open je website op een telefoon. Is je aanbod duidelijk? Is de tekst leesbaar? Is de contactknop makkelijk te bedienen? Vul het formulier in en controleer de bevestiging. Kijk daarna of de aanvraag bij de juiste persoon aankomt. Bij AzeemLab ontwerpen we die hele route. De link naar de dienst staat in het profiel.”
-- **Description:** “Een controle van het eerste scherm tot de ontvangst van de aanvraag. Demo, zonder beloften over meer omzet. AzeemLab: https://www.azeemlab.com/services/web-design — pagina in het Engels.”
+- **Description:** “Een controle van het eerste scherm tot de ontvangst van de aanvraag. Demo, zonder beloften over meer omzet. AzeemLab: https://www.azeemlab.com/services/web-design -pagina in het Engels.”
 
 **EN**
 
@@ -971,11 +971,11 @@ Cut order: test input → validation → owner → draft → human approval → 
 
 | Language | Title | Narration | Description |
 | --- | --- | --- | --- |
-| RU | Автоматизируйте один шаг обработки заявок | Заявки теряются между формой и таблицей? Сначала опишите процесс. Проверьте обязательные поля, назначьте ответственного и подготовьте черновик ответа. Там, где это нужно, оставьте одобрение человеком. Ошибки должны попадать на проверку, а не исчезать. Это демонстрация на тестовых данных. Обсудить ваш процесс можно через ссылку в профиле AzeemLab. | Демонстрация: тестовые данные, проверка и ручное одобрение. https://www.azeemlab.com/services/ai-automation — страница на английском. |
-| PT-BR | Automatize uma etapa do recebimento de solicitações | As solicitações se perdem entre o formulário e a planilha? Primeiro, descreva o processo. Confira os campos obrigatórios, defina um responsável e prepare um rascunho de resposta. Mantenha a aprovação humana quando necessário. Erros precisam ir para revisão. Esta demonstração usa dados fictícios. Fale sobre seu processo pelo link no perfil da AzeemLab. | Demonstração com dados fictícios, validação e aprovação humana. https://www.azeemlab.com/services/ai-automation — página em inglês. |
-| FR | Automatisez une étape du traitement des demandes | Des demandes se perdent entre le formulaire et le tableau ? Décrivez d’abord le processus. Vérifiez les champs nécessaires, désignez un responsable et préparez un brouillon de réponse. Gardez une approbation humaine si nécessaire. Les erreurs doivent être examinées. Cette démonstration utilise des données fictives. Parlons de votre processus via le lien du profil AzeemLab. | Démonstration avec données fictives, validation et approbation humaine. https://www.azeemlab.com/services/ai-automation — page en anglais. |
-| ES | Automatiza una etapa de la gestión de consultas | ¿Las consultas se pierden entre el formulario y la hoja de cálculo? Primero, describe el proceso. Comprueba los campos necesarios, asigna una persona responsable y prepara un borrador de respuesta. Mantén la aprobación humana cuando haga falta. Los errores deben pasar a revisión. Esta demostración usa datos ficticios. Hablemos de tu proceso desde el enlace del perfil de AzeemLab. | Demostración con datos ficticios, validación y aprobación humana. https://www.azeemlab.com/services/ai-automation — página en inglés. |
-| NL | Automatiseer één stap in je aanvraagproces | Raken aanvragen kwijt tussen het formulier en de spreadsheet? Beschrijf eerst het proces. Controleer verplichte velden, wijs een verantwoordelijke aan en maak een conceptantwoord. Behoud menselijke goedkeuring waar nodig. Fouten moeten zichtbaar naar een controlewachtrij gaan. Dit is een demo met fictieve gegevens. Bespreek je proces via de link in het AzeemLab-profiel. | Demo met fictieve gegevens, controle en menselijke goedkeuring. https://www.azeemlab.com/services/ai-automation — pagina in het Engels. |
+| RU | Автоматизируйте один шаг обработки заявок | Заявки теряются между формой и таблицей? Сначала опишите процесс. Проверьте обязательные поля, назначьте ответственного и подготовьте черновик ответа. Там, где это нужно, оставьте одобрение человеком. Ошибки должны попадать на проверку, а не исчезать. Это демонстрация на тестовых данных. Обсудить ваш процесс можно через ссылку в профиле AzeemLab. | Демонстрация: тестовые данные, проверка и ручное одобрение. https://www.azeemlab.com/services/ai-automation -страница на английском. |
+| PT-BR | Automatize uma etapa do recebimento de solicitações | As solicitações se perdem entre o formulário e a planilha? Primeiro, descreva o processo. Confira os campos obrigatórios, defina um responsável e prepare um rascunho de resposta. Mantenha a aprovação humana quando necessário. Erros precisam ir para revisão. Esta demonstração usa dados fictícios. Fale sobre seu processo pelo link no perfil da AzeemLab. | Demonstração com dados fictícios, validação e aprovação humana. https://www.azeemlab.com/services/ai-automation -página em inglês. |
+| FR | Automatisez une étape du traitement des demandes | Des demandes se perdent entre le formulaire et le tableau ? Décrivez d’abord le processus. Vérifiez les champs nécessaires, désignez un responsable et préparez un brouillon de réponse. Gardez une approbation humaine si nécessaire. Les erreurs doivent être examinées. Cette démonstration utilise des données fictives. Parlons de votre processus via le lien du profil AzeemLab. | Démonstration avec données fictives, validation et approbation humaine. https://www.azeemlab.com/services/ai-automation -page en anglais. |
+| ES | Automatiza una etapa de la gestión de consultas | ¿Las consultas se pierden entre el formulario y la hoja de cálculo? Primero, describe el proceso. Comprueba los campos necesarios, asigna una persona responsable y prepara un borrador de respuesta. Mantén la aprobación humana cuando haga falta. Los errores deben pasar a revisión. Esta demostración usa datos ficticios. Hablemos de tu proceso desde el enlace del perfil de AzeemLab. | Demostración con datos ficticios, validación y aprobación humana. https://www.azeemlab.com/services/ai-automation -página en inglés. |
+| NL | Automatiseer één stap in je aanvraagproces | Raken aanvragen kwijt tussen het formulier en de spreadsheet? Beschrijf eerst het proces. Controleer verplichte velden, wijs een verantwoordelijke aan en maak een conceptantwoord. Behoud menselijke goedkeuring waar nodig. Fouten moeten zichtbaar naar een controlewachtrij gaan. Dit is een demo met fictieve gegevens. Bespreek je proces via de link in het AzeemLab-profiel. | Demo met fictieve gegevens, controle en menselijke goedkeuring. https://www.azeemlab.com/services/ai-automation -pagina in het Engels. |
 | EN | Automate one step in your enquiry workflow | Do enquiries get lost between the form and the spreadsheet? Map the process first. Check required fields, assign an owner and prepare a draft response. Keep human approval where needed. Failures should go to a visible review queue. This demonstration uses dummy data. Discuss your workflow through the link in AzeemLab’s profile. | Demonstration using dummy data, validation and human approval. https://www.azeemlab.com/services/ai-automation |
 
 **CTA fallback jab profile link feature available na ho:**
@@ -990,11 +990,11 @@ Full tutorial ki spoken language aapki production capacity par depend karegi. Ye
 
 | Language | Title | Description |
 | --- | --- | --- |
-| RU | От формы на сайте до проверки заявки: демонстрация процесса | Показываем тестовую заявку, проверку данных, назначение ответственного, черновик ответа и обработку ошибки. Демонстрация на тестовых данных. Услуга: https://www.azeemlab.com/services/ai-automation — страница на английском. |
-| PT-BR | Do formulário à revisão da solicitação: demonstração do fluxo | Veja uma solicitação de teste, validação, responsável, rascunho de resposta e tratamento de erro. Demonstração com dados fictícios. Serviço: https://www.azeemlab.com/services/ai-automation — página em inglês. |
-| FR | Du formulaire à la vérification d’une demande : démonstration | Découvrez une demande de test, la validation, l’attribution, le brouillon de réponse et le traitement d’une erreur. Données fictives. Service : https://www.azeemlab.com/services/ai-automation — page en anglais. |
-| ES | Del formulario a la revisión de una consulta: demostración | Mostramos una consulta de prueba, validación, asignación, borrador de respuesta y gestión de un error. Datos ficticios. Servicio: https://www.azeemlab.com/services/ai-automation — página en inglés. |
-| NL | Van formulier naar gecontroleerde aanvraag: een demo | Bekijk een testaanvraag, validatie, toewijzing, conceptantwoord en foutafhandeling. Demo met fictieve gegevens. Dienst: https://www.azeemlab.com/services/ai-automation — pagina in het Engels. |
+| RU | От формы на сайте до проверки заявки: демонстрация процесса | Показываем тестовую заявку, проверку данных, назначение ответственного, черновик ответа и обработку ошибки. Демонстрация на тестовых данных. Услуга: https://www.azeemlab.com/services/ai-automation -страница на английском. |
+| PT-BR | Do formulário à revisão da solicitação: demonstração do fluxo | Veja uma solicitação de teste, validação, responsável, rascunho de resposta e tratamento de erro. Demonstração com dados fictícios. Serviço: https://www.azeemlab.com/services/ai-automation -página em inglês. |
+| FR | Du formulaire à la vérification d’une demande : démonstration | Découvrez une demande de test, la validation, l’attribution, le brouillon de réponse et le traitement d’une erreur. Données fictives. Service : https://www.azeemlab.com/services/ai-automation -page en anglais. |
+| ES | Del formulario a la revisión de una consulta: demostración | Mostramos una consulta de prueba, validación, asignación, borrador de respuesta y gestión de un error. Datos ficticios. Servicio: https://www.azeemlab.com/services/ai-automation -página en inglés. |
+| NL | Van formulier naar gecontroleerde aanvraag: een demo | Bekijk een testaanvraag, validatie, toewijzing, conceptantwoord en foutafhandeling. Demo met fictieve gegevens. Dienst: https://www.azeemlab.com/services/ai-automation -pagina in het Engels. |
 | EN | From website form to reviewed enquiry: a workflow demo | Follow a test enquiry through validation, assignment, draft response and a failure path. Demonstration using dummy data. Service: https://www.azeemlab.com/services/ai-automation |
 
 | Chapter | RU | PT-BR | FR | ES | NL | EN |
@@ -1138,31 +1138,31 @@ Public partnership/collaboration context ya warm introduction mein use karein. `
 
 Google Sheets, LibreOffice ya existing spreadsheet use karein. Tool signup mandatory nahi. Sensitive lead details publicly share na karein.
 
-**Tab 1 — content log**
+**Tab 1 -content log**
 
 ```csv
 date,day,asset_id,language,target_market,platform,post_url,destination_url,utm_content,format,time_minutes,impressions,link_clicks,saves,meaningful_replies,inquiries,qualified_inquiries,notes
 ```
 
-**Tab 2 — search log**
+**Tab 2 -search log**
 
 ```csv
 check_date,engine,property,period_start,period_end,page,query,country,device,clicks,impressions,ctr,average_position,index_status,source,action
 ```
 
-**Tab 3 — editorial/partner outreach**
+**Tab 3 -editorial/partner outreach**
 
 ```csv
 prospect,language,type,public_contact_url,relevant_article,proposed_topic,fee_status,pitch_date,followup_due,reply_status,accepted,published_url,next_step
 ```
 
-**Tab 4 — leads, private**
+**Tab 4 -leads, private**
 
 ```csv
 lead_id,date,service,market,written_language,source,self_reported_source,need,timeline,budget_status,qualification_status,stage,next_action,next_action_date
 ```
 
-**Tab 5 — manual GEO sample**
+**Tab 5 -manual GEO sample**
 
 ```csv
 date,system,web_search_mode,locale,prompt_language,prompt_text,brand_named_in_prompt,azeemlab_mentioned,cited_azeemlab_url,accuracy_notes,response_evidence
