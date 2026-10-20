@@ -11,15 +11,16 @@ import { portfolioContextLength } from '../src/lib/portfolio-content';
 import { services } from '../src/lib/data';
 import { POST } from '../src/app/api/whatsapp/route';
 import { existsSync } from 'node:fs';
+import { locales } from '../src/i18n/config';
 
 test('sitemap has unique current canonical routes and includes every article', () => {
   const urls = sitemap().map(entry => entry.url);
   assert.equal(new Set(urls).size, urls.length);
-  assert.ok(urls.includes(`${siteUrl}/about`));
+  assert.ok(urls.includes(`${siteUrl}/en/about`));
   assert.ok(!urls.includes(`${siteUrl}/about-us`));
   assert.ok(!urls.includes(`${siteUrl}/services/seo-marketing`));
   for (const post of blogPosts) {
-    assert.ok(urls.includes(`${siteUrl}/blog/${post.slug}`));
+    for (const locale of locales) assert.ok(urls.includes(`${siteUrl}/${locale}/blog/${post.slug}`));
     assert.ok(articleContent[post.slug]?.sections.length >= 4);
   }
   assert.equal(createPageMetadata('/contact', 'Contact', 'Enquire').alternates?.canonical, '/contact');
@@ -33,7 +34,7 @@ test('llms index exposes current canonical content and AI source guidance', asyn
   assert.equal(response.headers.get('content-type'), 'text/plain; charset=utf-8');
   const body = await response.text();
   assert.match(body, /# AzeemLab/);
-  assert.match(body, new RegExp(`${siteUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/services/`));
+  assert.ok(body.includes(`${siteUrl}/en/services/`));
   for (const post of blogPosts) assert.match(body, new RegExp(`/blog/${post.slug}`));
   assert.match(body, /source of truth/i);
 });

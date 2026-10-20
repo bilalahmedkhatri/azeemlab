@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+html:lang(zh-Hans) body, html:lang(ko) body, html:lang(ja) body {
+  font-family: system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", "PingFang SC", "Malgun Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+  overflow-wrap: anywhere;
+}
+
 /* ==================================================
    PROFESSIONAL AGENCY THEME – BLUE DOMINANT, PINK SUPPORT
 ================================================== */

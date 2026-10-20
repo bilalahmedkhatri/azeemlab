@@ -12,6 +12,7 @@
 
 # testing
 /coverage
+/artifacts/
 
 # next.js
 /.next/
@@ -55,3 +56,11 @@ next-env.d.ts
 ahref/
 
 .design
+
+# Deterministic locale output; regenerated from English templates and checked catalogs.
+/src/generated/
+/.playwright-cli/
+!/translations/
+!/translations/*.json
+
+.vercel

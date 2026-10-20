@@ -7,10 +7,11 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, ChevronDown, Menu, X } from 'lucide-react';
 import { navLinks } from '@/lib/navigation';
 import styles from './SiteLayout.module.css';
+import { stripLocale } from '@/i18n/config';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
+  const pathname = stripLocale(usePathname());
   const menuButton = useRef<HTMLButtonElement>(null);
   const navigation = useRef<HTMLElement>(null);
   const active = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);

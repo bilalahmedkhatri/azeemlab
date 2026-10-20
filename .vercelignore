@@ -1,0 +1,34 @@
+# Keep provider credentials, local reports and tooling outside deployment uploads.
+.git
+node_modules
+.next
+.vercel
+.env*
+.codex
+.agents
+.aws
+.design
+.playwright-cli
+.wwebjs_auth
+.wwebjs_cache
+gsc
+ahref
+artifacts
+cpanel-build
+coverage
+*.pem
+*.key
+*.pfx
+*.xlsx
+*.xls
+*.csv
+*.tsbuildinfo
+*.log
+/*.md
+*.json
+!package.json
+!tsconfig.json
+!translations/*.json
+!src/data/sample-lead-report.json
+# Rebuild these deterministic modules from source/catalogs during pnpm build.
+src/generated

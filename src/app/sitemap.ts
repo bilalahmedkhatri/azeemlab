@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next';
 import { services, caseStudies, blogPosts } from '@/lib/data';
 import { absoluteUrl } from '@/lib/site';
 import { agencyVisual, serviceVisuals, articleVisuals } from '@/lib/visuals';
+import { locales, localizedPath } from '@/i18n/config';
+import { languageAlternates } from '@/i18n/urls';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
@@ -12,13 +14,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogPosts.map(post => `/blog/${post.slug}`),
   ];
   // Do not invent modification dates for pages with no maintained revision date.
-  return [...new Set(paths)].map(path => {
+  return [...new Set(paths)].flatMap(path => locales.map(locale => {
     const slug = path.split('/').pop() || '';
     const image = path === '/' ? agencyVisual.src
       : path.startsWith('/blog/') ? articleVisuals[slug]?.src
       : /^\/services\/[^/]+$/.test(path) ? serviceVisuals[slug]?.src
       : path.startsWith('/portfolio/') ? caseStudies.find(project => project.slug === slug)?.heroImage
       : undefined;
-    return { url: absoluteUrl(path), ...(image ? { images: [absoluteUrl(image)] } : {}) };
-  });
+    return { url: absoluteUrl(localizedPath(locale, path)), alternates: { languages: languageAlternates(path) }, ...(image ? { images: [absoluteUrl(image)] } : {}) };
+  }));
 }

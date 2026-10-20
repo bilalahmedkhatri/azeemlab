@@ -4,6 +4,14 @@ import React, { useState } from 'react';
 import { Input, TextArea, Select } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 
+const enquiryErrors: Record<string, string> = {
+  'Message is too large.': 'Message is too large.',
+  'Please send valid form data.': 'Please send valid form data.',
+  'Please check your name, email, service and project details (10–5,000 characters).': 'Please check your name, email, service and project details (10–5,000 characters).',
+  'The enquiry form is temporarily unavailable. Please email bilalahmed@azeemlab.com.': 'The enquiry form is temporarily unavailable. Please email bilalahmed@azeemlab.com.',
+  'Your enquiry could not be delivered. Please email bilalahmed@azeemlab.com.': 'Your enquiry could not be delivered. Please email bilalahmed@azeemlab.com.',
+};
+
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -35,7 +43,9 @@ export default function ContactForm() {
 
       const result = await response.json();
       if (!response.ok || !result.success) {
-        throw new Error(result.error || 'Your enquiry could not be delivered.');
+        setErrorMessage(enquiryErrors[result.error] || 'Your enquiry could not be delivered.');
+        setSubmitStatus('error');
+        return;
       }
       const analytics = window as Window & { gtag?: (...args: unknown[]) => void };
       analytics.gtag?.('event', 'generate_lead', { method: 'contact_form', service: formData.projectType });
@@ -50,7 +60,7 @@ export default function ContactForm() {
         message: ''
       });
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : 'Your enquiry could not be delivered.');
+      setErrorMessage('Your enquiry could not be delivered.');
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
