@@ -14,7 +14,7 @@ export const Footer = () => (
         <div><h2>Expertise</h2><ul>{services.map(service => <li key={service.id}><Link href={`/services/${service.slug}`}>{service.slug === 'web-design' ? 'Web design & development' : service.title}</Link></li>)}</ul></div>
         <div><h2>Start a conversation</h2><a className={styles.email} href="mailto:bilalahmed@azeemlab.com">bilalahmed@azeemlab.com</a><ul><li><a href="tel:+923213009321">+92 (321) 300-9321</a></li></ul><Link href="/contact" className={styles.footerCta}>Tell us about your idea <ArrowUpRight size={15} /></Link></div>
       </div>
-      <div className={styles.footerBottom}><p>© {new Date().getFullYear()} AzeemLab. All rights reserved.</p><div><Link href="/privacy">Privacy policy</Link><Link href="/terms">Terms of service</Link></div><LanguageSwitcher /><span>Built with purpose.</span></div>
+      <div className={styles.footerBottom}><div className={styles.footerBottomLeft}><LanguageSwitcher /><p>© {new Date().getFullYear()} AzeemLab. All rights reserved.</p></div><div><Link href="/privacy">Privacy policy</Link><Link href="/terms">Terms of service</Link></div><span>Built with purpose.</span></div>
     </div>
   </footer>
 );

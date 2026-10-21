@@ -30,6 +30,7 @@
 .footerCta { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; margin-top: 20px; }
 .footerBottom { display: flex; justify-content: space-between; align-items: center; gap: 20px; border-top: 1px solid #dedfe4; padding-top: 22px; font-size: 10px; color: #777b84; }
 .footerBottom div { display: flex; gap: 20px; }
+.footerBottomLeft { display: flex; align-items: center; gap: 40px; }
 @media (max-width: 1024px) { .links { gap: 16px; } .footerGrid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 860px) { .nav { flex-wrap: wrap; min-height: 72px; gap: 0; padding-block: 14px; } .logo { font-size: 23px; } .menuButton { display: flex; } .links { display: none; width: 100%; padding: 20px 0 4px; max-height: calc(100dvh - 90px); overflow-y: auto; } .linksOpen { display: flex; align-items: stretch; flex-direction: column; gap: 0; } .links > a, .dropdown summary { padding: 13px 10px; } .dropdownPanel { position: static; margin: 4px 0 10px; box-shadow: none; min-width: 0; } .links .contactButton { margin-top: 10px; justify-content: space-between; padding-inline: 18px; } }
 @media (max-width: 600px) { .footerGrid { gap: 30px 22px; } .footerBrand { grid-column: 1 / -1; } .footerGrid > div:last-child { grid-column: 1 / -1; } .footerBottom { flex-direction: column; align-items: flex-start; gap: 13px; } .footerBottom > span { display: none; } }
