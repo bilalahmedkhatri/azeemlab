@@ -7,7 +7,7 @@ import { languageAlternates } from '@/i18n/urls';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
-    '/', '/about', '/services', '/portfolio', '/blog', '/careers', '/process', '/partners', '/contact', '/privacy', '/terms', '/pricing/plan_detail/business',
+    '/', '/about', '/services', '/portfolio', '/blog', '/careers', '/process', '/partners', '/guest-post', '/contact', '/privacy', '/terms', '/pricing/plan_detail/business',
     ...services.map(service => `/services/${service.slug}`),
     ...services.flatMap(service => (service.locationPages || []).map(location => `/services/${service.slug}/${location.slug}`)),
     ...caseStudies.map(project => `/portfolio/${project.slug}`),

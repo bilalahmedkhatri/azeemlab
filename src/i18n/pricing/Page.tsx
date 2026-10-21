@@ -39,23 +39,23 @@ export default async function BusinessPricingPage() {
     seo: {
       title: t("SEO & digital marketing"), price: 200, label: t("One-time starter SEO audit"),
       description: t("Help customers discover and understand your services."),
-      included: [t("Technical and indexability review of up to 5 pages"), t("Keyword mapping for those 5 pages"), t("Page titles, descriptions and heading review"), t("Prioritised recommendations and measurement plan")],
+      included: [t("Technical and indexability review of up to 5 pages"), t("Keyword mapping for those 5 pages"), t("Page titles, descriptions and heading review"), t("Prioritised recommendations and measurement plan"), t("Delivery within 5 to 7 business days")],
       extras: t("More pages, new content, implementation work and ongoing campaigns increase the quote. Ad spend is separate; rankings are not guaranteed."),
     },
     ecommerce: {
-      title: t("E-commerce development"), price: 500, label: t("One-time starter store setup"),
+      title: t("E-commerce development"), price: 900, label: t("One-time starter store setup"),
       description: t("An online store built around a clear buying journey."),
       included: [t("Theme-based storefront with up to 5 pages"), t("Up to 20 client-supplied products and 3 categories"), t("One standard payment gateway and basic shipping setup"), t("Checkout testing, 2 revision rounds and handover")],
       extras: t("Product volume, custom filters, subscriptions, stock sync and additional payment or shipping integrations affect the price."),
     },
     'ai-integrations': {
-      title: t("AI integrations"), price: 350, label: t("One-time basic AI feature setup"),
+      title: t("AI integrations"), price: 500, label: t("One-time basic AI feature setup"),
       description: t("Add a focused AI feature to your website or product."),
       included: [t("One use case with client-supplied FAQ content"), t("One basic text chatbot on an existing website"), t("One server-side AI provider connection"), t("Basic testing, fallback and handover guidance")],
       extras: t("Multiple data sources, document search, custom actions, more channels and advanced evaluation increase the quote. AI usage fees are separate."),
     },
     'ai-automation': {
-      title: t("AI workflow automation"), price: 500, label: t("One-time simple workflow setup"),
+      title: t("AI workflow automation"), price: 800, label: t("One-time simple workflow setup"),
       description: t("Connect your tools and reduce repetitive manual work."),
       included: [t("One simple workflow with up to 3 steps"), t("One trigger and up to 2 connected tools"), t("Field mapping and a basic failure notification"), t("Normal-path and error testing with handover notes")],
       extras: t("More workflows, branching logic, custom APIs, data migration and ongoing monitoring increase the quote. Platform subscriptions are separate."),

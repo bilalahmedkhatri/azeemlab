@@ -1401,6 +1401,14 @@ export const pageMetadata = {
     keywords:
       'terms of service, terms and conditions, legal terms, service agreement, website terms',
   },
+
+  guestPost: {
+    title: 'Write for AzeemLab - Guest Post Guidelines and Submission | AzeemLab',
+    description:
+      'Submit a guest post to AzeemLab. We publish original articles on web design, AI, SEO, and digital growth. Earn a dofollow backlink and reach a global audience of business owners and founders.',
+    keywords:
+      'write for us, guest post, guest blogging, submit article, content contribution, dofollow backlink, web design blog, AI marketing blog, digital growth blog',
+  },
 };
 
 // ─── BLOG POSTS (NEW -needed for informational keyword targeting) ──────────────

@@ -22,6 +22,7 @@ export const navLinks: NavLink[] = [
     label: 'Services',
     children: servicesNavItems
   },
+  { href: '/pricing/plan_detail/business', label: 'Pricing' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/blog', label: 'Blog' },
   { href: '/process', label: 'Process' },

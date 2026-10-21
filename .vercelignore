@@ -29,6 +29,7 @@ coverage
 !package.json
 !tsconfig.json
 !translations/*.json
-!src/data/sample-lead-report.json
+!src/**/*.json
+
 # Rebuild these deterministic modules from source/catalogs during pnpm build.
 src/generated

@@ -27,8 +27,13 @@ AzeemLab helps ambitious businesses turn unclear digital problems into useful we
 Primary website: ${siteUrl}/en
 Contact: ${canonical('/contact')}
 About the team: ${canonical('/about')}
-Process: ${canonical('/process')}
+Our process: ${canonical('/process')}
 Partner program: ${canonical('/partners')}
+Write for us / Guest posts: ${canonical('/guest-post')}
+Careers: ${canonical('/careers')}
+Portfolio: ${canonical('/portfolio')}
+Insights & blog: ${canonical('/blog')}
+Services overview: ${canonical('/services')}
 Service pricing (USD starting rates and included scope, available in all site languages): ${canonical('/pricing/plan_detail/business')}
 
 ## Services

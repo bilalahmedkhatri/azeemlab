@@ -286,6 +286,140 @@ export async function sendInternalNotificationEmail(
   }
 }
 
+export interface GuestPostSubmissionEmailParams {
+  name: string;
+  email: string;
+  website?: string;
+  topicTitle: string;
+  topicCategory: string;
+  outline: string;
+  bio?: string;
+}
+
+/**
+ * Send guest post pitch notification to admin and confirmation to contributor
+ */
+export async function sendGuestPostSubmissionEmail(
+  params: GuestPostSubmissionEmailParams
+): Promise<boolean> {
+  try {
+    const transporter = getEmailTransporter();
+    const from = process.env.EMAIL_FROM!;
+    const adminEmail = process.env.EMAIL_HR || process.env.EMAIL_USER || 'bilal.azeemlab@gmail.com';
+
+    const adminHtml = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>New Guest Post Pitch</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #1e293b;">
+  <table role="presentation" style="width: 100%; border-collapse: collapse;">
+    <tr>
+      <td style="padding: 30px 20px;">
+        <table role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0;">
+          <tr>
+            <td style="padding: 28px 32px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); text-align: left;">
+              <h1 style="color: #ffffff; margin: 0; font-size: 22px; font-weight: 700;">AzeemLab Guest Post</h1>
+              <p style="color: #e0e7ff; margin: 6px 0 0; font-size: 14px;">New Pitch Submission</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 32px;">
+              <h2 style="color: #0f172a; margin: 0 0 20px; font-size: 18px;">Pitch Summary</h2>
+              <table style="width: 100%; border-collapse: collapse;">
+                <tr><td style="padding: 8px 0; color: #64748b; font-size: 14px; width: 140px;">Author Name:</td><td style="padding: 8px 0; color: #0f172a; font-size: 14px; font-weight: 600;">${params.name}</td></tr>
+                <tr><td style="padding: 8px 0; color: #64748b; font-size: 14px;">Email:</td><td style="padding: 8px 0; color: #6366f1; font-size: 14px;"><a href="mailto:${params.email}" style="color: #6366f1; text-decoration: none;">${params.email}</a></td></tr>
+                <tr><td style="padding: 8px 0; color: #64748b; font-size: 14px;">Website:</td><td style="padding: 8px 0; color: #6366f1; font-size: 14px;">${params.website ? `<a href="${params.website.startsWith('http') ? params.website : 'https://' + params.website}" style="color: #6366f1; text-decoration: none;">${params.website}</a>` : 'Not provided'}</td></tr>
+                <tr><td style="padding: 8px 0; color: #64748b; font-size: 14px;">Article Title:</td><td style="padding: 8px 0; color: #0f172a; font-size: 14px; font-weight: 600;">${params.topicTitle}</td></tr>
+                <tr><td style="padding: 8px 0; color: #64748b; font-size: 14px;">Category:</td><td style="padding: 8px 0; color: #0f172a; font-size: 14px; text-transform: capitalize;">${params.topicCategory.replace(/-/g, ' ')}</td></tr>
+              </table>
+              <div style="margin-top: 24px; padding: 16px; background-color: #f8fafc; border-radius: 8px; border-left: 3px solid #6366f1;">
+                <p style="margin: 0 0 8px; color: #64748b; font-size: 12px; font-weight: 600; text-transform: uppercase;">Article Outline:</p>
+                <p style="margin: 0; color: #334155; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">${params.outline}</p>
+              </div>
+              ${params.bio ? `
+              <div style="margin-top: 16px; padding: 16px; background-color: #f8fafc; border-radius: 8px; border-left: 3px solid #94a3b8;">
+                <p style="margin: 0 0 8px; color: #64748b; font-size: 12px; font-weight: 600; text-transform: uppercase;">Author Bio:</p>
+                <p style="margin: 0; color: #334155; font-size: 14px; line-height: 1.6;">${params.bio}</p>
+              </div>` : ''}
+              <p style="color: #94a3b8; font-size: 12px; margin: 28px 0 0; padding-top: 20px; border-top: 1px solid #f1f5f9;">Submitted on ${new Date().toUTCString()} via AzeemLab Guest Post portal.</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+    `;
+
+    await transporter.sendMail({
+      from: `"AzeemLab Editorial" <${from}>`,
+      to: adminEmail,
+      subject: `New Guest Post Pitch: "${params.topicTitle}" by ${params.name}`,
+      html: adminHtml,
+    });
+
+    // Send confirmation to contributor
+    const confirmHtml = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Pitch Received - AzeemLab</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #1e293b;">
+  <table role="presentation" style="width: 100%; border-collapse: collapse;">
+    <tr>
+      <td style="padding: 30px 20px;">
+        <table role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0;">
+          <tr>
+            <td style="padding: 28px 32px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); text-align: left;">
+              <h1 style="color: #ffffff; margin: 0; font-size: 22px; font-weight: 700;">AzeemLab Guest Post</h1>
+              <p style="color: #e0e7ff; margin: 6px 0 0; font-size: 14px;">Pitch Received</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 32px;">
+              <p style="color: #0f172a; font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Dear <strong>${params.name}</strong>,</p>
+              <p style="color: #475569; font-size: 15px; line-height: 1.6; margin: 0 0 16px;">Thank you for submitting your guest post pitch to AzeemLab. We have received your proposal for:</p>
+              <div style="padding: 16px; background-color: #f0f4ff; border: 1px solid #c7d2fe; border-radius: 8px; margin-bottom: 20px;">
+                <p style="margin: 0; color: #3730a3; font-size: 15px; font-weight: 600;">"${params.topicTitle}"</p>
+                <p style="margin: 4px 0 0; color: #6366f1; font-size: 13px; text-transform: capitalize;">${params.topicCategory.replace(/-/g, ' ')}</p>
+              </div>
+              <p style="color: #475569; font-size: 15px; line-height: 1.6; margin: 0 0 20px;">Our editorial team reviews all pitches within <strong>3 business days</strong>. If your pitch is a good fit, we will reply with approval and next steps. If we pass, we will let you know with brief feedback.</p>
+              <p style="color: #64748b; font-size: 14px; line-height: 1.6; margin: 0;">Questions? Reply directly to this email or reach us at <a href="mailto:bilal.azeemlab@gmail.com" style="color: #6366f1; text-decoration: none;">bilal.azeemlab@gmail.com</a>.</p>
+              <p style="color: #94a3b8; font-size: 12px; margin: 30px 0 0; padding-top: 20px; border-top: 1px solid #f1f5f9;">AzeemLab Editorial Team | Thoughtful Design and Dependable Development</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+    `;
+
+    try {
+      await transporter.sendMail({
+        from: `"AzeemLab Editorial" <${from}>`,
+        to: params.email,
+        subject: 'Pitch Received - AzeemLab Guest Post',
+        html: confirmHtml,
+      });
+    } catch (confirmErr) {
+      console.warn('Contributor confirmation email failed, but admin was notified:', confirmErr);
+    }
+
+    return true;
+  } catch (error) {
+    console.error('Error in sendGuestPostSubmissionEmail:', error);
+    return false;
+  }
+}
+
 export interface PartnerApplicationEmailParams {
   name: string;
   agency?: string;
