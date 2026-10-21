@@ -45,4 +45,6 @@ Automation: single simple workflows; AI classification or generation steps and c
 
 ## Implementation scope
 
-This client-facing English page lives directly under the requested `/en/` route. It reuses the existing shell, locale-aware links, icons and agency styles. It does not create untranslated copies in the eight other locales. It is a shareable quote guide, with no checkout or automatic commitment to start work.
+The client-facing page supports all nine site languages, preserving the requested `/en/pricing/plan_detail/business` URL. Its shared server component is `src/i18n/pricing/Page.tsx`; page-specific catalogs in `src/i18n/pricing/messages/` translate headings, scope, FAQs, metadata and structured descriptions. These catalogs are maintained locally and require fluent-language review before treating the copy as professionally reviewed.
+
+The shared route at `src/app/pricing/plan_detail/business/page.tsx` re-exports this component through the existing locale registries. Prices remain numeric in one shared source and stay in USD. Sitemap entries include reciprocal language alternates. The page-specific runtime follows the existing request locale; its catalogs do not depend on the global marketing-text catalogs. It reuses the shell, locale-aware links, icons and agency styles. There is no checkout or automatic commitment to start work. The sample rates above record the original research; the current page source is authoritative for later commercial price changes.

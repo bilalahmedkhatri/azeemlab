@@ -1365,7 +1365,7 @@ export const pageMetadata = {
   contact: {
     title: 'Contact Us -Get in Touch with AzeemLab',
     description:
-      'Ready to transform your digital presence? Contact us for a free 30-minute consultation. Email: bilalahmed@azeemlab.com | Phone: +92 321 300 93 21',
+      'Ready to transform your digital presence? Contact us for a free 30-minute consultation. Email: bilal.azeemlab@gmail.com | Phone: +92 321 300 93 21',
     keywords:
       'contact us, get in touch, free consultation, project inquiry, contact digital agency, email contact',
   },
@@ -1376,6 +1376,14 @@ export const pageMetadata = {
       'Discover our proven 4-step process: Discover, Design, Develop, Deploy. Transparent collaboration, clear milestones, and exceptional results every time.',
     keywords:
       'work process, development process, project workflow, responsive web design process, how we work, methodology',
+  },
+
+  partners: {
+    title: 'Partner Program - Agency White-Label and Referral Collaboration | AzeemLab',
+    description:
+      'Join the AzeemLab Partner Ecosystem. Agency white-label dev fulfillment, up to 40% referral revenue share, and technology integrations with guaranteed zero channel conflict.',
+    keywords:
+      'agency partner program, white label web development, referral commission, development partner, tech partner, next.js agency partner, affiliate program',
   },
 
   privacy: {

@@ -1,5 +1,6 @@
 'use client';
 
+import { ProjectLinks } from '@/components/sections/ProjectLinks';
 import React from 'react';
 import Image from 'next/image';
 import { Card } from '@/components/ui/Card';
@@ -325,6 +326,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <ProjectLinks mode="partners" />
     </div>
   );
 }

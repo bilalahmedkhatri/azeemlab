@@ -17,6 +17,8 @@ test('sitemap has unique current canonical routes and includes every article', (
   const urls = sitemap().map(entry => entry.url);
   assert.equal(new Set(urls).size, urls.length);
   assert.ok(urls.includes(`${siteUrl}/en/about`));
+  const pricingEntries = urls.filter(url => url.includes('/pricing/plan_detail/business'));
+  assert.deepEqual(pricingEntries, locales.map(locale => `${siteUrl}/${locale}/pricing/plan_detail/business`));
   assert.ok(!urls.includes(`${siteUrl}/about-us`));
   assert.ok(!urls.includes(`${siteUrl}/services/seo-marketing`));
   for (const post of blogPosts) {
@@ -35,6 +37,7 @@ test('llms index exposes current canonical content and AI source guidance', asyn
   const body = await response.text();
   assert.match(body, /# AzeemLab/);
   assert.ok(body.includes(`${siteUrl}/en/services/`));
+  assert.ok(body.includes(`${siteUrl}/en/pricing/plan_detail/business`));
   for (const post of blogPosts) assert.match(body, new RegExp(`/blog/${post.slug}`));
   assert.match(body, /source of truth/i);
 });

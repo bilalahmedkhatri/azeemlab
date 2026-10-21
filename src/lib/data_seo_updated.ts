@@ -597,7 +597,7 @@ export const pageMetadata = {
   contact: {
     title: 'Contact Us -Get in Touch with AzeemLab',
     description:
-      'Ready to transform your digital presence? Contact us for a free 30-minute consultation. Email: bilalahmed@azeemlab.com | Phone: +92 321 300 93 21',
+      'Ready to transform your digital presence? Contact us for a free 30-minute consultation. Email: bilal.azeemlab@gmail.com | Phone: +92 321 300 93 21',
     keywords:
       'contact us, get in touch, free consultation, project inquiry, contact digital agency, email contact',
   },

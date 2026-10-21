@@ -20,7 +20,7 @@ const SYSTEM_PROMPT = `You are an intelligent AI assistant for AzeemLab, a premi
 - Pakistan: Shahray-e-Faisal Fortune Tower, 1705 SQFT
 
 **Contact**:
-- Email: bilalahmed@azeemlab.com
+- Email: bilal.azeemlab@gmail.com
 - Phone: +92 321 300 93 21
 - Office Hours: Monday-Friday, 9:00 AM - 6:00 PM
 
@@ -139,7 +139,7 @@ const SYSTEM_PROMPT = `You are an intelligent AI assistant for AzeemLab, a premi
 **For specific questions beyond your knowledge**: Encourage visitors to:
 - Schedule a free 30-minute consultation
 - Fill out the contact form (24-hour response time)
-- Email bilalahmed@azeemlab.com
+- Email bilal.azeemlab@gmail.com
 - Call +92 321 300 93 21
 
 ## CONVERSATION STYLE

@@ -7,14 +7,14 @@ import { languageAlternates } from '@/i18n/urls';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
-    '/', '/about', '/services', '/portfolio', '/blog', '/careers', '/process', '/contact', '/privacy', '/terms',
+    '/', '/about', '/services', '/portfolio', '/blog', '/careers', '/process', '/partners', '/contact', '/privacy', '/terms', '/pricing/plan_detail/business',
     ...services.map(service => `/services/${service.slug}`),
     ...services.flatMap(service => (service.locationPages || []).map(location => `/services/${service.slug}/${location.slug}`)),
     ...caseStudies.map(project => `/portfolio/${project.slug}`),
     ...blogPosts.map(post => `/blog/${post.slug}`),
   ];
   // Do not invent modification dates for pages with no maintained revision date.
-  return [...new Set(paths)].flatMap(path => locales.map(locale => {
+  const localizedEntries = [...new Set(paths)].flatMap(path => locales.map(locale => {
     const slug = path.split('/').pop() || '';
     const image = path === '/' ? agencyVisual.src
       : path.startsWith('/blog/') ? articleVisuals[slug]?.src
@@ -23,4 +23,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       : undefined;
     return { url: absoluteUrl(localizedPath(locale, path)), alternates: { languages: languageAlternates(path) }, ...(image ? { images: [absoluteUrl(image)] } : {}) };
   }));
+  return localizedEntries;
 }

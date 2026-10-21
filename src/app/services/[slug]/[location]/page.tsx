@@ -1,3 +1,4 @@
+import { ProjectLinks } from '@/components/sections/ProjectLinks';
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
@@ -261,6 +262,7 @@ export default async function LocationPage({ params }: PageProps) {
         </div>
       )}
 
+      <ProjectLinks />
       {/* Localized CTA Section */}
       <section className="py-24 bg-accent">
         <div className="container mx-auto px-6 text-center">

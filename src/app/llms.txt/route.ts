@@ -28,6 +28,8 @@ Primary website: ${siteUrl}/en
 Contact: ${canonical('/contact')}
 About the team: ${canonical('/about')}
 Process: ${canonical('/process')}
+Partner program: ${canonical('/partners')}
+Service pricing (USD starting rates and included scope, available in all site languages): ${canonical('/pricing/plan_detail/business')}
 
 ## Services
 

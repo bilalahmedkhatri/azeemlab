@@ -10,10 +10,10 @@ export type NavLink = {
 };
 
 // Generate services navigation items from data
-const servicesNavItems = services.map(service => ({
+const servicesNavItems = [...services.map(service => ({
   href: `/services/${service.slug}`,
   label: service.title,
-}));
+})), { href: '/pricing/plan_detail/business', label: 'Pricing' }];
 
 export const navLinks: NavLink[] = [
   { href: '/', label: 'Home' },

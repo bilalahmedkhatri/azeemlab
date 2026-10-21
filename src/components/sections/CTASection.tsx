@@ -1,9 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
+import { ProjectLinks } from './ProjectLinks';
 import '@/styles/AnimatedButton.css';
 
 export const CTASection: React.FC = () => {
   return (
+    <>
+    <ProjectLinks />
     <section className="py-20 bg-gradient-to-br from-accent to-accent-dark text-white">
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto text-center">
@@ -30,5 +33,6 @@ export const CTASection: React.FC = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };

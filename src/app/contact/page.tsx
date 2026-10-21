@@ -1,4 +1,5 @@
 import React from 'react';
+import { ProjectLinks } from '@/components/sections/ProjectLinks';
 import ContactForm from './ContactForm';
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaLinkedin, FaFacebook, FaInstagram } from 'react-icons/fa';
 
@@ -39,8 +40,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-heading font-bold text-foreground mb-1">Email</h3>
-                    <a href="mailto:bilalahmed@azeemlab.com" className="break-all text-primary hover:underline transition-colors">
-                      bilalahmed@azeemlab.com
+                    <a href="mailto:bilal.azeemlab@gmail.com" className="break-all text-primary hover:underline transition-colors">
+                      bilal.azeemlab@gmail.com
                     </a>
                   </div>
                 </div>
@@ -109,6 +110,7 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+      <ProjectLinks mode="both" />
     </div>
   );
 }

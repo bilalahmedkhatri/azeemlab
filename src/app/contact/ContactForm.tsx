@@ -8,8 +8,8 @@ const enquiryErrors: Record<string, string> = {
   'Message is too large.': 'Message is too large.',
   'Please send valid form data.': 'Please send valid form data.',
   'Please check your name, email, service and project details (10–5,000 characters).': 'Please check your name, email, service and project details (10–5,000 characters).',
-  'The enquiry form is temporarily unavailable. Please email bilalahmed@azeemlab.com.': 'The enquiry form is temporarily unavailable. Please email bilalahmed@azeemlab.com.',
-  'Your enquiry could not be delivered. Please email bilalahmed@azeemlab.com.': 'Your enquiry could not be delivered. Please email bilalahmed@azeemlab.com.',
+  'The enquiry form is temporarily unavailable. Please email bilal.azeemlab@gmail.com.': 'The enquiry form is temporarily unavailable. Please email bilal.azeemlab@gmail.com.',
+  'Your enquiry could not be delivered. Please email bilal.azeemlab@gmail.com.': 'Your enquiry could not be delivered. Please email bilal.azeemlab@gmail.com.',
 };
 
 export default function ContactForm() {
@@ -165,7 +165,7 @@ export default function ContactForm() {
 
       {submitStatus === 'error' && (
         <div role="alert" className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
-          <strong>Enquiry not delivered.</strong> {errorMessage} <a className="underline" href="mailto:bilalahmed@azeemlab.com">Email our team</a>.
+          <strong>Enquiry not delivered.</strong> {errorMessage} <a className="underline" href="mailto:bilal.azeemlab@gmail.com">Email our team</a>.
         </div>
       )}
 

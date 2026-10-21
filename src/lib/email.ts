@@ -285,3 +285,139 @@ export async function sendInternalNotificationEmail(
     return false;
   }
 }
+
+export interface PartnerApplicationEmailParams {
+  name: string;
+  agency?: string;
+  email: string;
+  phone?: string;
+  website?: string;
+  partnerType: string;
+  scope?: string;
+  message?: string;
+}
+
+/**
+ * Send partner application notification to admin and confirmation to partner
+ */
+export async function sendPartnerApplicationEmail(
+  params: PartnerApplicationEmailParams
+): Promise<boolean> {
+  try {
+    const transporter = getEmailTransporter();
+    const from = process.env.EMAIL_FROM!;
+    const adminEmail = process.env.EMAIL_HR || process.env.EMAIL_USER || 'bilal.azeemlab@gmail.com';
+    const primaryRecipient = adminEmail;
+
+    const htmlContent = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>New Partner Application</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #1e293b;">
+  <table role="presentation" style="width: 100%; border-collapse: collapse;">
+    <tr>
+      <td style="padding: 30px 20px;">
+        <table role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0;">
+          <tr>
+            <td style="padding: 28px 32px; background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%); text-align: left;">
+              <h1 style="color: #ffffff; margin: 0; font-size: 22px; font-weight: 700;">AzeemLab Partner Ecosystem</h1>
+              <p style="color: #e0f2fe; margin: 6px 0 0; font-size: 14px;">New Partner Collaboration Application</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 32px;">
+              <h2 style="color: #0f172a; margin: 0 0 20px; font-size: 18px;">Application Summary</h2>
+              <table style="width: 100%; border-collapse: collapse;">
+                <tr><td style="padding: 8px 0; color: #64748b; font-size: 14px; width: 140px;">Applicant Name:</td><td style="padding: 8px 0; color: #0f172a; font-size: 14px; font-weight: 600;">${params.name}</td></tr>
+                <tr><td style="padding: 8px 0; color: #64748b; font-size: 14px;">Email:</td><td style="padding: 8px 0; color: #0ea5e9; font-size: 14px;"><a href="mailto:${params.email}" style="color: #0ea5e9; text-decoration: none;">${params.email}</a></td></tr>
+                <tr><td style="padding: 8px 0; color: #64748b; font-size: 14px;">Phone:</td><td style="padding: 8px 0; color: #0f172a; font-size: 14px;">${params.phone || 'Not provided'}</td></tr>
+                <tr><td style="padding: 8px 0; color: #64748b; font-size: 14px;">Agency / Company:</td><td style="padding: 8px 0; color: #0f172a; font-size: 14px; font-weight: 600;">${params.agency || 'Independent / Individual'}</td></tr>
+                <tr><td style="padding: 8px 0; color: #64748b; font-size: 14px;">Website:</td><td style="padding: 8px 0; color: #0ea5e9; font-size: 14px;">${params.website ? `<a href="${params.website.startsWith('http') ? params.website : 'https://' + params.website}" style="color: #0ea5e9; text-decoration: none;">${params.website}</a>` : 'Not provided'}</td></tr>
+                <tr><td style="padding: 8px 0; color: #64748b; font-size: 14px;">Partnership Track:</td><td style="padding: 8px 0; color: #0f172a; font-size: 14px; font-weight: 600; text-transform: capitalize;">${params.partnerType}</td></tr>
+                <tr><td style="padding: 8px 0; color: #64748b; font-size: 14px;">Estimated Scope:</td><td style="padding: 8px 0; color: #0f172a; font-size: 14px;">${params.scope || 'To be discussed'}</td></tr>
+              </table>
+              ${params.message ? `
+              <div style="margin-top: 24px; padding: 16px; background-color: #f8fafc; border-radius: 8px; border-left: 3px solid #0ea5e9;">
+                <p style="margin: 0 0 6px; color: #64748b; font-size: 12px; font-weight: 600; text-transform: uppercase;">Note / Project Context:</p>
+                <p style="margin: 0; color: #334155; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">${params.message}</p>
+              </div>` : ''}
+              <p style="color: #94a3b8; font-size: 12px; margin: 28px 0 0; padding-top: 20px; border-top: 1px solid #f1f5f9;">Submitted on ${new Date().toUTCString()} via AzeemLab Partner Portal.</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+    `;
+
+    // Send internal alert to admin
+    await transporter.sendMail({
+      from: `"AzeemLab Partner Network" <${from}>`,
+      to: primaryRecipient,
+      cc: adminEmail !== primaryRecipient ? adminEmail : undefined,
+      subject: `New Partner Application: ${params.name} (${params.agency || params.partnerType})`,
+      html: htmlContent,
+    });
+
+    // Send confirmation to applicant
+    const applicantConfirmationHtml = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Partner Application Received</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #1e293b;">
+  <table role="presentation" style="width: 100%; border-collapse: collapse;">
+    <tr>
+      <td style="padding: 30px 20px;">
+        <table role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0;">
+          <tr>
+            <td style="padding: 28px 32px; background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%); text-align: left;">
+              <h1 style="color: #ffffff; margin: 0; font-size: 22px; font-weight: 700;">AzeemLab Partner Ecosystem</h1>
+              <p style="color: #e0f2fe; margin: 6px 0 0; font-size: 14px;">Application Received</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 32px;">
+              <p style="color: #0f172a; font-size: 16px; line-height: 1.6; margin: 0 0 16px;">Dear <strong>${params.name}</strong>,</p>
+              <p style="color: #475569; font-size: 15px; line-height: 1.6; margin: 0 0 16px;">Thank you for your interest in joining the AzeemLab Partner Ecosystem. We have received your application for the <strong>${params.partnerType}</strong> track.</p>
+              <p style="color: #475569; font-size: 15px; line-height: 1.6; margin: 0 0 24px;">Our leadership team reviews all partner applications within 24 hours. A representative will reach out to schedule an introductory alignment call and share our Partner Enablement Kit.</p>
+              <div style="padding: 16px; background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; margin-bottom: 24px;">
+                <p style="margin: 0; color: #166534; font-size: 14px; font-weight: 600;">Next Step: 20-Minute Alignment Call</p>
+                <p style="margin: 4px 0 0; color: #15803d; font-size: 13px;">We will confirm shared delivery standards, SLA terms, and bilateral NDA protection before kickoff.</p>
+              </div>
+              <p style="color: #64748b; font-size: 14px; line-height: 1.6; margin: 0;">If you have any immediate questions, reply directly to this email or reach us at <a href="mailto:bilal.azeemlab@gmail.com" style="color: #0ea5e9; text-decoration: none;">bilal.azeemlab@gmail.com</a>.</p>
+              <p style="color: #94a3b8; font-size: 12px; margin: 30px 0 0; padding-top: 20px; border-top: 1px solid #f1f5f9;">AzeemLab Partner Operations | Thoughtful Design & Dependable Development</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+    `;
+
+    try {
+      await transporter.sendMail({
+        from: `"AzeemLab Partner Network" <${from}>`,
+        to: params.email,
+        subject: 'Application Received - AzeemLab Partner Ecosystem',
+        html: applicantConfirmationHtml,
+      });
+    } catch (applicantEmailError) {
+      console.warn('Applicant confirmation email failed, but admin was notified:', applicantEmailError);
+    }
+
+    return true;
+  } catch (error) {
+    console.error('Error in sendPartnerApplicationEmail:', error);
+    return false;
+  }
+}

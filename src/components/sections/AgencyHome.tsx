@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ProjectLinks } from './ProjectLinks';
 import Image from 'next/image';
 import { ArrowDown, ArrowRight, ArrowUpRight, Check } from 'lucide-react';
 import { services, caseStudies } from '@/lib/data';
@@ -57,6 +58,7 @@ export function AgencyHome() {
       <section className={styles.section} aria-labelledby="approach-title"><div className="container"><div className={styles.sectionHeading}><div><span className={styles.eyebrow}>03 / HOW WE WORK</span><h2 id="approach-title">Big ambition.<br /><span>A clear path forward.</span></h2></div><div className={styles.headingAside}><p>No guesswork. Just a collaborative process that takes your project from the first conversation to launch.</p><Link href="/process" className={styles.textLink}>Meet our process <ArrowUpRight size={18} /></Link></div></div><div className={styles.process}>{process.map(([title, description], index) => <div key={title}><span className={styles.step}>0{index + 1}<ArrowRight size={18} /></span><h3>{title}</h3><p>{description}</p></div>)}</div></div></section>
       <section className={styles.about}><div className="container"><div className={styles.aboutGrid}><span className={styles.eyebrow}>A SMALL INTRODUCTION</span><div><h2>Creative minds.<br />Practical solutions.</h2><p>We’re AzeemLab, a digital partner for ambitious businesses. We connect thoughtful design with dependable development and useful AI, so your online presence works as hard as you do.</p><Link href="/about" className={styles.textLink}>Get to know AzeemLab <ArrowUpRight size={18} /></Link></div></div></div></section>
       <section className={styles.section} aria-labelledby="faq-title"><div className="container"><div className={styles.sectionHeading}><div><span className={styles.eyebrow}>BEFORE WE BEGIN</span><h2 id="faq-title">A few helpful answers.</h2></div><Link href="/contact" className={styles.textLink}>Talk through your project <ArrowUpRight size={18} /></Link></div><div className={styles.faqs}>{homeFaqs.map(faq => <details key={faq.question}><summary>{faq.question}<ArrowDown size={17} /></summary><p>{faq.answer}</p></details>)}</div></div></section>
+      <ProjectLinks mode="both" />
       <section className={styles.cta}><div className="container"><div className={styles.ctaBox}><span className={styles.eyebrow}>YOUR NEXT CHAPTER STARTS HERE</span><h2>Have something<br />great in mind?</h2><div className={styles.ctaBottom}><p>Let’s give it the digital presence it deserves.</p><Link href="/contact" className={styles.whiteButton}>Tell us about your project <ArrowUpRight size={20} /></Link></div></div></div></section>
     </div>
   );
