@@ -97,8 +97,13 @@ export default function RootLayout({
           `}
         </Script>
 
-
-        <Script id="ahrefs-analytics" src="https://analytics.ahrefs.com/analytics.js" data-key="iXDHuq+9nTFqxjfb000nhw" strategy="lazyOnload" />
+        {process.env.NODE_ENV === 'production' && (
+          <Script id="ahrefs-analytics"
+            src="https://analytics.ahrefs.com/analytics.js"
+            data-key="iXDHuq+9nTFqxjfb000nhw"
+            strategy="lazyOnload"
+          />
+        )}
 
       </head>
       <body className="antialiased bg-background text-foreground transition-colors duration-300 overflow-x-hidden">

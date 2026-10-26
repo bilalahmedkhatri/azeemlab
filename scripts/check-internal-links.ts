@@ -5,8 +5,6 @@ import { locales } from '../src/i18n/config';
 
 const origin = process.env.CHECK_ORIGIN || 'http://localhost:3000';
 const pricing = '/pricing/plan_detail/business';
-const englishPaths = sitemap().map(entry => new URL(entry.url).pathname).filter(path => path === '/en' || path.startsWith('/en/'));
-const paths = [...new Set([...englishPaths, ...locales.flatMap(locale => [`/${locale}`, `/${locale}/partners`, `/${locale}${pricing}`])])];
 const pages = new Map<string, { html: string; links: Set<string>; main: Set<string> }>();
 
 function links(html: string, path: string) {
@@ -19,6 +17,8 @@ function links(html: string, path: string) {
 }
 
 async function main() {
+  const englishPaths = (await sitemap()).map(entry => new URL(entry.url).pathname).filter(path => path === '/en' || path.startsWith('/en/'));
+  const paths = [...new Set([...englishPaths, ...locales.flatMap(locale => [`/${locale}`, `/${locale}/partners`, `/${locale}${pricing}`])])];
   let cursor = 0;
   await Promise.all(Array.from({ length: 4 }, async () => {
     while (cursor < paths.length) {

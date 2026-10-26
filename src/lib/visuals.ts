@@ -21,6 +21,10 @@ export const articleVisuals: Record<string, SiteVisual> = {
   'generative-ai-web-development-2026': agencyVisual,
   'ai-website-builder-vs-custom-development': visual('website-builder-vs-custom', 'Illustration comparing a uniform template layout with a more customized website arrangement', 'Compare a template approach with a custom layout against your actual project requirements.'),
   'ai-automation-for-business-guide': serviceVisuals['ai-automation'],
-  'ai-development-agency-how-to-choose': visual('project-discovery-checklist', 'Illustration of a project evaluation checklist and a discovery conversation', 'Discuss scope, ownership, support and evidence before choosing a development partner.'),
+  'ai-development-agency-how-to-choose': visual(
+    'project-discovery-checklist',
+    'Illustration of a project evaluation checklist and a discovery conversation',
+    'Discuss scope, ownership, support and evidence before choosing a development partner.'
+  ),
   'ai-agents-for-business-september-2026-guide': agencyVisual,
 };

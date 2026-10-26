@@ -1,11 +1,15 @@
 import type { MetadataRoute } from 'next';
 import { services, caseStudies, blogPosts } from '@/lib/data';
+import { availablePublishedIndex } from '@/lib/blog/queries';
+import { blogUrl } from '@/lib/blog/config';
 import { absoluteUrl } from '@/lib/site';
 import { agencyVisual, serviceVisuals, articleVisuals } from '@/lib/visuals';
 import { locales, localizedPath } from '@/i18n/config';
 import { languageAlternates } from '@/i18n/urls';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const dynamic = 'force-dynamic';
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const paths = [
     '/', '/about', '/services', '/portfolio', '/blog', '/careers', '/process', '/partners', '/guest-post', '/contact', '/privacy', '/terms', '/pricing/plan_detail/business',
     ...services.map(service => `/services/${service.slug}`),
@@ -23,5 +27,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       : undefined;
     return { url: absoluteUrl(localizedPath(locale, path)), alternates: { languages: languageAlternates(path) }, ...(image ? { images: [absoluteUrl(image)] } : {}) };
   }));
-  return localizedEntries;
+  const posts = await availablePublishedIndex();
+  return [...localizedEntries, ...posts.map(post => ({
+    url: blogUrl(post.locale, post.slug),
+    lastModified: post.updated_at || post.published_at,
+    alternates: { languages: { [post.locale]: blogUrl(post.locale, post.slug) } },
+  }))];
 }

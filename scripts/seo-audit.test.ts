@@ -13,8 +13,8 @@ import { POST } from '../src/app/api/whatsapp/route';
 import { existsSync } from 'node:fs';
 import { locales } from '../src/i18n/config';
 
-test('sitemap has unique current canonical routes and includes every article', () => {
-  const urls = sitemap().map(entry => entry.url);
+test('sitemap has unique current canonical routes and includes every article', async () => {
+  const urls = (await sitemap()).map(entry => entry.url);
   assert.equal(new Set(urls).size, urls.length);
   assert.ok(urls.includes(`${siteUrl}/en/about`));
   const pricingEntries = urls.filter(url => url.includes('/pricing/plan_detail/business'));
@@ -32,7 +32,7 @@ test('sitemap has unique current canonical routes and includes every article', (
 });
 
 test('llms index exposes current canonical content and AI source guidance', async () => {
-  const response = getLlms();
+  const response = await getLlms();
   assert.equal(response.headers.get('content-type'), 'text/plain; charset=utf-8');
   const body = await response.text();
   assert.match(body, /# AzeemLab/);

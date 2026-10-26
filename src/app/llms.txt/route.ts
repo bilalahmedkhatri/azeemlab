@@ -1,10 +1,12 @@
-import { blogPosts, caseStudies, services } from '@/lib/data';
+import { caseStudies, services, blogPosts } from '@/lib/data';
+import { availablePublishedIndex } from '@/lib/blog/queries';
+import { blogUrl } from '@/lib/blog/config';
 import { absoluteUrl, siteUrl } from '@/lib/site';
 import { locales, languageNames, localizedPath } from '@/i18n/config';
 
-export const dynamic = 'force-static';
+export const dynamic = 'force-dynamic';
 
-export function GET() {
+export async function GET() {
   const canonical = (path: string) => absoluteUrl(localizedPath('en', path));
   const serviceLinks = services
     .map((service) => `- [${service.title}](${canonical(`/services/${service.slug}`)}): ${service.description}`)
@@ -12,9 +14,14 @@ export function GET() {
   const caseStudyLinks = caseStudies
     .map((project) => `- [${project.title}](${canonical(`/portfolio/${project.slug}`)}): ${project.challenge}`)
     .join('\n');
-  const articleLinks = blogPosts
-    .map((post) => `- [${post.title}](${canonical(`/blog/${post.slug}`)}): ${post.excerpt}`)
-    .join('\n');
+  const databasePosts = await availablePublishedIndex();
+  const plain = (value: string) => value.replace(/\s+/g, ' ').replace(/[\[\]]/g, '').trim();
+
+  const articleLinks = [
+    `- [Published articles](${canonical('/blog')})`,
+    ...blogPosts.map(post => `- [${plain(post.title)}](${canonical(`/blog/${post.slug}`)}): ${plain(post.excerpt)}`),
+    ...databasePosts.map(post => `- [${plain(post.slug)}](${blogUrl(post.locale, post.slug)}) (${plain(post.locale)})`),
+  ].join('\n');
 
   const body = `# AzeemLab
 
@@ -58,7 +65,7 @@ Use the linked canonical pages as the source of truth for current service scope,
   return new Response(body, {
     headers: {
       'Content-Type': 'text/plain; charset=utf-8',
-      'Cache-Control': 'public, max-age=3600, s-maxage=86400',
+      'Cache-Control': 'public, max-age=300, s-maxage=300',
     },
   });
 }

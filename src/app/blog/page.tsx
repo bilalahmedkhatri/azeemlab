@@ -1,11 +1,17 @@
 import React from 'react';
 import Image from 'next/image';
+import { getLocale } from 'next-intl/server';
+import { listPosts } from '@/lib/blog/queries';
+import { postView } from '@/lib/blog/adapter';
+import { blogPath } from '@/lib/blog/config';
+import { BlogPagination, BlogEmpty, BlogDatabaseUnavailable } from '@/lib/blog/ui';
+import { BlogUnavailableError } from '@/lib/blog/database';
+import { blogPosts } from '@/lib/data';
 import { articleVisuals } from '@/lib/visuals';
+import { localizedPath, isLocale } from '@/i18n/config';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { blogPosts, pageMetadata } from '@/lib/data';
 import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -14,7 +20,21 @@ export const metadata: Metadata = {
   description: 'Read our latest articles on responsive web design, front end development, and digital marketing strategies to grow your business online.',
 };
 
-export default function BlogListingPage() {
+export default async function BlogListingPage({ searchParams }: { searchParams?: Promise<Record<string, string | string[] | undefined>> }) {
+  const locale = await getLocale();
+  const query = await searchParams || {};
+  const page = typeof query.page === 'string' && /^\d{1,5}$/.test(query.page) ? Number(query.page) : 1;
+  const category = typeof query.category === 'string' ? query.category : undefined;
+  let unavailable = false;
+  const result = await listPosts(locale, page, undefined, category).catch(error => {
+    if (!(error instanceof BlogUnavailableError)) throw error;
+    unavailable = true;
+    return { posts: [], hasNext: false, page: Math.max(1, page) };
+  });
+  const posts = [
+    ...result.posts.map(post => ({ ...postView(post), key: `database:${post.id}`, href: blogPath(locale, post.slug) })),
+    ...(result.page === 1 ? blogPosts.map(post => ({ ...post, visual: articleVisuals[post.slug], key: `static:${post.id}`, href: localizedPath(isLocale(locale) ? locale : 'en', `/blog/${post.slug}`) })) : []),
+  ];
   return (
     <div className="min-h-screen bg-background pt-32 pb-20">
       <div className="container mx-auto px-6">
@@ -28,36 +48,45 @@ export default function BlogListingPage() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {blogPosts.map((post) => (
-            <Link key={post.id} href={`/blog/${post.slug}`} className="group">
+          {posts.map((post, index) => (
+            <Link key={post.key} href={post.href} className="group">
               <Card className="h-full hover:shadow-2xl transition-all duration-300 border-none bg-white overflow-hidden flex flex-col">
-                <Image src={articleVisuals[post.slug].src} alt={articleVisuals[post.slug].alt} width={1200} height={800} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="w-full h-auto" />
-                <div className="p-8 flex-1 flex flex-col">
+                {post.visual && <Image
+                  src={post.visual.src}
+                  alt={post.visual.alt}
+                  width={post.visual.width}
+                  height={post.visual.height}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={index === 0 ? 'high' : 'auto'}
+                  className="w-full h-auto"
+                />}
+                <div className="py-6 flex-1 flex flex-col">
                   <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
                     <div className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
-                      {new Date(post.publishDate).toLocaleDateString('en-US', { 
-                        month: 'short', 
-                        day: 'numeric', 
-                        year: 'numeric' 
+                      {new Date(post.publishDate).toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric'
                       })}
                     </div>
-                    <div className="flex items-center gap-1">
+                    {post.readTime && <div className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
                       {post.readTime}
-                    </div>
+                    </div>}
                   </div>
-                  
+
                   <h2 className="text-2xl font-bold font-heading mb-4 group-hover:text-accent transition-colors line-clamp-2">
                     {post.title}
                   </h2>
-                  
+
                   <p className="text-gray-600 mb-6 line-clamp-3">
                     {post.excerpt}
                   </p>
-                  
+
                   <div className="mt-auto pt-4 flex items-center text-accent font-semibold group/link">
-                    Read Article 
+                    Read Article
                     <ArrowRight className="w-4 h-4 ml-2 transform group-hover/link:translate-x-1 transition-transform" />
                   </div>
                 </div>
@@ -66,6 +95,9 @@ export default function BlogListingPage() {
             </Link>
           ))}
         </div>
+        {unavailable && <BlogDatabaseUnavailable locale={locale} />}
+        {!posts.length && !unavailable && <BlogEmpty locale={locale} />}
+        <BlogPagination locale={locale} page={result.page} hasNext={result.hasNext} category={category} />
       </div>
     </div>
   );

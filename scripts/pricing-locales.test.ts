@@ -30,8 +30,8 @@ test('pricing catalogs cover every source message without silent English fallbac
   assert.throws(() => pricingTranslator('en')('An uncatalogued pricing string'), /Missing pricing translation/);
 });
 
-test('pricing sitemap lists exactly nine canonical routes with reciprocal alternates', () => {
-  const entries = sitemap().filter(entry => entry.url.endsWith('/pricing/plan_detail/business'));
+test('pricing sitemap lists exactly nine canonical routes with reciprocal alternates', async () => {
+  const entries = (await sitemap()).filter(entry => entry.url.endsWith('/pricing/plan_detail/business'));
   assert.equal(entries.length, locales.length);
   for (const locale of locales) {
     const entry = entries.find(item => new URL(item.url).pathname === `/${locale}/pricing/plan_detail/business`);

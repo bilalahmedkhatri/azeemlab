@@ -3,10 +3,10 @@ import fs from 'node:fs';
 import sitemap from '../src/app/sitemap';
 
 const origin = process.env.CHECK_ORIGIN || 'http://localhost:3100';
-const urls = sitemap().map(item => item.url);
 let cursor = 0;
 const results: unknown[] = [];
 async function main() {
+const urls = (await sitemap()).map(item => item.url);
 await Promise.all(Array.from({ length: 3 }, async () => {
   while (cursor < urls.length) {
     const canonical = urls[cursor++];
