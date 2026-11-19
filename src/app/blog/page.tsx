@@ -65,21 +65,19 @@ export default async function BlogListingPage({ searchParams }: { searchParams?:
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {posts.map((post, index) => (
             <Link key={post.key} href={post.href} className="group">
-              <Card className="h-full hover:shadow-2xl transition-all duration-300 border-none bg-white overflow-hidden flex flex-col">
+              <Card padding="none" className="h-full hover:shadow-2xl transition-all duration-300 border-none bg-white overflow-hidden flex flex-col">
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100">
-                  {post.visual && <Image
+                  <Image
                     src={post.visual?.src || '/og-image.png'}
                     alt={post.visual?.alt || post.title}
                     fill
-                    // width={post.visual.width}
-                    // height={post.visual.height}
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     loading={index === 0 ? 'eager' : 'lazy'}
                     fetchPriority={index === 0 ? 'high' : 'auto'}
-                    className="p-0 object-cover transition-transform duration-300 group-hover:scale-105"
-                  />}
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-                <div className="py-6 flex-1 flex flex-col">
+                <div className="p-6 flex-1 flex flex-col">
                   <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
                     <div className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
