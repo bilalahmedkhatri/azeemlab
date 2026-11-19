@@ -66,17 +66,20 @@ export default async function BlogListingPage({ searchParams }: { searchParams?:
           {posts.map((post, index) => (
             <Link key={post.key} href={post.href} className="group">
               <Card className="h-full hover:shadow-2xl transition-all duration-300 border-none bg-white overflow-hidden flex flex-col">
-                {post.visual && <Image
-                  src={post.visual.src}
-                  alt={post.visual.alt}
-                  width={post.visual.width}
-                  height={post.visual.height}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                  fetchPriority={index === 0 ? 'high' : 'auto'}
-                  className="w-full h-auto"
-                />}
-                <div className="py-6 flex-1 flex flex-col">
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100">
+                  {post.visual && <Image
+                    src={post.visual?.src || '/og-image.png'}
+                    alt={post.visual?.alt || post.title}
+                    fill
+                    // width={post.visual.width}
+                    // height={post.visual.height}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    fetchPriority={index === 0 ? 'high' : 'auto'}
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />}
+                </div>
+                <div className="p-0 flex-1 flex flex-col">
                   <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
                     <div className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
