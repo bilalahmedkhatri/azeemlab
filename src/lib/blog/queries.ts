@@ -31,7 +31,7 @@ export async function listBlogPage(locale: string, requestedPage: number, static
   const filter = typeof category === 'string' ? category.slice(0, 160) : null;
 
   return readQuery(async sql => {
-    const seeds = JSON.stringify(staticPosts.map(post => ({ slug: post.slug, published_at: post.publishDate })));
+    const seeds = staticPosts.map(post => ({ slug: post.slug, published_at: post.publishDate }));
     // A bounded lookahead, not a COUNT query. Static and DB rows share one
     // publication-date ordering, with a stable source/key tie-breaker.
     const references = await sql.unsafe(`
@@ -43,11 +43,11 @@ export async function listBlogPage(locale: string, requestedPage: number, static
           AND ($3::text IS NULL OR c.slug = $3)
         UNION ALL
         SELECT 'static'::text AS source, s.slug AS key, s.published_at, NULL::integer AS sort_id
-        FROM jsonb_to_recordset($2::jsonb) AS s(slug text, published_at timestamptz)
+        FROM jsonb_to_recordset($2) AS s(slug text, published_at timestamptz)
       ) articles
       ORDER BY published_at DESC, source ASC, sort_id DESC NULLS LAST, key ASC
       LIMIT $4 OFFSET $5`,
-    [locale, seeds, filter, size + 1, (page - 1) * size]) as unknown as BlogPageReference[];
+      [locale, seeds, filter, size + 1, (page - 1) * size]) as unknown as BlogPageReference[];
 
     const selected = references.slice(0, size);
     const ids = selected.filter(item => item.source === 'database').map(item => Number(item.key));
