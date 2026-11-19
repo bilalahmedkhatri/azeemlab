@@ -1,0 +1,56 @@
+# AGENTS.md — Development Log & Project Insights
+
+This document maintains important context, bug fixes, architecture decisions, and codebase updates for AI agents and developers working on the AzeemLab project.
+
+---
+
+## 📅 Updates & Bug Fixes (November 2026)
+
+### 1. Database Query Fix: Blog Articles Not Loading (Silent Fallback)
+* **File:** [`src/lib/blog/queries.ts`](file:///d:/azeemlab/src/lib/blog/queries.ts)
+* **Issue:**  
+  The blog listing page was failing to load articles from the PostgreSQL database, falling back to 9 hardcoded static posts and displaying the message *"More articles are temporarily unavailable. Please try again shortly."*
+* **Root Cause:**  
+  `JSON.stringify` was called on the `staticPosts` seeds array before passing it as a query parameter `$2`. In `postgres.js`, passing a string parameter caused PostgreSQL to treat `$2::jsonb` as a JSON string scalar (`jsonb_typeof = 'string'`). Consequently, `jsonb_to_recordset($2::jsonb)` threw `PostgresError: cannot call jsonb_to_recordset on a non-array (Code: 22023)`.
+* **Fix Applied:**  
+  - Removed `JSON.stringify()` on `seeds` so the raw JavaScript array is passed directly to the driver.
+  - Updated the SQL query from `jsonb_to_recordset($2::jsonb)` to `jsonb_to_recordset($2)` since `postgres.js` natively serializes JS arrays/objects into PostgreSQL JSONB.
+
+---
+
+### 2. Card Component Padding Enhancement
+* **File:** [`src/components/ui/Card.tsx`](file:///d:/azeemlab/src/components/ui/Card.tsx)
+* **Issue:**  
+  `<Card>` had hardcoded padding options (`'sm' | 'md' | 'lg'`) defaulting to `md` (`p-6`). Passing utility classes like `p-0!` or `!p-0` did not cleanly remove padding across all render contexts, preventing blog cover images from bleeding to card edges.
+* **Fix Applied:**  
+  - Added `'none'` to `CardProps['padding']`.
+  - Added `none: 'p-0'` to `paddingStyles`.
+  - Allowed cards to cleanly disable padding by passing `padding="none"`.
+
+---
+
+### 3. Blog Card Image Aspect Ratio & Edge-to-Edge Layout
+* **File:** [`src/app/blog/page.tsx`](file:///d:/azeemlab/src/app/blog/page.tsx)
+* **Issues:**  
+  1. Images had mismatched aspect ratios and heights (`w-full h-auto`), making the card grid uneven.
+  2. Next.js runtime error occurred when both `fill` and `width`/`height` props were supplied to `<Image />`.
+  3. Posts without a cover image (`cover_asset_id: null`) left blank space at the top of the card.
+  4. Extra card padding caused images to look boxed rather than modern edge-to-edge cover cards.
+* **Fix Applied:**  
+  - Used `<Card padding="none">`.
+  - Wrapped cover images in a fixed container: `<div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100">`.
+  - Configured `<Image fill className="object-cover transition-transform duration-300 group-hover:scale-105" />` (removed conflicting `width` and `height` properties).
+  - Added a reliable fallback `post.visual?.src || '/og-image.png'` so cards without cover images maintain clean UI alignment.
+  - Wrapped the text content below the image inside `<div className="p-6 flex-1 flex flex-col">`.
+
+---
+
+### 4. Smart Dynamic Pagination
+* **File:** [`src/components/blog/BlogPagination.tsx`](file:///d:/azeemlab/src/components/blog/BlogPagination.tsx)
+* **Issue:**  
+  Pagination was generating a static range of 10 numbers `[1, 2, ..., 10]`. Even when only 15 articles existed (2 pages total), numbers `3` through `10` were displayed as disabled gray boxes on screen.
+* **Fix Applied:**  
+  - Removed static 10-page generation and fake disabled spans.
+  - Implemented dynamic page calculation based on verified availability (`maxPage = page + (nextAvailable ? 1 : 0)`).
+  - Auto-hides pagination when total content fits on a single page (`page === 1 && !nextAvailable`).
+  - Displays only legitimate, clickable pages (e.g., `< [ 1 ] [ 2 ] >`).
