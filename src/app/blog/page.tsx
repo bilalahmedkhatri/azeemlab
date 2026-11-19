@@ -76,10 +76,10 @@ export default async function BlogListingPage({ searchParams }: { searchParams?:
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     loading={index === 0 ? 'eager' : 'lazy'}
                     fetchPriority={index === 0 ? 'high' : 'auto'}
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="p-0 object-cover transition-transform duration-300 group-hover:scale-105"
                   />}
                 </div>
-                <div className="p-0 flex-1 flex flex-col">
+                <div className="py-6 flex-1 flex flex-col">
                   <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
                     <div className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
