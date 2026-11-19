@@ -61,6 +61,7 @@ ahref/
 
 # Deterministic locale output; regenerated from English templates and checked catalogs.
 /src/generated/
+/output
 /.playwright-cli/
 !/translations/
 !/translations/*.json

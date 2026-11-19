@@ -14,7 +14,9 @@ export function postView(post: PostRow, document: DocNode | null = null) {
     readTime: words ? `${Math.max(1, Math.ceil(words / 200))} min read` : undefined,
     visual: cover && coverUrl ? { src: coverUrl, alt: cover.alt_text || post.title, width: cover.width || 1200, height: cover.height || 800, caption: cover.caption || '' } : null,
     avatar: mediaUrl(post.author_avatar_url),
-    authorDescription: typeof post.metadata_json?.author_description === 'string' ? post.metadata_json.author_description.trim().slice(0, 4000) : '',
+    authorDescription: typeof post.author_description === 'string'
+      ? post.author_description.trim().slice(0, 4000)
+      : typeof post.metadata_json?.author_description === 'string' ? post.metadata_json.author_description.trim().slice(0, 4000) : '',
     sections: documentHeadings(document),
     relatedKeywords: [post.category_name || post.title],
     ctaText: 'Discuss your project', ctaHref: '/contact',

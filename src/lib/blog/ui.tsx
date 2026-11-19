@@ -1,5 +1,4 @@
-import { Button } from '@/components/ui/Button';
-import { blogPath } from './config';
+export { default as BlogPagination } from '@/components/blog/BlogPagination';
 
 const labels: Record<string, [string, string, string]> = {
   en: ['Previous', 'Next', 'No published articles found.'],
@@ -14,18 +13,6 @@ const labels: Record<string, [string, string, string]> = {
 };
 export function BlogEmpty({ locale }: { locale: string }) {
   return <p className="text-center text-gray-600 my-10">{(labels[locale] || labels.en)[2]}</p>;
-}
-export function BlogPagination({ locale, page, hasNext, category }: { locale: string; page: number; hasNext: boolean; category?: string }) {
-  const text = labels[locale] || labels.en;
-  const href = (value: number) => {
-    const search = new URLSearchParams({ page: String(value) });
-    if (category) search.set('category', category);
-    return `${blogPath(locale)}?${search}`;
-  };
-  return <nav aria-label="Pagination" className="flex justify-center gap-4 mt-12">
-    {page > 1 && <Button href={href(page - 1)} variant="secondary">{text[0]}</Button>}
-    {hasNext && <Button href={href(page + 1)} variant="secondary">{text[1]}</Button>}
-  </nav>;
 }
 const unavailableLabels: Record<string, string> = {
   en: 'More articles are temporarily unavailable. Please try again shortly.',

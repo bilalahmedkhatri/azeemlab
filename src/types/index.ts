@@ -93,6 +93,7 @@ export interface BlogPost {
   metaDescription: string;
   excerpt: string;
   publishDate: string;
+  updatedDate?: string;
   readTime: string;
   ctaText: string;
   ctaHref: string;

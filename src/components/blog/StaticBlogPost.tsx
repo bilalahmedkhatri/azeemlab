@@ -14,7 +14,7 @@ import { Calendar, Clock, ArrowUpRight } from 'lucide-react';
 
 interface PageProps { params: Promise<{ slug: string }> }
 
-const headingId = (heading: string) => heading.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const headingId = (heading: string) => heading.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-|-$/g, '');
 
 
 
@@ -24,7 +24,7 @@ export async function staticBlogMetadata({ params }: PageProps): Promise<Metadat
   if (!post) return { title: 'Post Not Found' };
   // const visual = articleVisuals[slug];
   const visual = articleVisuals[slug] ?? agencyVisual;
-  const articleDateModified = post.publishDate;
+  const articleDateModified = post.updatedDate || post.publishDate;
   return {
     alternates: { canonical: `/blog/${slug}` },
     title: { absolute: post.metaTitle },
@@ -43,7 +43,7 @@ export default async function StaticBlogPost({ params }: PageProps) {
   const content = articleContent[slug];
   const visual = articleVisuals[slug];
   const sections = content?.sections || [];
-  const articleDateModified = post.publishDate;
+  const articleDateModified = post.updatedDate || post.publishDate;
   const readMinutes = Math.max(1, Math.ceil(([content?.summary || post.excerpt, ...sections.map(section => `${section.heading} ${section.text}`)].join(' ').split(/\s+/).length) / 200));
 
   return (
@@ -57,6 +57,7 @@ export default async function StaticBlogPost({ params }: PageProps) {
                 <span className="inline-flex items-center gap-2"><Calendar className="w-4 h-4" /><time dateTime={post.publishDate}>{new Date(post.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time></span>
                 <span className="inline-flex items-center gap-2"><Clock className="w-4 h-4" />{readMinutes} min read</span>
                 <span>By AzeemLab editorial team</span>
+                {post.updatedDate && <span><span>Updated</span> <time dateTime={post.updatedDate}>{new Date(post.updatedDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time></span>}
               </div>
               <p className="text-xs uppercase tracking-[0.2em] font-bold text-accent mb-4">AzeemLab Insights</p>
               <h1 className="font-heading text-4xl md:text-6xl font-bold tracking-tight text-neutral-dark leading-[1.08] mb-7">{post.title}</h1>
@@ -77,7 +78,7 @@ export default async function StaticBlogPost({ params }: PageProps) {
             </div>
 
             <div className="space-y-10 max-w-4xl">
-              {sections.map((section, index) => <section key={section.heading} id={headingId(section.heading)} className="scroll-mt-28"><p className="text-xs uppercase tracking-[0.16em] text-accent font-bold mb-3">{String(index + 1).padStart(2, '0')}</p><h2 className="text-2xl md:text-3xl font-bold text-neutral-dark mb-4 leading-tight">{section.heading}</h2><p className="text-lg leading-[1.85] text-gray-700">{section.text}</p></section>)}
+              {sections.map((section, index) => <section key={section.heading} id={headingId(section.heading)} className="scroll-mt-28"><p className="text-xs uppercase tracking-[0.16em] text-accent font-bold mb-3">{String(index + 1).padStart(2, '0')}</p><h2 className="text-2xl md:text-3xl font-bold text-neutral-dark mb-4 leading-tight">{section.heading}</h2><p className="text-lg leading-[1.85] text-gray-700">{section.text}</p>{section.links && <ul className="mt-4 space-y-3">{section.links.map(link => <li key={link.url}>{link.url.startsWith('/') ? <Link href={link.url} className="text-accent underline underline-offset-4">{link.label}</Link> : <a href={link.url} rel="noopener noreferrer" className="text-accent underline underline-offset-4">{link.label}</a>}</li>)}</ul>}{section.visual && <ContentVisual visual={section.visual} />}</section>)}
             </div>
 
             <section className="mt-16 pt-10 border-t border-gray-200 max-w-4xl"><h2 className="text-2xl font-bold text-neutral-dark mb-5">Explore related services</h2><ul className="grid sm:grid-cols-2 gap-3">{post.internalLinks.map(link => <li key={link.href}><Link href={link.href} className="group flex items-center justify-between rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-semibold text-neutral-dark hover:border-accent hover:text-accent"><span>{link.text}</span><ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></Link></li>)}</ul></section>

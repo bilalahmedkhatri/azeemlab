@@ -7,8 +7,13 @@ URLs, full body sections, images, source links and localized SEO are preserved
 in `components/blog/StaticBlogPost.tsx`. The shared detail route checks static
 slugs first, without a database request, then resolves other slugs through
 `components/blog/DatabaseBlogPost.tsx` and the existing published-only reader.
-Both sources appear in the listing, sitemap and `llms.txt`. Static cards appear
-on the first listing page; database articles retain pagination. A DB outage
+Both sources appear in the listing, sitemap and `llms.txt`. Static and DB cards
+share publication-date ordering and a maximum of 12 cards per listing page.
+`listBlogPage` selects 13 lightweight references to detect a next page, then
+loads only the selected DB records. It never runs a total-count query. Numbered
+pagination shows groups of ten with previous/next arrows and no total-page
+display. Only previously reached pages and the verified immediate next page
+are enabled; unknown future pages remain disabled. A DB outage
 does not remove static detail pages or static discovery URLs.
 
 If a database record has the same slug as a static article, it is available at
@@ -89,7 +94,7 @@ on 2026-10-25; this observation is separate from local validation.
    `https://blogpost001.s3.eu-central-003.backblazeb2.com`.
    Configure it in deployment settings too; `.env.local` is not deployed.
 4. For a **new empty dedicated database only**, a database owner can manually
-   apply `schema.sql`. It is the backend's frozen v1 SQL, including its
+   apply `schema.sql`. It is a fresh-database snapshot of the backend's current v3 schema, including its
    `blog_schema_version` marker for admin migration compatibility. The app
    never imports or executes it. Do not execute it against existing tables;
    leave existing schema upgrades to the admin's migration owner. No permissions
@@ -98,13 +103,23 @@ on 2026-10-25; this observation is separate from local validation.
    commands regenerate `src/generated` from the English source routes. They
    have deliberately **not** been run for this task.
 
-The authoritative schema was inspected at
-`D:/AIModels_SearchAPIS/app/blog/schema.py` and
-`D:/AIModels_SearchAPIS/app/blog/migrations/schema_v1.py`, together with its
-generated `migrations/schema-v1.sql`. In particular the asset field is
-`alt_text`, sizes are BIGINT, IDs INTEGER, documents/metadata JSONB and timestamps
-TIMESTAMPTZ. No PostgreSQL URL was configured locally during implementation, so
-the live database schema, role grants, connectivity and pooler remain unverified.
+The authoritative sources are D:/AIModels_SearchAPIS/app/blog/schema.py,
+migrations/schema_v1.py, schema_v2.py, schema_v3.py and their Alembic revisions.
+schema.sql now provisions a new empty database at blog_0003, including nullable
+blog_assets.uploaded_by_membership_id, its index and blog_posts.author_description.
+Uploader attribution has no central membership foreign key and is unused by the reader.
+Asset alt text is alt_text; sizes are BIGINT, IDs INTEGER, content/metadata JSONB
+and timestamps TIMESTAMPTZ. Never apply this snapshot to an existing database.
+
+On 2026-10-28 read-only inspection of information_schema.columns and the schema
+marker confirmed these columns/types and revision blog_0003 in the configured DB.
+The URL uses a recognizable pooler host; prepared statements are already disabled.
+No tables, records or permissions were changed. This inspection does not verify
+SELECT-only grants or sustained connection reliability.
+
+The consumer requires only the database, TLS/pooler, site URL and media-origin
+settings shown in .env.example. No B2 credentials or uploads are needed.
+Existing .env.local is left intact.
 
 ## Module boundaries and reuse
 
@@ -117,22 +132,12 @@ following article paragraphs remain separate. No stored document is rewritten.
 
 ### Optional article information blocks
 
-The author profile at the end of the article uses the row's author name,
-designation and allowlisted avatar. Its description reads the optional plain
-text `metadata_json.author_description` (up to 4,000 characters). There is no
-static team biography fallback; a missing saved description is hidden.
-Designation comes only from the blog row's `author_designation`, which the admin
-snapshots from the author's membership profile. The team member's position is
-never substituted; a missing designation is hidden. Profile changes must be
-saved into the blog record by the admin to update this public snapshot.
-Missing avatars display initials. Unknown authors
-have no invented biography.
-The admin profile has a description input, but the inspected backend stores it
-on the central membership and currently snapshots only name, designation and
-avatar into blog posts. It does not export the profile description into this
-blog metadata field. The backend must preserve a trusted author description
-snapshot for the public reader to display that saved profile text. The reader
-must not query central memberships or guess an author by display name.
+The author profile uses the post's stored name, designation, allowlisted avatar
+and nullable author_description snapshot (up to 4,000 characters). Older records
+can use metadata_json.author_description. Missing descriptions/designations are
+hidden and missing avatars display initials. The admin must save changed profile
+values into the post snapshot. No central users/memberships lookup, author table
+or guessed biography is involved.
 
 The source route `src/app/blog/[slug]/page.tsx` currently comments out
 “Article at a glance” and “Article details”. Keep them hidden until wanted;
@@ -155,7 +160,7 @@ the current blocks do not automatically read arbitrary metadata keys.
 | Files | Responsibility / changes in another app |
 | --- | --- |
 | `database.ts` | Connection only: environment URL, TLS, pool limits and timeouts. Reuse an existing app client here if available. |
-| `schema.sql` | Manual empty-database provisioning, copied from authoritative admin v1 schema; never automatic. |
+| `schema.sql` | Manual empty-database provisioning, aligned with authoritative admin v3 schema; never automatic. |
 | `queries.ts`, `types.ts` | Published-only reads, parameterized locale/slug/category, joined list covers/categories, one batched content-assets query. Usually unchanged. |
 | `document.ts`, `renderer.tsx`, `urls.ts` | Bounded validation, React rendering, media and YouTube URL safety. Usually unchanged. Styles can be adapted. |
 | `config.ts` | App origin, route base, supported locales, pagination and media origin configuration. Change these for the target app. |
@@ -251,7 +256,30 @@ streaming loading boundaries.
 Next configuration reference:
 https://nextjs.org/docs/app/api-reference/config/next-config-js/htmlLimitedBots
 
-No tests, lint/type checks, builds, browser checks, database migrations or live
-database queries were run, as requested. Dependency installation does not verify
-runtime behavior. Database/schema/pooler compatibility and visual verification
-must be completed after configuring the real connection.
+No tests, lint/type checks, builds, browser checks or database migrations were run.
+The read-only catalog inspection above is separate from runtime verification.
+
+
+## Integration handoff (2026-10-28)
+
+Existing listing/detail UI, static articles, localized routes, rendering, SEO
+and sitemap wiring are preserved. The combined listing now orders database posts
+with equal publication timestamps by numeric ID descending.
+
+Reads use Next.js connection() and React request-local deduplication only.
+There is no shared article cache: admin changes appear on the next server request
+without a revalidation delay. Open pages need navigation or refresh.
+Database outages keep the existing explicit unavailable state; static articles
+remain independently available.
+
+Reuse: copy src/lib/blog, adapt config.ts (origin, routes, locales, media origins),
+database.ts (target client/environment), UI adapters and seo.ts (metadata helpers).
+Static coexistence imports in config.ts/latest.ts and listing seeds in queries.ts
+are AzeemLab adapters; replace those for apps without this editorial data.
+Wire destination listing/detail and sitemap to the reader. Apply schema.sql
+manually only to an empty dedicated database; existing schemas stay under the
+admin migration owner.
+
+No tests, builds, lint/type checks or browser checks were run for this task.
+Page behavior, deployment configuration, SELECT-only grants and sustained
+pooler reliability remain for owner verification.

@@ -1584,6 +1584,7 @@ export const blogPosts = [
     excerpt:
       'AI automation for business sounds complex, but the principle is simple: find the tasks your team repeats most often, and replace them with intelligent systems. Here\'s how we approach it.',
     publishDate: '2026-06-03',
+    updatedDate: '2026-10-30',
     readTime: '10 min read',
     hasFreeDownload: false,
     downloadFile: '/downloads/azeemlab-ai-integration-checklist-2026.pdf',
@@ -1594,6 +1595,9 @@ export const blogPosts = [
       'ai automation agency',
       'ai integration service',
       'ai chatbot integration',
+      'ai business automation',
+      'how to use ai to automate business',
+      'business automation using ai and apis',
     ],
     internalLinks: [
       { text: 'LinkedIn automation bot case study', href: '/portfolio/linkedin-automation-bot' },

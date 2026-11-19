@@ -4,6 +4,7 @@ import { blogPosts } from '../src/lib/data';
 import { locales } from '../src/i18n/config';
 import { articleContent } from '../src/lib/search-content';
 import { siteUrl } from '../src/lib/site';
+import { blogConfig } from '../src/lib/blog/config';
 
 const origin = process.env.CHECK_ORIGIN || 'http://localhost:3000';
 const escaped = (text: string) => text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#x27;');
@@ -12,8 +13,19 @@ async function read(path: string) {
   return { status: response.status, html: await response.text() };
 }
 async function main() {
-  const listing = await read('/en/blog');
-  assert.equal(listing.status, 200);
+  // Articles can move to later listing pages; verify all reachable pages.
+  let listingHtml = '';
+  let listingPage = 1;
+  while (true) {
+    const listing = await read(`/en/blog?page=${listingPage}`);
+    assert.equal(listing.status, 200);
+    const cards = [...listing.html.matchAll(/<a\b(?=[^>]*href="\/en\/blog\/)(?=[^>]*class="group")[^>]*>/g)];
+    assert.ok(cards.length <= blogConfig.pageSize, `page ${listingPage}: at most 12 cards`);
+    listingHtml += listing.html;
+    if (!/<a\b[^>]*aria-label="Next page"/.test(listing.html)) break;
+    assert.ok(listingPage < blogConfig.maxPage, 'listing pagination terminates');
+    listingPage++;
+  }
   const sitemap = await read('/sitemap.xml');
   const llms = await read('/llms.txt');
   assert.equal(sitemap.status, 200);
@@ -21,7 +33,7 @@ async function main() {
   const checks: { path: string; status: number }[] = [];
   for (const post of blogPosts) {
     const path = `/en/blog/${post.slug}`;
-    assert.ok(listing.html.includes(`href="${path}"`), `${path} listing link`);
+    assert.ok(listingHtml.includes(`href="${path}"`), `${path} listing link`);
     assert.ok(llms.html.includes(`${siteUrl}${path}`), `${path} llms link`);
     for (const locale of locales) assert.ok(sitemap.html.includes(`${siteUrl}/${locale}/blog/${post.slug}`), `${locale}/${post.slug} sitemap`);
     const response = await read(path);
@@ -42,7 +54,7 @@ async function main() {
     assert.ok(response.html.includes('property="og:type" content="article"'), `${path} article metadata`);
     assert.ok(llms.html.includes(url), `${path} llms discovery`);
     assert.ok(!response.html.includes('This article content is not available'), `${path} supported document`);
-    if (path.startsWith('/en/')) assert.ok(listing.html.includes(`href="${path}"`), `${path} DB listing link`);
+    if (path.startsWith('/en/')) assert.ok(listingHtml.includes(`href="${path}"`), `${path} DB listing link`);
     checks.push({ path, status: response.status });
   }
   for (const locale of ['fr', 'ru']) {

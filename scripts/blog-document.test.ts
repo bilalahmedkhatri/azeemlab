@@ -132,3 +132,21 @@ test('unsupported versions and the existing document size limits still apply', (
   assert.equal(validateDocument({ type: 'doc', content: [paragraph('x'.repeat(200001))] }, 1), null);
   assert.ok(validateDocument({ type: 'doc', content: [paragraph('Plain articles remain supported.')] }, 1));
 });
+
+
+test('author description uses the stored column before legacy metadata', () => {
+  const post: PostRow = {
+    id: 31, locale: 'nl', title: 'Article', slug: 'article', excerpt: '',
+    content_schema_version: 1, metadata_json: { author_description: 'Old metadata biography' },
+    author_name: 'Original writer', author_designation: 'Backend Developer', author_avatar_url: null,
+    author_description: '  Current writer biography  ',
+    published_at: new Date('2026-10-27'), updated_at: new Date('2026-10-27'),
+    category_name: null, category_slug: null, cover: null,
+  };
+  assert.equal(postView(post).authorDescription, 'Current writer biography');
+  assert.equal(postView({ ...post, author_description: null }).authorDescription, 'Old metadata biography');
+  assert.equal(postView({ ...post, author_description: undefined }).authorDescription, 'Old metadata biography');
+  assert.equal(postView({ ...post, author_description: '' }).authorDescription, '');
+  assert.equal(postView({ ...post, author_description: null, metadata_json: {} }).authorDescription, '');
+  assert.equal(postView(post).author_name, 'Original writer');
+});

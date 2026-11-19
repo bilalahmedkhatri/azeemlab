@@ -1,4 +1,4 @@
--- MANUAL ONLY: authoritative backend v1 schema; never run by application startup.
+-- MANUAL ONLY: authoritative backend v3 schema; never run by application startup.
 -- Empty dedicated app database only. Existing installations must use the admin migration owner.
 BEGIN;
 
@@ -7,7 +7,7 @@ CREATE TABLE public.blog_schema_version (
     CONSTRAINT blog_schema_version_pkc PRIMARY KEY (version_num)
 );
 
--- Running upgrade  -> blog_0001
+-- Fresh database snapshot matching blog_0003; not an upgrade script.
 
 CREATE TABLE public.blog_assets (
     id SERIAL NOT NULL, 
@@ -18,7 +18,8 @@ CREATE TABLE public.blog_assets (
     size_bytes BIGINT NOT NULL, 
     width INTEGER, 
     height INTEGER, 
-    duration_seconds FLOAT, 
+    duration_seconds FLOAT,
+    uploaded_by_membership_id INTEGER, 
     alt_text TEXT DEFAULT '' NOT NULL, 
     caption TEXT, 
     created_at TIMESTAMP WITH TIME ZONE DEFAULT now() NOT NULL, 
@@ -61,7 +62,8 @@ CREATE TABLE public.blog_posts (
     metadata_json JSONB DEFAULT '{}' NOT NULL, 
     author_name VARCHAR(160) NOT NULL, 
     author_designation VARCHAR(160), 
-    author_avatar_url TEXT, 
+    author_avatar_url TEXT,
+    author_description TEXT, 
     cover_asset_id INTEGER, 
     status VARCHAR(16) DEFAULT 'draft' NOT NULL, 
     version INTEGER DEFAULT '1' NOT NULL, 
@@ -84,11 +86,13 @@ CREATE TABLE public.blog_posts (
     FOREIGN KEY(cover_asset_id) REFERENCES public.blog_assets (id) ON DELETE RESTRICT
 );
 
+CREATE INDEX ix_blog_assets_uploader_id ON public.blog_assets (uploaded_by_membership_id, id);
+
 CREATE INDEX ix_blog_posts_category_status ON public.blog_posts (category_id, status);
 
 CREATE INDEX ix_blog_posts_status_published_at ON public.blog_posts (status, published_at);
 
-INSERT INTO public.blog_schema_version (version_num) VALUES ('blog_0001') RETURNING public.blog_schema_version.version_num;
+INSERT INTO public.blog_schema_version (version_num) VALUES ('blog_0003') RETURNING public.blog_schema_version.version_num;
 
 COMMIT;
 

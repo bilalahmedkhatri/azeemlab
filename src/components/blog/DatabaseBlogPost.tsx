@@ -12,7 +12,6 @@ import LatestBlogPosts from '@/components/blog/LatestBlogPosts';
 import { ContentVisual } from '@/components/ui/ContentVisual';
 import { JSONLD } from '@/components/SEO/JSONLD';
 import { Button } from '@/components/ui/Button';
-import { teamMembers } from '@/lib/data';
 import { Calendar, Clock, ArrowUpRight } from 'lucide-react';
 
 interface PageProps { params: Promise<{ slug: string }> }
@@ -32,8 +31,7 @@ export default async function DatabaseBlogPost({ params }: PageProps) {
   const visual = post.visual;
   const sections = post.sections;
   const { structuredData } = postSeo(result.post);
-  const teamAuthor = teamMembers.find(member => member.name.trim().toLowerCase() === post.author_name.trim().toLowerCase());
-  const authorDescription = post.authorDescription || teamAuthor?.bio;
+  const authorDescription = post.authorDescription;
   const authorImage = post.avatar;
   const authorDesignation = post.author_designation?.trim();
   const authorInitials = post.author_name.trim().split(/\s+/).slice(0, 2).map(part => part[0]).join('').toUpperCase();

@@ -26,7 +26,7 @@ export function database() {
   if (!connection?.trim()) throw new BlogUnavailableError('BLOG_DATABASE_URL_MISSING');
   try {
     const url = new URL(connection);
-    if (!['postgres:', 'postgresql:'].includes(url.protocol)) throw new Error();
+    if (!['postgres:', 'postgresql:'].includes(url.protocol) || !url.hostname || !url.pathname.slice(1)) throw new Error();
     // Poolers may be explicit or recognizable by their hostname/port. Prepared
     // statements are disabled on every connection, including unrecognized poolers.
     const pooled = process.env.BLOG_DATABASE_POOLER === 'true' || /pooler|pgbouncer|-pooler/i.test(url.hostname) || url.port === '6543';

@@ -26,6 +26,7 @@ export const organizationSchema: Organization = {
       addressCountry: 'RU',
       addressLocality: 'Moscow',
       addressRegion: 'Moscow',
+      postalCode: '129110',
     },
     {
       '@type': 'PostalAddress',
@@ -33,6 +34,7 @@ export const organizationSchema: Organization = {
       addressCountry: 'PK',
       addressLocality: 'Karachi',
       addressRegion: 'Sindh',
+      postalCode: '75350',
     },
   ],
 };
