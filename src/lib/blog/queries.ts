@@ -9,7 +9,7 @@ import { normalizeBlogPage } from './pagination';
 
 // Fixed identifiers only; all caller-supplied values are positional parameters.
 const projection = `p.id, p.locale, p.title, p.slug, p.excerpt,
- p.content_schema_version, p.metadata_json, p.author_name,
+ p.content_schema_version, p.metadata_json, p.blog_details_json, p.author_name,
  p.author_designation, p.author_avatar_url, p.author_description, p.published_at, p.updated_at,
  c.name AS category_name, c.slug AS category_slug,
  CASE WHEN a.id IS NULL THEN NULL ELSE jsonb_build_object(

@@ -54,3 +54,30 @@ This document maintains important context, bug fixes, architecture decisions, an
   - Implemented dynamic page calculation based on verified availability (`maxPage = page + (nextAvailable ? 1 : 0)`).
   - Auto-hides pagination when total content fits on a single page (`page === 1 && !nextAvailable`).
   - Displays only legitimate, clickable pages (e.g., `< [ 1 ] [ 2 ] >`).
+
+---
+
+### 5. Modern SEO, AEO & GEO Rendering for Blog Posts
+* **Files:**
+  - [`src/lib/blog/seo.ts`](file:///d:/azeemlab/src/lib/blog/seo.ts)
+  - [`src/lib/blog/types.ts`](file:///d:/azeemlab/src/lib/blog/types.ts)
+  - [`src/lib/blog/queries.ts`](file:///d:/azeemlab/src/lib/blog/queries.ts)
+  - [`scripts/blog-social.test.ts`](file:///d:/azeemlab/scripts/blog-social.test.ts)
+* **Feature:**  
+  Implemented support for modern additive SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization) fields from API V1.1 (`blog_details_json.seo` and mirrored in `metadata_json`).
+* **Implementation Details:**  
+  1. **Title & Description Fallback Hierarchy:**
+     - Title (`title`, `openGraph.title`, `twitter.title`):  
+       `post.blog_details_json?.seo?.seo_title || post.metadata_json?.seo_title || post.metadata_json?.title || post.title`
+     - Description (`description`, `openGraph.description`, `twitter.description`):  
+       `post.blog_details_json?.seo?.meta_description || post.metadata_json?.meta_description || post.metadata_json?.description || post.excerpt`
+  2. **Meta Keywords Tag:**
+     - Extracted `primary_keyword` and `secondary_keywords`, trimmed whitespace, and deduplicated into an array passed to Next.js `metadata.keywords`.
+  3. **Schema.org Structured Data (`BlogPosting`):**
+     - Set `headline` to the resolved SEO title.
+     - Set `description` to the resolved meta description.
+     - Appended `keywords: keywordsList.join(', ')` when keywords exist.
+     - Added entity relationship `about: { "@type": "Thing", "name": primaryKeyword }` when `primary_keyword` exists.
+  4. **Safety & Zero Regression:**
+     - Fully backwards compatible with older posts where `seo` fields are null (falls back cleanly to `post.title` and `post.excerpt`).
+     - Added comprehensive unit tests in `scripts/blog-social.test.ts` covering priority hierarchies, keyword extraction, and Schema.org entity relationships.
