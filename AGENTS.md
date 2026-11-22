@@ -81,3 +81,16 @@ This document maintains important context, bug fixes, architecture decisions, an
   4. **Safety & Zero Regression:**
      - Fully backwards compatible with older posts where `seo` fields are null (falls back cleanly to `post.title` and `post.excerpt`).
      - Added comprehensive unit tests in `scripts/blog-social.test.ts` covering priority hierarchies, keyword extraction, and Schema.org entity relationships.
+
+---
+
+### 6. Career Page: Vacancies State & "No Open Positions" Status
+* **Files:**
+  - [`src/components/careers/CareersClientPage.tsx`](file:///d:/azeemlab/src/components/careers/CareersClientPage.tsx)
+  - `translations/*.json` (all 9 locales)
+* **Change:**  
+  Cleared the active vacancies list and replaced the job listing cards with a clean, branded "No Open Positions Right Now" state message.
+* **Details:**  
+  - Emptied `jobListings` array.
+  - Added a responsive empty-state card under `#openings` with a briefcase badge, friendly message indicating no current openings, and a "Get in Touch" CTA button leading to `/contact`.
+  - Added localized strings for all 9 supported languages (en, es, fr, ja, ko, nl, pt-BR, ru, zh-Hans) and ran `node scripts/localize.mjs`.

@@ -33,213 +33,7 @@ interface JobListing {
     benefits: string[];
 }
 
-const jobListings: JobListing[] = [
-    {
-        id: 'ui-ux-designer',
-        title: 'UI/UX Designer',
-        department: 'Design',
-        location: 'Remote',
-        type: 'Full-time',
-        description: 'Join our design team to create beautiful, intuitive interfaces that users love.',
-        responsibilities: [
-            'Design user interfaces for web and mobile applications',
-            'Create wireframes, prototypes, and high-fidelity mockups',
-            'Conduct user research and usability testing',
-            'Collaborate with developers to ensure design implementation',
-            'Maintain and evolve our design system',
-        ],
-        requirements: [
-            '3+ years of UI/UX design experience',
-            'Proficiency in Figma, Adobe XD, or Sketch',
-            'Strong portfolio demonstrating your design process',
-            'Understanding of responsive design principles',
-            'Excellent visual design skills',
-        ],
-        benefits: [
-            'Fully remote work',
-            'Latest design tools and software',
-            'Creative freedom',
-            'Collaborative team environment',
-            'Growth opportunities',
-            'Competitive compensation package',
-        ],
-    },
-    {
-        id: 'ai-specialist',
-        title: 'AI/ML Specialist',
-        department: 'Engineering',
-        location: 'Remote',
-        type: 'Full-time',
-        description: 'Help us integrate cutting-edge AI solutions into our client projects.',
-        responsibilities: [
-            'Integrate AI APIs (OpenAI, Gemini, Claude) into applications',
-            'Build custom chatbots and AI-powered features',
-            'Research and implement latest AI technologies',
-            'Train and fine-tune machine learning models',
-            'Collaborate with development team on AI integrations',
-        ],
-        requirements: [
-            '3+ years of AI/ML experience',
-            'Experience with OpenAI, LangChain, or similar frameworks',
-            'Strong Python programming skills',
-            'Knowledge of FastAPI, Django, or Flask',
-            'Understanding of prompt engineering',
-        ],
-        benefits: [
-            'Work with latest AI technologies',
-            'Remote flexibility',
-            'Conference and training budget',
-            'Equity options',
-            'Innovation time',
-            'Competitive compensation package',
-        ],
-    },
-    {
-        id: 'field-marketer-2',
-        title: 'Field Marketer (Business Development Representative)',
-        department: 'Sales & Marketing',
-        location: 'Remote/Hybrid',
-        type: 'Full-time',
-        description: 'Join our growing sales team to generate new business opportunities through direct customer engagement and strategic outreach.',
-        responsibilities: [
-            'Conduct outbound calling campaigns to generate qualified leads',
-            'Present company services and value propositions to prospects',
-            'Build pipeline of potential clients through consistent outreach',
-            'Maintain detailed records of all customer interactions',
-            'Meet and exceed monthly call and conversion targets',
-            'Provide feedback to improve marketing messaging and scripts',
-        ],
-        requirements: [
-            '2-5 years of experience in business development or telemarketing',
-            'Proven track record of meeting or exceeding targets',
-            'Strong phone presence and professional communication skills',
-            'Ability to handle objections and rejection positively',
-            'Experience in B2B or B2C sales preferred',
-            'Familiarity with sales automation tools',
-            'Goal-oriented with competitive mindset',
-        ],
-        benefits: [
-            'Performance-based bonuses and commission structure',
-            'Remote-first culture',
-            'Ongoing sales training and coaching',
-            'Clear career progression path',
-            'Paid vacation',
-            'Competitive compensation package',
-        ],
-    },
-    {
-        id: 'frontend-developer',
-        title: 'React/Next.js Developer with UI Design Skills',
-        department: 'Engineering',
-        location: 'Remote',
-        type: 'Full-time',
-        description: 'Build beautiful, high-performance web applications with React and Next.js while leveraging your UI design expertise to create exceptional user experiences.',
-        responsibilities: [
-            'Develop responsive web applications using React and Next.js',
-            'Design and implement modern, intuitive user interfaces',
-            'Translate Figma designs into pixel-perfect code',
-            'Optimize applications for maximum speed and scalability',
-            'Collaborate with backend developers to integrate APIs',
-            'Participate in code reviews and contribute to best practices',
-            'Create and maintain component libraries and design systems',
-        ],
-        requirements: [
-            '1-3 years of experience with React and Next.js',
-            'Strong proficiency in TypeScript, HTML5, and CSS3',
-            'Good understanding of UI/UX design principles',
-            'Experience with Tailwind CSS or similar CSS frameworks',
-            'Familiarity with Figma or Adobe XD',
-            'Knowledge of responsive design and mobile-first development',
-            'Portfolio demonstrating both code and design skills',
-            'Understanding of web performance optimization',
-        ],
-        benefits: [
-            'Fully remote work',
-            'Flexible working hours',
-            'Latest development tools and design software',
-            'Mentorship from senior developers',
-            'Professional growth opportunities',
-            'Paid vacation',
-            'Competitive compensation package',
-        ],
-    },
-    {
-        id: 'backend-developer',
-        title: 'Backend Developer',
-        department: 'Engineering',
-        location: 'Remote',
-        type: 'Full-time',
-        description: 'Design and build robust, scalable backend systems and APIs that power our applications.',
-        responsibilities: [
-            'Develop and maintain server-side applications and APIs',
-            'Design database schemas and optimize query performance',
-            'Implement authentication, authorization, and security best practices',
-            'Build RESTful and GraphQL APIs',
-            'Write clean, tested, and well-documented code',
-            'Troubleshoot and debug production issues',
-            'Collaborate with frontend team on API contracts',
-            'Participate in system architecture decisions',
-        ],
-        requirements: [
-            '1-3 years of backend development experience',
-            'Proficiency in Node.js, Python, or similar backend languages',
-            'Strong understanding of SQL and NoSQL databases (PostgreSQL, MongoDB)',
-            'Experience with API design and development',
-            'Knowledge of authentication methods (JWT, OAuth, etc.)',
-            'Familiarity with cloud platforms (AWS, Azure, or GCP)',
-            'Understanding of Docker and containerization',
-            'Good problem-solving and debugging skills',
-        ],
-        benefits: [
-            'Remote work flexibility',
-            'Flexible schedule',
-            'Access to cloud infrastructure for learning',
-            'Technical mentorship and code reviews',
-            'Conference and training budget',
-            'Health insurance',
-            'Paid vacation',
-            'Competitive compensation package',
-        ],
-    },
-    {
-        id: 'mobile-developer',
-        title: 'Mobile Developer (React Native/Flutter)',
-        department: 'Engineering',
-        location: 'Remote',
-        type: 'Full-time',
-        description: 'Build beautiful, high-performance cross-platform mobile applications for iOS and Android using React Native or Flutter.',
-        responsibilities: [
-            'Develop and maintain cross-platform mobile apps for iOS and Android',
-            'Write clean, efficient, and reusable code using React Native or Flutter',
-            'Integrate RESTful APIs and third-party services',
-            'Implement responsive UI designs that work across different screen sizes',
-            'Optimize app performance, memory usage, and battery consumption',
-            'Test apps on both iOS and Android devices and emulators',
-            'Publish and maintain apps on App Store and Google Play Store',
-            'Debug and fix app crashes and performance issues',
-        ],
-        requirements: [
-            '2+ years of mobile development experience with React Native or Flutter',
-            'Strong knowledge of JavaScript/TypeScript (React Native) or Dart (Flutter)',
-            'Experience with iOS and Android platform-specific features',
-            'Understanding of mobile UI/UX design principles',
-            'Familiarity with native build tools (Xcode, Android Studio)',
-            'Knowledge of app deployment processes for App Store and Google Play',
-            'Experience with state management (Redux, MobX, Provider, Riverpod)',
-            'Understanding of mobile app architecture patterns',
-        ],
-        benefits: [
-            'Fully remote work',
-            'Flexible working hours',
-            'Latest mobile development tools and devices for testing',
-            'Professional growth in mobile technology',
-            'Collaborative team environment',
-            'Conference and training budget',
-            'Paid vacation',
-            'Competitive compensation package',
-        ],
-    },
-];
+const jobListings: JobListing[] = [];
 
 const perks = [
     {
@@ -516,48 +310,76 @@ export default function CareersClientPage() {
                         </p>
                     </motion.div>
 
-                    <div className="max-w-5xl mx-auto space-y-6">
-                        {jobListings.map((job, index) => (
+                    {jobListings.length > 0 ? (
+                        <div className="max-w-5xl mx-auto space-y-6">
+                            {jobListings.map((job, index) => (
+                                <motion.div
+                                    key={job.id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 hover:border-accent/30 hover:-translate-y-1"
+                                >
+                                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                                        <div>
+                                            <h3 className="font-heading text-2xl font-bold text-neutral-dark mb-2">
+                                                {job.title}
+                                            </h3>
+                                            <div className="flex flex-wrap gap-3 text-sm text-gray-600">
+                                                <span className="flex items-center gap-1">
+                                                    <Briefcase className="w-4 h-4" />
+                                                    {job.department}
+                                                </span>
+                                                <span className="flex items-center gap-1">
+                                                    <MapPin className="w-4 h-4" />
+                                                    {job.location}
+                                                </span>
+                                                <span className="flex items-center gap-1">
+                                                    <Clock className="w-4 h-4" />
+                                                    {job.type}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <Button
+                                            onClick={() => setSelectedJob(job)}
+                                            className="whitespace-nowrap"
+                                        >
+                                            View Details
+                                            <ChevronRight className="w-4 h-4 ml-2" />
+                                        </Button>
+                                    </div>
+                                    <p className="text-gray-600 leading-relaxed">{job.description}</p>
+                                </motion.div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="max-w-3xl mx-auto">
                             <motion.div
-                                key={job.id}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 hover:border-accent/30 hover:-translate-y-1"
+                                className="bg-white rounded-3xl p-10 md:p-14 text-center shadow-lg border border-gray-100"
                             >
-                                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-                                    <div>
-                                        <h3 className="font-heading text-2xl font-bold text-neutral-dark mb-2">
-                                            {job.title}
-                                        </h3>
-                                        <div className="flex flex-wrap gap-3 text-sm text-gray-600">
-                                            <span className="flex items-center gap-1">
-                                                <Briefcase className="w-4 h-4" />
-                                                {job.department}
-                                            </span>
-                                            <span className="flex items-center gap-1">
-                                                <MapPin className="w-4 h-4" />
-                                                {job.location}
-                                            </span>
-                                            <span className="flex items-center gap-1">
-                                                <Clock className="w-4 h-4" />
-                                                {job.type}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <Button
-                                        onClick={() => setSelectedJob(job)}
-                                        className="whitespace-nowrap"
-                                    >
-                                        View Details
-                                        <ChevronRight className="w-4 h-4 ml-2" />
-                                    </Button>
+                                <div className="w-20 h-20 bg-accent/10 rounded-2xl flex items-center justify-center text-accent mx-auto mb-6">
+                                    <Briefcase className="w-10 h-10" />
                                 </div>
-                                <p className="text-gray-600 leading-relaxed">{job.description}</p>
+                                <h3 className="font-heading text-2xl md:text-3xl font-bold text-neutral-dark mb-4">
+                                    No Open Positions Right Now
+                                </h3>
+                                <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
+                                    We do not have any open vacancies at the moment. However, we are always interested in meeting talented people. Send us your resume or get in touch for future opportunities.
+                                </p>
+                                <Button
+                                    href="/contact"
+                                    size="lg"
+                                    className="text-base px-8"
+                                >
+                                    Get in Touch
+                                </Button>
                             </motion.div>
-                        ))}
-                    </div>
+                        </div>
+                    )}
                 </div>
             </section>
 

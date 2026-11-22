@@ -2059,5 +2059,7 @@
   "35c46db79f4c51c42af7": "Mantenha as pessoas responsáveis por compromissos, exceções e decisões que necessitam de contexto além do registro disponível. Um assistente de suporte pode redigir uma explicação sobre o reembolso, mas um membro da equipe deve aprovar o reembolso fora das regras acordadas. Um fluxo de trabalho de lead pode preparar uma solicitação de cotação, mas não deve inventar um preço ou prometer uma data de entrega. Armazene a ação proposta, o aprovador e o resultado juntos. Se a aprovação expirar ou o registro subjacente for alterado, devolva a tarefa para revisão em vez de executar uma decisão desatualizada.",
   "0353120615c696e4a121": "Uma ação automatizada proposta chega a um portão de revisão humana, que se ramifica para aprovação, correção ou exceção pausada",
   "5b394e1c616c2ad6f885": "Uma porta de revisão tem três resultados úteis: 1. Aprovar a ação verificada. 2. Devolva-o para correção. 3. Faça uma pausa e atribua uma exceção a uma pessoa.",
-  "3f0b908f4a1c4c3b9c2a": "Estime custos e economias de automação com sua própria linha de base"
+  "3f0b908f4a1c4c3b9c2a": "Estime custos e economias de automação com sua própria linha de base",
+  "d5742b6c36766399de71": "Nenhuma vaga aberta no momento",
+  "58601369fe98cd03ecd2": "Não temos vagas abertas no momento. No entanto, estamos sempre interessados em conhecer pessoas talentosas. Envie-nos seu currículo ou entre em contato para futuras oportunidades."
 }

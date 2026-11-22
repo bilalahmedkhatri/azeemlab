@@ -2059,5 +2059,7 @@
   "35c46db79f4c51c42af7": "Houd mensen verantwoordelijk voor toezeggingen, uitzonderingen en beslissingen die context nodig hebben die verder gaat dan het beschikbare record. Een supportmedewerker kan een restitutieverklaring opstellen, maar een medewerker moet een restitutie goedkeuren buiten de afgesproken regels om. Een leadworkflow kan een offerteaanvraag voorbereiden, maar mag geen prijs verzinnen of een leverdatum beloven. Bewaar de voorgestelde actie, goedkeurder en resultaat samen. Als de goedkeuring verloopt of de onderliggende record verandert, retourneert u de taak ter beoordeling in plaats van een verouderde beslissing uit te voeren.",
   "0353120615c696e4a121": "Een voorgestelde geautomatiseerde actie bereikt een menselijke beoordelingspoort, die zich vertakt naar goedkeuring, correctie of een onderbroken uitzondering",
   "5b394e1c616c2ad6f885": "Een review gate heeft drie nuttige uitkomsten: 1. Keur de gecontroleerde actie goed. 2. Stuur het terug ter correctie. 3. Pauzeer en wijs een uitzondering toe aan een persoon.",
-  "3f0b908f4a1c4c3b9c2a": "Schat de automatiseringskosten en besparingen met uw eigen basislijn"
+  "3f0b908f4a1c4c3b9c2a": "Schat de automatiseringskosten en besparingen met uw eigen basislijn",
+  "d5742b6c36766399de71": "Momenteel geen openstaande vacatures",
+  "58601369fe98cd03ecd2": "We hebben op dit moment geen openstaande vacatures. We zijn echter altijd geïnteresseerd in getalenteerde mensen. Stuur ons gerust je cv of neem contact met ons op voor toekomstige kansen."
 }
