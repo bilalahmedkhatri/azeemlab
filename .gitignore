@@ -67,3 +67,4 @@ ahref/
 !/translations/*.json
 
 .vercel
+/gsc

@@ -6,5 +6,11 @@ import '@/styles/globals.css';
 export const metadata: Metadata = { metadataBase: new URL(siteUrl) };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  return <html lang={await getLocale()} data-scroll-behavior="smooth"><body className="antialiased bg-background text-foreground transition-colors duration-300 overflow-x-hidden">{children}</body></html>;
+  return (
+    <html lang={await getLocale()} data-scroll-behavior="smooth">
+      <body className="antialiased bg-background text-foreground transition-colors duration-300 overflow-x-hidden">
+        {children}
+      </body>
+    </html>;
+  );
 }
