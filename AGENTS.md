@@ -6,6 +6,26 @@ This document maintains important context, bug fixes, architecture decisions, an
 
 ## 📅 Updates & Bug Fixes (November 2026)
 
+### 7. Analytics Scripts Centralization & Production-Only Guard
+* **Files:**
+  - [`src/components/AnalyticsScripts.tsx`](file:///d:/azeemlab/src/components/AnalyticsScripts.tsx)
+  - [`src/templates/RootLayout.tsx`](file:///d:/azeemlab/src/templates/RootLayout.tsx)
+  - [`src/app/layout.tsx`](file:///d:/azeemlab/src/app/layout.tsx)
+* **Changes:**
+  1. **Created `AnalyticsScripts.tsx`** as a centralized server component (no `'use client'`) that imports and renders all 4 analytics tools: Google Tag Manager (GTM), Google Analytics 4 (GA4), Microsoft Clarity, and Ahrefs Analytics.
+  2. **Production-only guard:** Added `if (!isProd) return null` using `process.env.NODE_ENV === 'production'` check — analytics scripts are **never injected in development**.
+  3. **Fixed GTM snippet:** Replaced incorrect `gtm.js` async URL with the proper GTM inline initialization snippet (`(function(w,d,s,l,i){...})`).
+  4. **Cleaned `RootLayout.tsx`:** Removed all direct inline `<Script>` tags; only `<AnalyticsScripts />` remains inside `<head>`.
+  5. **Fixed TypeScript error in `src/app/layout.tsx`:** Removed stray semicolon after `</html>;` which caused `TS1005: ')' expected` and `TS1128` errors.
+  6. **Zero TypeScript errors confirmed:** `pnpm exec tsc --noEmit` exits with code 0.
+* **Env Variables (`.env.local`):**
+  - `NEXT_PUBLIC_GA_ID` — Google Analytics 4 measurement ID
+  - `NEXT_PUBLIC_GTM_ID` — Google Tag Manager container ID
+  - `NEXT_PUBLIC_CLARITY_ID` — Microsoft Clarity project ID
+  - `NEXT_PUBLIC_AHREF_ID` — Ahrefs Analytics site key
+
+---
+
 ### 1. Database Query Fix: Blog Articles Not Loading (Silent Fallback)
 * **File:** [`src/lib/blog/queries.ts`](file:///d:/azeemlab/src/lib/blog/queries.ts)
 * **Issue:**  

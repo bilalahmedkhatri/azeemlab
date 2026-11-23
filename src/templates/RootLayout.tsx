@@ -10,6 +10,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ChatbotLoader } from "@/components/chatbot/ChatbotLoader";
 import Script from "next/script";
 import { siteUrl } from '@/lib/site';
+import AnalyticsScripts from '@/components/AnalyticsScripts';
 
 export const metadata: Metadata = {
   title: {
@@ -80,43 +81,9 @@ export default function RootLayout({
           '@context': 'https://schema.org',
           '@graph': [organizationSchema, websiteSchema],
         }} />
-
-        {/* Google Analytics (gtag.js) */}
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-C3NLM4SBTQ"
-          strategy="lazyOnload"
-        />
-        <Script id="google-analytics" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-C3NLM4SBTQ');
-          `}
-        </Script>
-        <Script id="microsoft-clarity" strategy="lazyOnload">
-          {`
-            (function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "ziclugh11y");
-          `}
-        </Script>
-
-        {process.env.NODE_ENV === 'production' && (
-          <Script id="ahrefs-analytics"
-            src="https://analytics.ahrefs.com/analytics.js"
-            data-key="iXDHuq+9nTFqxjfb000nhw"
-            strategy="lazyOnload"
-          />
-        )}
-
+        <AnalyticsScripts />
       </head>
       <body className="antialiased bg-background text-foreground transition-colors duration-300 overflow-x-hidden">
-        {/* <a className="skip-link" href="#main-content">Skip to content</a> */}
         <Header />
         <main id="main-content" className="min-h-screen flex flex-col">
           {children}

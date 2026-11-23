@@ -11,6 +11,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className="antialiased bg-background text-foreground transition-colors duration-300 overflow-x-hidden">
         {children}
       </body>
-    </html>;
+    </html>
   );
 }
