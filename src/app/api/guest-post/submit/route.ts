@@ -45,7 +45,7 @@ export async function POST(request: Request) {
 
     if (!emailSent) {
       return NextResponse.json(
-        { error: 'Your pitch could not be delivered. Please email bilal.azeemlab@gmail.com.' },
+        { error: 'Your pitch could not be delivered. Please email editorial@azeemlab.com.' },
         { status: 502 }
       );
     }
@@ -54,7 +54,7 @@ export async function POST(request: Request) {
   } catch (err) {
     console.error('Error handling guest post submission:', err);
     return NextResponse.json(
-      { error: 'Your pitch could not be delivered. Please email bilal.azeemlab@gmail.com.' },
+      { error: 'Your pitch could not be delivered. Please email editorial@azeemlab.com.' },
       { status: 500 }
     );
   }

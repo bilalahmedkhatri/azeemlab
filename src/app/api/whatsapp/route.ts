@@ -9,7 +9,7 @@ async function sendEmailFallback(name: string, email: string, phone: string, pro
   const user = process.env.EMAIL_USER;
   const pass = process.env.EMAIL_PASSWORD;
   const from = process.env.EMAIL_FROM;
-  const hr = process.env.EMAIL_HR || user || 'bilal.azeemlab@gmail.com';
+  const hr = process.env.EMAIL_HR || user || 'contact@azeemlab.com';
 
   if (!host || !port || !user || !pass || !from) return false;
 
@@ -51,7 +51,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Please check your name, email, service and project details (10–5,000 characters).' }, { status: 400 });
   }
   const endpoint = process.env.WHATSAPP_API_URL;
-  if (!endpoint) return NextResponse.json({ error: 'The enquiry form is temporarily unavailable. Please email bilal.azeemlab@gmail.com.' }, { status: 503 });
+  if (!endpoint) return NextResponse.json({ error: 'The enquiry form is temporarily unavailable. Please email contact@azeemlab.com.' }, { status: 503 });
   try {
     const response = await fetch(endpoint, {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -64,10 +64,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
     if (err instanceof Error && err.message === 'Delivery failed') {
-      return NextResponse.json({ error: 'Your enquiry could not be delivered. Please email bilal.azeemlab@gmail.com.' }, { status: 502 });
+      return NextResponse.json({ error: 'Your enquiry could not be delivered. Please email contact@azeemlab.com.' }, { status: 502 });
     }
     const deliveredByEmail = await sendEmailFallback(name, email, phone, projectType, message);
     if (deliveredByEmail) return NextResponse.json({ success: true });
-    return NextResponse.json({ error: 'Your enquiry could not be delivered. Please email bilal.azeemlab@gmail.com.' }, { status: 502 });
+    return NextResponse.json({ error: 'Your enquiry could not be delivered. Please email contact@azeemlab.com.' }, { status: 502 });
   }
 }

@@ -305,7 +305,7 @@ export async function sendGuestPostSubmissionEmail(
   try {
     const transporter = getEmailTransporter();
     const from = process.env.EMAIL_FROM!;
-    const adminEmail = process.env.EMAIL_HR || process.env.EMAIL_USER || 'bilal.azeemlab@gmail.com';
+    const adminEmail = process.env.EMAIL_HR || process.env.EMAIL_USER || 'editorial@azeemlab.com';
 
     const adminHtml = `
 <!DOCTYPE html>
@@ -390,7 +390,7 @@ export async function sendGuestPostSubmissionEmail(
                 <p style="margin: 4px 0 0; color: #6366f1; font-size: 13px; text-transform: capitalize;">${params.topicCategory.replace(/-/g, ' ')}</p>
               </div>
               <p style="color: #475569; font-size: 15px; line-height: 1.6; margin: 0 0 20px;">Our editorial team reviews all pitches within <strong>3 business days</strong>. If your pitch is a good fit, we will reply with approval and next steps. If we pass, we will let you know with brief feedback.</p>
-              <p style="color: #64748b; font-size: 14px; line-height: 1.6; margin: 0;">Questions? Reply directly to this email or reach us at <a href="mailto:bilal.azeemlab@gmail.com" style="color: #6366f1; text-decoration: none;">bilal.azeemlab@gmail.com</a>.</p>
+              <p style="color: #64748b; font-size: 14px; line-height: 1.6; margin: 0;">Questions? Reply directly to this email or reach us at <a href="mailto:editorial@azeemlab.com" style="color: #6366f1; text-decoration: none;">editorial@azeemlab.com</a>.</p>
               <p style="color: #94a3b8; font-size: 12px; margin: 30px 0 0; padding-top: 20px; border-top: 1px solid #f1f5f9;">AzeemLab Editorial Team | Thoughtful Design and Dependable Development</p>
             </td>
           </tr>
@@ -440,7 +440,7 @@ export async function sendPartnerApplicationEmail(
   try {
     const transporter = getEmailTransporter();
     const from = process.env.EMAIL_FROM!;
-    const adminEmail = process.env.EMAIL_HR || process.env.EMAIL_USER || 'bilal.azeemlab@gmail.com';
+    const adminEmail = process.env.EMAIL_HR || process.env.EMAIL_USER || 'editorial@azeemlab.com';
     const primaryRecipient = adminEmail;
 
     const htmlContent = `
@@ -526,7 +526,7 @@ export async function sendPartnerApplicationEmail(
                 <p style="margin: 0; color: #166534; font-size: 14px; font-weight: 600;">Next Step: 20-Minute Alignment Call</p>
                 <p style="margin: 4px 0 0; color: #15803d; font-size: 13px;">We will confirm shared delivery standards, SLA terms, and bilateral NDA protection before kickoff.</p>
               </div>
-              <p style="color: #64748b; font-size: 14px; line-height: 1.6; margin: 0;">If you have any immediate questions, reply directly to this email or reach us at <a href="mailto:bilal.azeemlab@gmail.com" style="color: #0ea5e9; text-decoration: none;">bilal.azeemlab@gmail.com</a>.</p>
+              <p style="color: #64748b; font-size: 14px; line-height: 1.6; margin: 0;">If you have any immediate questions, reply directly to this email or reach us at <a href="mailto:editorial@azeemlab.com" style="color: #0ea5e9; text-decoration: none;">editorial@azeemlab.com</a>.</p>
               <p style="color: #94a3b8; font-size: 12px; margin: 30px 0 0; padding-top: 20px; border-top: 1px solid #f1f5f9;">AzeemLab Partner Operations | Thoughtful Design & Dependable Development</p>
             </td>
           </tr>

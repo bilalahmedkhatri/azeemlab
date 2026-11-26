@@ -38,7 +38,7 @@ export async function POST(request: Request) {
 
     if (!emailSent) {
       return NextResponse.json(
-        { error: 'Your application could not be delivered. Please email bilal.azeemlab@gmail.com.' },
+        { error: 'Your application could not be delivered. Please email contact@azeemlab.com.' },
         { status: 502 }
       );
     }
@@ -47,7 +47,7 @@ export async function POST(request: Request) {
   } catch (err) {
     console.error('Error handling partner application submission:', err);
     return NextResponse.json(
-      { error: 'Your application could not be delivered. Please email bilal.azeemlab@gmail.com.' },
+      { error: 'Your application could not be delivered. Please email contact@azeemlab.com.' },
       { status: 500 }
     );
   }

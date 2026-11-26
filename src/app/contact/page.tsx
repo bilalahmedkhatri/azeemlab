@@ -40,8 +40,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-heading font-bold text-foreground mb-1">Email</h3>
-                    <a href="mailto:bilal.azeemlab@gmail.com" className="break-all text-primary hover:underline transition-colors">
-                      bilal.azeemlab@gmail.com
+                    <a href="mailto:contact@azeemlab.com" className="break-all text-primary hover:underline transition-colors">
+                      contact@azeemlab.com
                     </a>
                   </div>
                 </div>

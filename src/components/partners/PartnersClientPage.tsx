@@ -250,14 +250,14 @@ export default function PartnersClientPage() {
       });
       const result = await response.json();
       if (!response.ok || !result.success) {
-        setErrorMessage(result?.error || "Your application could not be delivered. Please email bilal.azeemlab@gmail.com.");
+        setErrorMessage(result?.error || "Your application could not be delivered. Please email contact@azeemlab.com.");
         setSubmitStatus("error");
         return;
       }
       setSubmitStatus("success");
       setFormData({ name: "", agency: "", email: "", phone: "", website: "", partnerType: "", scope: "", message: "" });
     } catch {
-      setErrorMessage("Your application could not be delivered. Please email bilal.azeemlab@gmail.com.");
+      setErrorMessage("Your application could not be delivered. Please email contact@azeemlab.com.");
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -577,7 +577,7 @@ export default function PartnersClientPage() {
                 )}
                 {submitStatus === "error" && (
                   <div role="alert" className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
-                    <strong>Application not delivered.</strong> {errorMessage} <a className="underline font-semibold" href="mailto:bilal.azeemlab@gmail.com">Email us directly</a>.
+                    <strong>Application not delivered.</strong> {errorMessage} <a className="underline font-semibold" href="mailto:contact@azeemlab.com">Email us directly</a>.
                   </div>
                 )}
 

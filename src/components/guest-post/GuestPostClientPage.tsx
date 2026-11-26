@@ -246,13 +246,13 @@ export default function GuestPostClientPage() {
       const data = await res.json();
       if (!res.ok) {
         setStatus("error");
-        setErrorMsg(data.error || "Your pitch could not be delivered. Please email bilal.azeemlab@gmail.com.");
+        setErrorMsg(data.error || "Your pitch could not be delivered. Please email editorial@azeemlab.com.");
         return;
       }
       setStatus("success");
     } catch {
       setStatus("error");
-      setErrorMsg("Your pitch could not be delivered. Please email bilal.azeemlab@gmail.com.");
+      setErrorMsg("Your pitch could not be delivered. Please email editorial@azeemlab.com.");
     }
   };
 
