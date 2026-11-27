@@ -57,52 +57,52 @@ const benefits = [
 const topicCategories = [
   {
     icon: <Globe className="w-7 h-7" />,
-    category: "Web Design",
+    category: "Web Design & Development",
     ideas: [
-      "Responsive design patterns for 2025",
-      "Accessibility best practices for small businesses",
-      "Performance optimization case studies",
+      "Next.js and modern web application development guides",
+      "Responsive web design patterns and accessibility",
+      "Core Web Vitals and performance optimization case studies",
       "Design system setup from scratch",
     ],
   },
   {
     icon: <Cpu className="w-7 h-7" />,
-    category: "AI and Automation",
+    category: "AI & Business Automation",
     ideas: [
-      "Real-world AI chatbot implementation guides",
-      "Workflow automation for agencies",
-      "Prompt engineering for content teams",
+      "Real-world AI automation and chatbot implementation guides",
+      "Business automation workflows for agencies and SaaS teams",
+      "Practical artificial intelligence use cases and prompt engineering",
       "AI tools comparison for business owners",
     ],
   },
   {
     icon: <BarChart3 className="w-7 h-7" />,
-    category: "SEO and Growth",
+    category: "SEO & Digital Marketing",
     ideas: [
-      "Technical SEO audit walkthroughs",
+      "Technical SEO audit walkthroughs and crawl optimization",
       "Local SEO strategies for service businesses",
-      "Content strategy frameworks that convert",
-      "Link building tactics with measurable results",
+      "Content marketing frameworks that convert",
+      "White-hat link building tactics with measurable results",
     ],
   },
   {
     icon: <ShoppingCart className="w-7 h-7" />,
-    category: "E-commerce",
+    category: "E-commerce & SaaS",
     ideas: [
-      "Conversion rate optimization for product pages",
-      "Headless commerce setup guides",
+      "Conversion rate optimization for e-commerce product pages",
+      "Headless commerce and SaaS architecture guides",
       "Mobile checkout UX improvements",
       "Shopify vs custom builds - real decisions",
     ],
   },
   {
     icon: <Palette className="w-7 h-7" />,
-    category: "Branding and Strategy",
+    category: "Technology & Strategy",
     ideas: [
-      "Brand positioning for digital-first businesses",
+      "Digital transformation roadmaps for growing businesses",
       "Visual identity systems that scale",
-      "Storytelling frameworks for agency pitches",
-      "Rebranding without losing existing traction",
+      "Storytelling frameworks for tech and agency pitches",
+      "Rebranding without losing existing organic traction",
     ],
   },
 ];
@@ -276,11 +276,11 @@ export default function GuestPostClientPage() {
               Write for AzeemLab
             </div>
             <h1 className="font-heading text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Share Your Expertise.<br />
-              <span className="text-white">Grow Your Reach.</span>
+              Write for Us.<br />
+              <span className="text-white">Submit a Guest Post.</span>
             </h1>
             <p className="text-xl text-white/80 mb-8 leading-relaxed">
-              Submit a guest post to AzeemLab and get published alongside expert content on web design, AI, SEO, and digital growth. Earn a dofollow backlink and reach a global audience of business owners and decision-makers.
+              Share original insights on web development, Next.js, AI automation, technical SEO, digital marketing, SaaS, and e-commerce. Earn a dofollow backlink and reach a global audience of founders and decision-makers.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6 text-white/70 text-sm">
               <span className="flex items-center gap-2">

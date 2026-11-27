@@ -1403,11 +1403,11 @@ export const pageMetadata = {
   },
 
   guestPost: {
-    title: 'Write for AzeemLab - Guest Post Guidelines and Submission | AzeemLab',
+    title: 'Write for Us - Tech, AI, Web Dev & SEO Guest Post | AzeemLab',
     description:
-      'Submit a guest post to AzeemLab. We publish original articles on web design, AI, SEO, and digital growth. Earn a dofollow backlink and reach a global audience of business owners and founders.',
+      'Write for us and submit a guest post to AzeemLab. We publish original articles on web development, Next.js, AI automation, technical SEO, SaaS, and e-commerce.',
     keywords:
-      'write for us, guest post, guest blogging, submit article, content contribution, dofollow backlink, web design blog, AI marketing blog, digital growth blog',
+      'write for us, guest post guidelines, submit guest post, technology write for us, AI automation write for us, artificial intelligence guest post, business automation write for us, web development write for us, web design guest post, Next.js write for us, SEO write for us, technical SEO submit guest post, digital marketing guest post, SaaS write for us, e-commerce write for us',
   },
 };
 
